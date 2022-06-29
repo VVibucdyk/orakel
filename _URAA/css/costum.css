@@ -1,0 +1,183 @@
+/*
+	By Difa Witsqa RD 10121916 & Stefani Olga 10121908
+*/
+
+#hasil-doz-killer,
+#hasil-ramalan-kematian {
+  display: none;
+  justify-content: center;
+  text-align: center;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.text-eror {
+  color: #ffffff;
+  background-color: #ff1100;
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  margin: 3px 3px 3px 3px;
+  padding-left: 5px;
+}
+
+.progresbar {
+  display: none;
+}
+
+.progresbar #loading {
+  position: relative;
+  max-width: 80%;
+  width: 100%;
+  margin: 1px auto 0;
+  height: 30px;
+  background: #7c7c7c;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.progresbar span#loading-inside {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: #3d3d3d;
+  border-radius: 3px;
+}
+
+.progresbar .counter {
+  font-weight: bold;
+  font-size: 17px;
+  text-align: center;
+}
+
+.horror-text {
+  font-family: "Trade Winds";
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: flickering;
+  animation-timing-function: step-start;
+  color: #ca0d00;
+}
+
+@keyframes flickering {
+  0% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  5% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  10% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(-15deg);
+  }
+  15% {
+    color: #ccc;
+    text-shadow: none;
+    transform: skewX(-15deg);
+  }
+  20% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  25% {
+    color: #ccc;
+    text-shadow: 2px 2px #ca0d00;
+    transform: skewX(0);
+  }
+  30% {
+    color: #ccc;
+    text-shadow: 2px 2px #ca0d00;
+    transform: skewX(0);
+  }
+  35% {
+    color: #ccc;
+    text-shadow: 2px 2px #ca0d00;
+    transform: skewX(0);
+  }
+  37% {
+    color: #ccc;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  40% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  45% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  50% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  55% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  60% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  65% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  68% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  70% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  75% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(10deg);
+  }
+  80% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(10deg);
+  }
+  85% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(10deg);
+  }
+  90% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+  95% {
+    color: #ca0d00;
+    text-shadow: 1px 1px #eee;
+    transform: skewX(0);
+  }
+  100% {
+    color: #ca0d00;
+    text-shadow: none;
+    transform: skewX(0);
+  }
+}
