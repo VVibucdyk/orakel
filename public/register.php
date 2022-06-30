@@ -28,7 +28,7 @@
             <tr>
                 <td>Password</td>
                 <td>:</td>
-                <td><input type="password" name="" id="pass"></td>
+                <td><input type="password" name="" placeholder="Masukan manta-mu..." id="pass"></td>
             </tr>
 
             <tr>
@@ -41,7 +41,6 @@
                 <td>Genre Kesukaan-mu</td>
                 <td>:</td>
                 <td>
-                    <input type="text" name="" id="nama">
                     <select name="" id="genre">
                         <!-- Bagian ieu engke foreach hasil dari table_genre database. ieumah sebagai contoh -->
                         <option value="1">Cerita Member</option>
@@ -54,7 +53,36 @@
         </table>
         
         <input type="reset" value="Reset">
-        <input type="button" value="Register">
+        <input type="button" onclick="submitRegister()" value="Register">
     </form>
+
+    <script src="../assets/js/jquery.min.js"></script>
+
+    <script>
+
+        function submitRegister() {
+            data = {
+                nama : $('#nama').val(),
+                username : $('#username').val(),
+                pass : $('#pass').val(),
+                tanggal : $('#tanggal').val(),
+                genre : $('#genre').val()
+            }
+            
+            $.ajax({
+                url : '../routes/register.php',
+                method : 'POST',
+                data : data,
+                success : (res) => {
+                    alert(res);
+                    window.location = 'http://localhost/orakel/public/register.php';
+                },
+                error : () => {
+                    alert("GAGAL! Terjadi Error Pada Server");
+                }
+
+            })
+        }
+    </script>
 </body>
 </html>
