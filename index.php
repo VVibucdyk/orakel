@@ -413,5 +413,5 @@
     <script src="_URAA/js/costum.js"></script>
     <script src="_URAA/js/tanyadozkiller.js"></script>
     <script src="_URAA/js/ramalankematian.js"></script>
-  </body>
+  </body> 
 </html>
