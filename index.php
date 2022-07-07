@@ -17,6 +17,12 @@
       <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
   </head>
+  <div class="topnav">
+    <div class="topnav-right">
+      <a href="#daftar">Daftar</a>
+      <a href="#masuk">Masuk</a>
+    </div>
+  </div>
   <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
@@ -24,17 +30,53 @@
       <header id="header">
         <div class="content">
           <div class="inner">
-            <h1>WORLD ORAKEL <smal>URAA</smal></h1>
-            <p><b>Kamu Siap Dengan Misteri ?</b><br />Ramalkan Disini</p>
+            <div id="magic-title">
+              <h1>SELAMAT DATANG</h1>
+              <h2>DI GERBANG OSIRIS</h2>
+              <p><b>"MEREKA BILANG JANGAN TAKUT"</b></p>
+            </div>
           </div>
         </div>
         <nav>
           <ul>
+            <li>
+              <div class="dropdown">
+                <a class="dropbtn" id="artikel"
+                  >Artikel<i class="fa fa-caret-down"></i
+                ></a>
+                <div class="dropdown-content">
+                  <a
+                    href="#tanya"
+                    class="magic-title"
+                    data-deskripsi="Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi Deskripsi"
+                    >Misteri</a
+                  >
+                  <a
+                    href="#kematian"
+                    class="magic-title"
+                    data-deskripsi="Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2"
+                    >Anjay</a
+                  >
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                  <a href="#tanya">Tanya</a>
+                  <a href="#kematian">Kematian</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="#ritual">Credit</a></li>
+            <!--
             <li><a href="#sejarah">Sejarah</a></li>
             <li><a href="#kuncen">Kuncen</a></li>
             <li><a href="#tanya">Tanya</a></li>
             <li><a href="#kematian">Kematian</a></li>
             <li><a href="#ritual">Ritual</a></li>
+            -->
             <!--<li><a href="#elements">Elements</a></li>-->
           </ul>
         </nav>
