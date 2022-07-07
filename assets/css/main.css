@@ -114,6 +114,7 @@ section {
 
 body {
   line-height: 1;
+  margin: 0;
 }
 
 ol,
@@ -1448,8 +1449,10 @@ body.is-preload #bg:before {
   -webkit-transition-delay: 0.25s;
   -ms-transition-delay: 0.25s;
   transition-delay: 0.25s;
-  padding: 3rem 2rem;
-  max-height: 40rem;
+  padding: 1.5rem 2rem;
+  max-height: 10rem;
+  min-height: 10rem;
+  max-width: 40rem;
   overflow: hidden;
 }
 
