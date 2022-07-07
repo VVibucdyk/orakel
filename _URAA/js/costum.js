@@ -1,12 +1,12 @@
 /*
   By Difa WRD 10121916
   refrensi https://www.peteranswers.com/id/
-*/
+  */
 
 //by kang jar backsound music
 const audio = new Audio("./_URAA/audio/BACKSOUND.mp3");
 $("body").click(function () {
-  audio.play();
+  //audio.play();
 });
 
 // enabled elemen inputan
@@ -74,3 +74,45 @@ function loadingduls(element, titleloading, timer, status) {
     }
   }
 }
+
+const isHTML = (str) => {
+  const fragment = document.createRange().createContextualFragment(str);
+  // remove all non text nodes from fragment
+  fragment.querySelectorAll("*").forEach((el) => el.parentNode.removeChild(el));
+  // if there is textContent, then not a pure HTML
+  return !(fragment.textContent || "").trim();
+};
+
+const delay = (millis) =>
+  new Promise((resolve, reject) => {
+    setTimeout((_) => resolve(), millis);
+  });
+
+$(".dropdown-content .magic-title .inner").ready(function () {
+  let temp = "";
+  let save = false;
+
+  $(".magic-title").on({
+    mouseenter: function () {
+      var title = "<h1>" + $(this).text() + "</h1>";
+      var deskripsi = isHTML($(this).data("deskripsi"))
+        ? $(this).data("deskripsi")
+        : "<p>" + $(this).data("deskripsi") + "</p>";
+
+      if (!save) {
+        temp = $("#magic-title").html();
+        save = true;
+      }
+      $("#magic-title")
+        .html(title + deskripsi)
+        .hide()
+        .show(700);
+    },
+  });
+
+  $(".dropdown-content").on({
+    mouseleave: function () {
+      $("#magic-title").html(temp).hide().show(500);
+    },
+  });
+});
