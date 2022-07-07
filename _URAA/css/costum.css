@@ -181,3 +181,98 @@
     transform: skewX(0);
   }
 }
+
+/* 29/06/2022 */
+
+#header > nav > ul > li > .dropdown .dropbtn {
+  cursor: pointer;
+}
+
+#header > nav > ul > li > .dropdown > .dropbtn > i {
+  font-size: 18px;
+  padding: 0px 0px 0px 10px;
+}
+
+#header > nav > ul > li > .dropdown > .dropdown-content {
+  position: absolute;
+  width: auto;
+  max-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  -webkit-transition: opacity 1s, visibility 1s;
+  -moz-transition: opacity 1s, visibility 1s;
+  -ms-transition: opacity 1s, visibility 1s;
+  -o-transition: opacity 1s, visibility 1s;
+  transition: opacity 1s, visibility 1s;
+  opacity: 0;
+}
+
+#header > nav > ul > li > .dropdown > .dropdown-content > a {
+  float: none;
+  color: #ffffff;
+  background-color: rgb(100, 100, 100);
+  padding: 0px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+#header > nav > ul > li > .dropdown > .dropdown-content > a > i {
+  padding: 0px 16px 0px 0px;
+}
+
+#header > nav > ul > li > .dropdown .dropdown-content a:hover {
+  background-color: rgb(122, 122, 122);
+}
+
+#header > nav > ul > li > .dropdown:hover .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+  #header > nav > ul > li > .dropdown > .dropdown-content {
+    height: 3rem;
+    line-height: 3rem;
+    min-width: 0;
+    width: 100%;
+  }
+  #header > nav > ul > li > .dropdown > .dropbtn > i {
+    font-size: 12px;
+    padding: 0px 0px 0px 10px;
+  }
+}
+
+.topnav {
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+  overflow: hidden;
+  padding-right: 100px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  border-bottom: 1px;
+}
+
+.topnav a:hover {
+  background-color: rgba(189, 189, 189, 0.363);
+  color: rgb(255, 255, 255);
+}
+
+.topnav a.active {
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
