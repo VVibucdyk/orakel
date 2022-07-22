@@ -48,7 +48,7 @@ function loadingduls(element, titleloading, timer, status) {
   $(".progresbar").remove();
   $(element).after(
     '<div class="progresbar"> <div class="counter">0</div> <div id="loading"> <span id="loading-inside"></span> </div> </div>'
-  );
+    );
   var progressbar = $(".progresbar");
   var counter = $(".counter");
   var barInside = $("#loading-inside");
@@ -75,6 +75,16 @@ function loadingduls(element, titleloading, timer, status) {
   }
 }
 
+function full_name_pattern(cvfullname) {
+  var fullname = cvfullname.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, " ");
+  return fullname;
+} 
+
+function username_pattern(cvusername) {
+  var username = cvusername.toLowerCase().replace(/[^a-z0-9._-\s]/g, '').replace(/\s+/g, "");
+  return username;
+} 
+
 const isHTML = (str) => {
   const fragment = document.createRange().createContextualFragment(str);
   // remove all non text nodes from fragment
@@ -84,35 +94,19 @@ const isHTML = (str) => {
 };
 
 const delay = (millis) =>
-  new Promise((resolve, reject) => {
-    setTimeout((_) => resolve(), millis);
-  });
-
-$(".dropdown-content .magic-title .inner").ready(function () {
-  let temp = "";
-  let save = false;
-
-  $(".magic-title").on({
-    mouseenter: function () {
-      var title = "<h1>" + $(this).text() + "</h1>";
-      var deskripsi = isHTML($(this).data("deskripsi"))
-        ? $(this).data("deskripsi")
-        : "<p>" + $(this).data("deskripsi") + "</p>";
-
-      if (!save) {
-        temp = $("#magic-title").html();
-        save = true;
-      }
-      $("#magic-title")
-        .html(title + deskripsi)
-        .hide()
-        .show(700);
-    },
-  });
-
-  $(".dropdown-content").on({
-    mouseleave: function () {
-      $("#magic-title").html(temp).hide().show(500);
-    },
-  });
+new Promise((resolve, reject) => {
+  setTimeout((_) => resolve(), millis);
 });
+
+function Open(nama) {
+  var $pagesmain = $("#pages");
+  $.ajax({
+    url: nama + ".php",
+    type: "GET",
+    dataType: "html",
+    success: function (isi) {
+      $pagesmain.html(isi);
+      Show_Main();
+    },
+  });
+}

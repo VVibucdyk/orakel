@@ -216,6 +216,7 @@
   display: block;
   text-align: center;
   width: 100%;
+  cursor: pointer;
 }
 
 #header > nav > ul > li > .dropdown > .dropdown-content > a > i {
@@ -257,6 +258,7 @@
   color: #f2f2f2;
   text-align: center;
   padding: 20px 16px;
+  cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.8rem;

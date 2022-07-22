@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="../_URAA/css/costum.css" />
     
     <noscript>
-      <link rel="stylesheet" href="assets/css/noscript.css" />
+      <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
 </head>
 <body>
 
-    <article class="active" id="isi_artikel">
-        <h2 class="major">JUDUL CEARITA</h2>
-        <h4 class="major" style="margin-left : 50%; width:40%; border-bottom:0;">Tanggal Publish <i>YYYY-MM-DD</i></h4>
+    <article class="active" id="">
+        <h2 id="judul_cerita" class="major">JUDUL CERITA</h2>
+        <h6 id="tgl_publish" class="major" style="margin-left : 50%; width:40%; border-bottom:0;">Tanggal Publish <i>YYYY-MM-DD</i></h6>
 
         <div style="border:2px solid white; height:700px;">
-            <h1 class="major" style="border-bottom : 0px;">== ISI CERITA ==</h1>
+            <h1 id="isi_artikel" class="major" style="border-bottom : 0px;">== ISI CERITA ==</h1>
         </div>
 
         <div class="card" style="width: 800px ;">
@@ -61,13 +61,17 @@
     
     
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="_URAA/js/costum.js"></script>
-    <script src="_URAA/js/tanyadozkiller.js"></script>
-    <script src="_URAA/js/ramalankematian.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../_URAA/js/costum.js"></script>
+    <script src="../_URAA/js/tanyadozkiller.js"></script>
+    <script src="../_URAA/js/ramalankematian.js"></script>
+
+    <!-- <script>
+
+    </script> -->
 </body>
 </html>

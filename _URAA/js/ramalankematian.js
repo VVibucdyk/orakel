@@ -1,17 +1,17 @@
 /*
   By Fajar 10121919 & Heri 10121914
   Modif By Difa WRD 10121916 
-*/
+  */
 
-$("#ramalan-kematian").ready(function () {
-  $("#ramalkematiakulagi").click(function () {
-    $("#hasil-ramalan-kematian").fadeOut(500);
-    $("#ramalan-kematian").fadeIn(500);
-  });
+  $("#ramalan-kematian").ready(function () {
+    $("#ramalkematiakulagi").click(function () {
+      $("#hasil-ramalan-kematian").fadeOut(500);
+      $("#ramalan-kematian").fadeIn(500);
+    });
 
-  $(".tahun_lahir").keyup(function () {
-    $(this).val($(this).val().replace(/\D/g, ""));
-  });
+    $(".tahun_lahir").keyup(function () {
+      $(this).val($(this).val().replace(/\D/g, ""));
+    });
 
   // fungsi untuk mengacak number
   function acakPemabahan(max) {
@@ -58,20 +58,20 @@ $("#ramalan-kematian").ready(function () {
       ShowErrText(
         ".nama",
         "Periksa Kembali ! <b>(Min 7 - Max 27 Karakter)</b>"
-      );
+        );
     } else if (
       kelahiran == "" ||
       kelahiran.match(/\D/) ||
       kelahiran.length < 4 ||
       kelahiran.length > 4 ||
       kelahiran < 1
-    ) {
+      ) {
       ShowErrText(".tahun_lahir", "(<b>Hanya Angka</b>, Min Max 4 Karakter)");
     } else if (parseInt(kelahiran) > tahunini) {
       ShowErrText(
         ".tahun_lahir",
         "(<b>Jangan Main-Main</b>, Sekarang Masih Tahun " + tahunini + ")"
-      );
+        );
     } else if (gender === undefined) {
       ShowErrText(".alert-gender", "<b>Gender</b>, Harus Dipilih !");
     } else if (Number.isNaN(frek_rokok)) {
@@ -108,7 +108,7 @@ $("#ramalan-kematian").ready(function () {
         "Meramalkan Kematian Mu",
         40,
         true
-      );
+        );
 
       var OutHasil = `<h4>Hasil Ramalan kami<br/>menyatakan bahwa</h4>`;
       OutHasil += `<h2 class="horror-text">${nama}</h2>`;
