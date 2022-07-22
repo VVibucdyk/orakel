@@ -10,7 +10,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <html>
 
 <head>
-  <title>WORLD ORAKEL URAA</title>
+  <title>Mantap Pisan</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
   <link rel="stylesheet" href="assets/css/main.css" />
