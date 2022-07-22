@@ -10,7 +10,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <html>
 
 <head>
-  <title>Mantap Pisan</title>
+  <title>GERBANG OSIRIS</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -74,7 +74,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
           </div>
         </div>
       </li>
-      <li><a onclick="Open('public/sejarah');">SEJARAH</a></li>
+      <li><a onclick="Open('public/sejarah');">EDIT</a></li>
       <li><a onclick="Open('public/team');">Credit</a></li>
     </ul>
   </nav>
