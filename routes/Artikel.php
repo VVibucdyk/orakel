@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../connection.php');
+require_once('../_URAA/module/function.php');
 
     // $slug_artikel = $_POST['slug'];
     $slug_artikel = "siluman-buruk-rupa";

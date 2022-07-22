@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../connection.php');
+require_once('../_URAA/module/function.php');
 
     if(!empty($_POST["save_record"])) {
         $id = $_POST['id'];
