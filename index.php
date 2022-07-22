@@ -74,7 +74,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
           </div>
         </div>
       </li>
-      <li><a onclick="Open('public/sejarah');">HIHI</a></li>
+      <li><a onclick="Open('public/sejarah');">EDIT</a></li>
       <li><a onclick="Open('public/team');">Credit</a></li>
     </ul>
   </nav>
