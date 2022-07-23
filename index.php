@@ -59,7 +59,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               <a
               class="magic-title"
               data-deskripsi="Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2">
-              Anjay
+              Mitos
             </a>
           </div>
         </div>
