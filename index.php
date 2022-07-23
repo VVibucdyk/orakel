@@ -58,7 +58,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               </a>
               <a
               class="magic-title"
-              data-deskripsi="Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2 Deskripsi2">
+              data-deskripsi="Mitos=muthos (bahasa Yunani) yang berarti dari mulut ke mulut, yang berarti menceritakan cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
               Mitos
             </a>
           </div>
