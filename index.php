@@ -51,7 +51,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
                 <i class="fa fa-caret-down"></i>
               </a>
               <div class="dropdown-content">
-                <a
+              <a
                 class="magic-title"
                 data-deskripsi="sesuatu yang belum diketahui dengan pasti dan menarik keingintahuan-erat kaitannya dengan kejadian horor dan supranatural. MISTERI apa yang ada disekitar mu?">
                 Misteri
@@ -60,7 +60,12 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               class="magic-title"
               data-deskripsi="Mitos=muthos (bahasa Yunani) yang berarti dari mulut ke mulut, yang berarti menceritakan cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
               Mitos
-            </a>
+              </a>
+              <a
+              class="magic-title"
+              data-deskripsi="Kisah suci yang menceritakan bagaimana dunia dan manusia dapat terbentuk seperti sekarang, meskipun masih menjadi MISTERI ">
+              Mitologi
+              </a>
           </div>
         </div>
       </li>
