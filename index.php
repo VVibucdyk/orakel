@@ -53,7 +53,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               <div class="dropdown-content">
                 <a
                 class="magic-title"
-                data-deskripsi="sesuatu yang belum diketahui dengan pasti dan menarik keingintahuan-erat kaitannay dengan kejadian horor dan supranatural. MISTERI apa yang ada disekitar mu?">
+                data-deskripsi="sesuatu yang belum diketahui dengan pasti dan menarik keingintahuan-erat kaitannya dengan kejadian horor dan supranatural. MISTERI apa yang ada disekitar mu?">
                 Misteri
               </a>
               <a
