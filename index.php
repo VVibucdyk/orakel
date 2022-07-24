@@ -10,7 +10,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <html>
 
 <head>
-  <title>GERBANG UNIKOM BDG</title>
+  <title>ORAKEL - PORTAL BERBAGI CERITA HORROR</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -18,6 +18,24 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
+
+  <script src="assets/js/tinymce.js"></script>
+
+  <!-- styleing age menghilangkan bg putih dari ckeditor -->
+  <style>
+    .ck.ck-toolbar {
+      background: none;
+    }
+
+    .ck.ck-editor__main>.ck-editor__editable {
+      background: none;
+    }
+
+    .ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
+      background-color: black !important;
+    }
+  </style>
+
 </head>
 
 <div class="topnav">
@@ -80,6 +98,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
         </div>
       </li>
       <li><a onclick="Open('public/sejarah');">EDIT</a></li>
+      <li><a onclick="Open('public/posting_cerita');">Posting Cerita</a></li>
       <li><a onclick="Open('public/team');">Credit</a></li>
     </ul>
   </nav>
@@ -108,5 +127,6 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <script src="assets/js/main.js"></script>
 <script src="_URAA/js/main-costum.js"></script>
 <script src="_URAA/js/costum.js"></script>
+
 </body> 
 </html>

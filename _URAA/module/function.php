@@ -20,4 +20,8 @@ function filterhtml($data) {
 	return $filterhtml;
 }
 
+function createUrlSlug($urlString){
+	$slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $urlString);
+	return $slug;
+ }
 ?>    
