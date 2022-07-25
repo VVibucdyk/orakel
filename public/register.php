@@ -4,9 +4,9 @@
     <img src="_URAA/images/sejarah-uraa.jpg" alt="sejarah"/>
 </span>
 
-<form id="register" action="#" onsubmit="preventDefault()">
+<form id="register" onsubmit="preventDefault()">
     <div class="fields">
-        <div class="field">
+    <div class="field half">
             <label>Nama</label>
             <input type="text" minlength="7" maxlength="25" id="nama" placeholder="Nama tummbal...">
         </div>
@@ -17,6 +17,10 @@
         <div class="field half">
             <label>Password</label>
             <input type="password" name="" placeholder="Masukan manta-mu..." id="pass">
+        </div>
+        <div class="field half">
+            <label>Konfirmasi Password</label>
+            <input type="password" name="" placeholder="Masukan manta-mu..." id="Konfirm-pass">
         </div>
         <div class="field half">
             <label>Tanggal Lahir</label>
@@ -34,7 +38,7 @@
     </div>
     <ul class="actions">
         <li>
-            <input type="submit" class="primary" onclick="submitRegister()" value="Daftar">
+            <input type="submit" class="primary daftar" value="Daftar">
         </li>
         <li>
             <input type="reset" value="Reset" />
@@ -43,6 +47,7 @@
 </form>
 
 <script>
+$('#register').ready(function(){  
 
     $('#nama').on('keyup', function(e) {
         e.target.value = full_name_pattern(e.target.value);
@@ -52,7 +57,7 @@
         e.target.value = username_pattern(e.target.value);
     });
 
-    function submitRegister() {
+    $("input[type='submit']").on('click', function() {
         data = {
             nama : $('#nama').val(),
             username : $('#username').val(),
@@ -74,5 +79,7 @@
             }
 
         })
-    }
+    });
+
+});
 </script>
