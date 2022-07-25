@@ -19,21 +19,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
 
-  <script src="assets/js/tinymce.js"></script>
+  
 
   <!-- styleing age menghilangkan bg putih dari ckeditor -->
   <style>
-    .ck.ck-toolbar {
-      background: none;
-    }
-
-    .ck.ck-editor__main>.ck-editor__editable {
-      background: none;
-    }
-
-    .ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
-      background-color: black !important;
-    }
+ 
   </style>
 
 </head>
@@ -97,7 +87,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
           </div>
         </div>
       </li>
-      <li><a onclick="Open('public/sejarah');">EDIT</a></li>
+      <li><a onclick="Open('public/sejarah');">EDITING</a></li>
       <li><a onclick="Open('public/posting_cerita');">Posting Cerita</a></li>
       <li><a onclick="Open('public/team');">Credit</a></li>
     </ul>
@@ -127,6 +117,8 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <script src="assets/js/main.js"></script>
 <script src="_URAA/js/main-costum.js"></script>
 <script src="_URAA/js/costum.js"></script>
+
+<script src="assets/js/ckeditor.js"></script>
 
 </body> 
 </html>

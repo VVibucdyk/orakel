@@ -1,3 +1,11 @@
+<?php 
+
+require_once('../routes/Artikel.php');
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +25,8 @@
 <body>
 
     <article class="active" id="">
-        <h2 id="judul_cerita" class="major">JUDUL CERITA</h2>
-        <h6 id="tgl_publish" class="major" style="margin-left : 50%; width:40%; border-bottom:0;">Tanggal Publish <i>YYYY-MM-DD</i></h6>
+        <h2 id="judul_cerita" class="major"> <?=$genre['judul_artikel']?> </h2>
+        <h6 id="tgl_publish" class="major" style="margin-left : 50%; width:40%; border-bottom:0;">Tanggal Publish :<?php echo $genre['tgl_publish'] ?></h6>
 
         <div style="border:2px solid white; height:700px;">
             <h1 id="isi_artikel" class="major" style="border-bottom : 0px;">== ISI CERITA ==</h1>

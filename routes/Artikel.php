@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../_URAA/module/function.php');
+    require_once('../_URAA/module/function.php');
 
     // $slug_artikel = $_POST['slug'];
     $slug_artikel = "siluman-buruk-rupa";
@@ -14,10 +14,11 @@ require_once('../_URAA/module/function.php');
 
     $row = $conn->prepare($sql);
     $row->execute();
+    $genre = $row->fetch();
 
-    echo "<pre>";
-    var_dump($row->fetchAll());
-    echo "</pre>";
-    die();
+    // echo "<pre>";
+    // var_dump($genre);
+    // echo "</pre>";
+    // die();
 
 ?>
