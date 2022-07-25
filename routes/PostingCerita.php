@@ -1,8 +1,7 @@
-<!-- 
-    created by : fajar alam 
-    created date : 20/07/2022
--->
+
 <?php 
+// created by : fajar alam 
+// created date : 20/07/2022
 require_once('../_URAA/module/function.php');
 
 var_dump($_POST['editor']);

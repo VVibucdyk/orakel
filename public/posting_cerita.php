@@ -64,7 +64,6 @@
             genre : $('#genre').val(),
             editor : editor.getData()
         }
-        console.log(post_data);
         // Mengirimkan data ke server
         $.ajax({
             url : 'routes/PostingCerita.php',
