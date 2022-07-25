@@ -278,3 +278,26 @@
 .topnav-right {
   float: right;
 }
+
+
+/* styleing age menghilangkan bg putih dari ckeditor */
+.ck.ck-toolbar {
+  background: none;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background: none;
+}
+
+.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
+  background-color: black !important;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background-color: transparent !important;
+}
+
+.ck-editor__editable {
+  min-height: 30vh;
+}
+/* ================================================ */

@@ -5,6 +5,10 @@
 <?php 
 require_once('../_URAA/module/function.php');
 
+var_dump($_POST['editor']);
+die();
+
+
 if(!empty($_POST['judul'])){
     // menangkap data post 
     // kode_artikel
