@@ -39,7 +39,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
           <div id="magic-title">
             <h1>SELAMAT DATANG</h1>
             <h2>DI GERBANG OSIRIS</h2>
-            <p><b>"MEREKA BILANG JANGAN TAKUT !!!"</b></p>
+            <p><b>"MEREKA BILANG JANGAN TAKUT!!!"</b></p>
           </div>
         </div>
       </div>
