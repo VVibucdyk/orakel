@@ -1,7 +1,7 @@
 <h2 class="major">Registrasi Akun</h2>
 
 <span class="image main">
-    <img src="_URAA/images/house-uraa.jpg" alt="daftar"/>
+    <img src="_URAA/images/gate-uraa.jpg" alt="gate"/>
 </span>
 
 <form method="POST" id="register">
