@@ -14,8 +14,21 @@
 }
 
 .text-eror {
+  border-radius: 3px;
   color: #ffffff;
   background-color: #ff1100;
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  margin: 3px 3px 3px 3px;
+  padding-left: 5px;
+}
+
+.text-success {
+  border-radius: 3px;
+  color: #ffffff;
+  background-color: #009933;
   display: block;
   font-size: 0.6rem;
   font-weight: 200;
@@ -300,4 +313,9 @@
 .ck-editor__editable {
   min-height: 30vh;
 }
-/* ================================================ */
+
+
+/* Border Close IziToast Fix */
+.iziToast-close {
+  box-shadow: 0 0 0 0px;
+}

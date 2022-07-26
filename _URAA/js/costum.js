@@ -28,9 +28,21 @@ function setDisable() {
 }
 
 // menampilkan error text setelah element yang di definisikan beserta pesan nya
-function ShowErrText(element, msg) {
+function ShowErrText(element, title, msg) {
+  msg = typeof msg !== "undefined" ? msg : "";
+
+  iziToast.error({
+    title: msg === "" ? "" : title,
+    message: msg === "" ? title : msg,
+    position: "topCenter",
+  });
+
+  let element_title = msg === "" ? title : "<b>" + title + "</b>";
+
   $(".text-eror").remove();
-  $(element).after('<div class="text-eror">' + msg + "</div>");
+  $(element).after(
+    '<div class="text-eror">' + element_title + " " + msg + "</div>"
+    );
   $(".text-eror").hide().fadeIn(600);
   $(element).focus();
 }
@@ -76,14 +88,36 @@ function loadingduls(element, titleloading, timer, status) {
 }
 
 function full_name_pattern(cvfullname) {
-  var fullname = cvfullname.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, " ");
+  var fullname = cvfullname.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, " ");
   return fullname;
-} 
+}
 
 function username_pattern(cvusername) {
-  var username = cvusername.toLowerCase().replace(/[^a-z0-9._-\s]/g, '').replace(/\s+/g, "");
+  var username = cvusername
+  .toLowerCase()
+  .replace(/[^a-z0-9._-]/g, "");
   return username;
-} 
+}
+
+
+function isUsername(str) {
+  if (str.toString().match(/^.{6,32}[0-9a-z._-]$/g)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isPassword(str) {
+  // Regex Setidaknya 1 huruf kecil & 1 huruf besar
+  // Memperbolehkan Karakter Khusus @$!%*#?&
+  // Minimal 8 Digit
+  if (str.toString().match(/^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z@$!%*#?&\d]{8,}$/)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 const isHTML = (str) => {
   const fragment = document.createRange().createContextualFragment(str);
@@ -110,3 +144,12 @@ function Open(nama) {
     },
   });
 }
+
+$(document.body).on('keyup','.password-valid', function(e) {
+  if (!isPassword(e.target.value)) {
+    $(".text-eror").remove();
+    $(e.target).after('<div class="text-eror">Min 8 Karakter, Huruf Kecil & Besar</div>');
+  } else {
+    $(".text-eror").fadeOut();
+  }
+});
