@@ -1,11 +1,17 @@
 <?php require_once('../_URAA/module/function.php');
 
+foreach ($_POST as $name => $val)
+{
+   echo htmlspecialchars($name . ': ' . $val) . "\n";
+}
+die();
+
 if(!empty($_POST['username'])){
     // menangkap data post 
     $data[] = $_POST['nama'];
     $data[] = $_POST['username'];
     $data[] = $_POST['pass'];
-    $data[] = $_POST['tanggal'];
+    $data[] = $_POST['tgllahir'];
     $data[] = $_POST['genre'];
 
     // simpan data

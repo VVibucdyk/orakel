@@ -14,28 +14,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/iziToast.min.css" />
   <link rel="stylesheet" href="_URAA/css/costum.css" />
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
-
-  <script src="assets/js/tinymce.js"></script>
-
-  <!-- styleing age menghilangkan bg putih dari ckeditor -->
-  <style>
-    .ck.ck-toolbar {
-      background: none;
-    }
-
-    .ck.ck-editor__main>.ck-editor__editable {
-      background: none;
-    }
-
-    .ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
-      background-color: black !important;
-    }
-  </style>
-
 </head>
 
 <div class="topnav">
@@ -69,7 +52,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
                 <i class="fa fa-caret-down"></i>
               </a>
               <div class="dropdown-content">
-              <a
+                <a
                 class="magic-title"
                 data-deskripsi="sesuatu yang belum diketahui dengan pasti dan menarik keingintahuan-erat kaitannya dengan kejadian horor dan supranatural. MISTERI apa yang ada disekitar mu?">
                 Misteri
@@ -78,30 +61,30 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               class="magic-title"
               data-deskripsi="Mitos=muthos (bahasa Yunani) cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
               Mitos
-              </a>
-              <a
-              class="magic-title"
-              data-deskripsi="Kisah suci yang menceritakan bagaimana dunia dan manusia dapat terbentuk seperti sekarang, meskipun masih menjadi MISTERI ">
-              Mitologi
-              </a>
-          </div>
+            </a>
+            <a
+            class="magic-title"
+            data-deskripsi="Kisah suci yang menceritakan bagaimana dunia dan manusia dapat terbentuk seperti sekarang, meskipun masih menjadi MISTERI ">
+            Mitologi
+          </a>
         </div>
-      </li>
-      <li>
-        <div class="dropdown">
-          <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
-          <div class="dropdown-content">
-            <a onclick="Open('public/ritual');">Ritual</a>
-            <a onclick="Open('public/tanyadozzkiller');">Tanya</a>
-            <a onclick="Open('public/ramalankematian');">Kematian</a>
-          </div>
+      </div>
+    </li>
+    <li>
+      <div class="dropdown">
+        <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a onclick="Open('public/ritual');">Ritual</a>
+          <a onclick="Open('public/tanyadozzkiller');">Tanya</a>
+          <a onclick="Open('public/ramalankematian');">Kematian</a>
         </div>
-      </li>
-      <li><a onclick="Open('public/sejarah');">EDIT</a></li>
-      <li><a onclick="Open('public/posting_cerita');">Posting Cerita</a></li>
-      <li><a onclick="Open('public/team');">Credit</a></li>
-    </ul>
-  </nav>
+      </div>
+    </li>
+    <li><a onclick="Open('public/sejarah');">EDITING</a></li>
+    <li><a onclick="Open('public/posting_cerita');">Posting Cerita</a></li>
+    <li><a onclick="Open('public/team');">Credit</a></li>
+  </ul>
+</nav>
 
 </header>
 
@@ -125,8 +108,10 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/iziToast.min.js"></script>
 <script src="_URAA/js/main-costum.js"></script>
 <script src="_URAA/js/costum.js"></script>
+<script src="assets/js/ckeditor.js"></script>
 
 </body> 
 </html>

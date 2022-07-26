@@ -14,8 +14,21 @@
 }
 
 .text-eror {
+  border-radius: 3px;
   color: #ffffff;
   background-color: #ff1100;
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  margin: 3px 3px 3px 3px;
+  padding-left: 5px;
+}
+
+.text-success {
+  border-radius: 3px;
+  color: #ffffff;
+  background-color: #009933;
   display: block;
   font-size: 0.6rem;
   font-weight: 200;
@@ -277,4 +290,32 @@
 
 .topnav-right {
   float: right;
+}
+
+
+/* styleing age menghilangkan bg putih dari ckeditor */
+.ck.ck-toolbar {
+  background: none;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background: none;
+}
+
+.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
+  background-color: black !important;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background-color: transparent !important;
+}
+
+.ck-editor__editable {
+  min-height: 30vh;
+}
+
+
+/* Border Close IziToast Fix */
+.iziToast-close {
+  box-shadow: 0 0 0 0px;
 }
