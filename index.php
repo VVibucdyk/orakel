@@ -39,7 +39,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
           <div id="magic-title">
             <h1>SELAMAT DATANG</h1>
             <h2>DI GERBANG OSIRIS</h2>
-            <p><b>"MEREKA BILANG JANGAN TAKUT"</b></p>
+            <p><b>"MEREKA BILANG JANGAN TAKUT!!!"</b></p>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               </a>
               <a
               class="magic-title"
-              data-deskripsi="Mitos=muthos (bahasa Yunani) yang berarti dari mulut ke mulut, yang berarti menceritakan cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
+              data-deskripsi="Mitos=muthos (bahasa Yunani) cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
               Mitos
             </a>
             <a
