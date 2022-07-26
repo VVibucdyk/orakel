@@ -23,9 +23,20 @@ class conuraa
         }
     }
 
-    public function Close()
-    {
+    public function Close() {
         $this->conn = null;
+    }
+
+    public function UsernameIsAvailable($username){
+        $conn = $this->Open();
+        $stmt = $conn->prepare("SELECT * FROM table_user WHERE username=?");
+        $stmt->execute([$username]);
+
+        if ($stmt->rowCount() > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 

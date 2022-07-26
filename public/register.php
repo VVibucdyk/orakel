@@ -90,9 +90,20 @@
                 $.ajax({
                     url : 'routes/register.php',
                     method : 'POST',
+                    dataType: "json",
                     data : data,
                     success : (res) => {
-                        alert(res);
+                        var info = res.info; 
+                        if (res.status == true) {
+                            iziToast.success({
+                                title: "Registrasi Berhasil",
+                                message: info.msg,
+                                position: "topCenter",
+                            });
+                            Open('public/masuk');
+                        } else {
+                            ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
+                        }
                     },
                     error : () => {
                         ShowErrText(".major", "<b>GAGAL!</b> Terjadi Error Pada Server");
