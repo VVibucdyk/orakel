@@ -1,3 +1,8 @@
+<!-- 
+    Created By : Difa Witsqa RD 
+    Date created : 25 / 09 / 2022
+-->
+
 <h2 class="major">Registrasi Akun</h2>
 
 <span class="image main">
@@ -8,7 +13,7 @@
     <div class="fields">
         <div class="field half">
             <label>Nama</label>
-            <input type="text" minlength="7" maxlength="25" id="nama" placeholder="Masukan nama kamu...">
+            <input type="text" id="nama" placeholder="Masukan nama kamu...">
         </div>
         <div class="field half">
             <label>Username</label>
@@ -73,11 +78,11 @@
 
             if(data.nama==="" || data.nama===null || data.nama.length < 7 || data.nama.length > 25) {
                 ShowErrText("#nama", "Uups!", "(Min 7 - Maks 25 Karakter)");
-            } else if(isUsername(data.username) === false){
+            } else if(!isUsername(data.username)){
                 ShowErrText("#username", "Uups!", "(Min 6 - Maks 32 Karakter)");
-            } else if(isPassword(data.pass) === false){
+            } else if(!isPassword(data.pass)){
                 ShowErrText("#pass", "Uups!", "(Min 8 Karakter, Huruf Kecil & Besar)");
-            } else if(isPassword(data.konfirmpass) === false){
+            } else if(!isPassword(data.konfirmpass)){
                 ShowErrText("#konfirmpass", "Uups!", "(Min 8 Karakter, Huruf Kecil & Besar)");
             } else if(data.konfirmpass !== data.pass){
                 ShowErrText("#konfirmpass", "Uups!", "Konfirmasi Password Tidak Valid");

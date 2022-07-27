@@ -88,7 +88,7 @@ function loadingduls(element, titleloading, timer, status) {
 }
 
 function full_name_pattern(cvfullname) {
-  var fullname = cvfullname.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, " ");
+  var fullname = cvfullname.replace(/[^a-zA-Z0-9'\s]/g, "").replace(/\s+/g, " ");
   return fullname;
 }
 
@@ -101,7 +101,7 @@ function username_pattern(cvusername) {
 
 
 function isUsername(str) {
-  if (str.toString().match(/^.{6,32}[0-9a-z._-]$/g)) {
+  if (str.toString().match(/^.{5,32}[0-9a-z._-]$/g)) {
     return true;
   } else {
     return false;

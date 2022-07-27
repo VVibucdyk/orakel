@@ -23,4 +23,21 @@ function createUrlSlug($urlString){
 	$slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $urlString);
 	return $slug;
 }
+
+function isUsernameValid($username){
+	if (preg_match('/^.{5,32}[0-9a-z._-]$/', $username)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function isPasswordValid($password){
+	if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z@$!%*#?&\d]{8,}$/', $password)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 ?>    
