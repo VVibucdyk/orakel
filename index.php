@@ -98,6 +98,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
             data-deskripsi="Kisah suci yang menceritakan bagaimana dunia dan manusia dapat terbentuk seperti sekarang, meskipun masih menjadi MISTERI ">
             Mitologi
           </a>
+          <a
+            class="magic-title"
+            data-deskripsi="Suatu teori yang menjelaskan penyebab sebuah peristiwa rahasia untuk memperdaya orang banyak yang dilakukan sekelompok orang (organisasi) tinggi & berkuasa ">
+            Konspirasi
+          </a>
         </div>
       </div>
     </li>
