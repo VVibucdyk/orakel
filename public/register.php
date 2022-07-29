@@ -1,3 +1,10 @@
+<?php 
+
+require_once('../_URAA/module/function.php');
+if(isSessionValid()) exit("Direct access not permitted.");
+
+?>
+
 <!-- 
     Created By : Difa Witsqa RD 
     Date created : 25 / 09 / 2022
@@ -61,6 +68,10 @@
 
         $('#username').on('keyup', function(e) {
             e.target.value = username_pattern(e.target.value);
+        });
+
+        $("input[type='reset']").on('click', function() {
+            $(".text-eror").fadeOut();
         });
 
         $("input[type='submit']").on('click', function() {

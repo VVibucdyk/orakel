@@ -3,6 +3,8 @@
 // Created By : Difa Witsqa RD 
 // Date created : 26 / 09 / 2022
 
+if(isSessionValid()) exit("Direct access not permitted.");
+
 // Get Serialize
 // foreach ($_POST as $name => $val){
 //     echo $name . ': ' . $val . "\n";
@@ -65,7 +67,7 @@ if (isset($msg)) {
     $send->info->msg=$msg; 
     echo json_encode($send);
 } else {
-// Teu Kaharti
     http_response_code(400);
+    exit("Direct access not permitted.");
 }
 ?>
