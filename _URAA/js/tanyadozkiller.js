@@ -60,22 +60,17 @@
       "jangan sekarang ! aku sedang sibuk.",
       "Perbaiki permohonan kamu !",
       ];
-      const invalidQuestion = "Ajukan pertanyaan kamu dengan benar !";
       dozzkiller.needsReset = true;
 
       if (!view.getQuestion()) {
-        // Jika Pertanyaan kosong StatusPermohonan berubah False
-        StatusPermohonan = false;
-        return invalidQuestion;
-      } else if (dozzkiller.answer) {
-        // Jika Jawaban dari permohonan Ada
-        StatusPermohonan = true;
-        return '" ' + dozzkiller.answer + ' " ';
-      } else {
         // Jika permohonan tanpa mantra hehe, Out random kata di invalidResponse
         StatusPermohonan = false;
         let randomNum = Math.floor(Math.random() * invalidResponse.length);
         return invalidResponse[randomNum];
+      } else if (dozzkiller.answer) {
+        // Jika Jawaban dari permohonan Ada
+        StatusPermohonan = true;
+        return '" ' + dozzkiller.answer + ' " ';
       }
     },
     reset: () => {

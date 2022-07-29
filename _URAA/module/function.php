@@ -8,6 +8,8 @@ require __DIR__ . "/condb.php";
 $today = date("Y-m-d H:i:s", time());
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
+
+
 function clean($string) {
 	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 	$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
@@ -95,6 +97,38 @@ function getUserInfo($info) {
 		return $user[$info];
 	}
 	return "";
+}
+
+function listGenreIndex() {
+	$db = new conuraa();
+	$conlocal = $db->Open();
+
+	$sql = "SELECT * FROM table_genre";
+	$row = $conlocal->prepare($sql);
+	$row->execute();
+	$genre = $row->fetchAll();
+
+	foreach ($genre as $key => $value) {
+		echo '<a
+		class="magic-title"
+		data-deskripsi="'.$value['deskripsi_genre'].'">
+		'.$value['nama_genre'].'
+		</a>';
+	}
+}
+
+function listGenre() {
+	$db = new conuraa();
+	$conlocal = $db->Open();
+
+	$sql = "SELECT * FROM table_genre";
+	$row = $conlocal->prepare($sql);
+	$row->execute();
+	$genre = $row->fetchAll();
+
+	foreach ($genre as $key => $value) {
+		echo '<option value="'.$value['id'].'">'.$value['nama_genre'].'</option>';
+	}
 }
 
 

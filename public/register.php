@@ -43,9 +43,7 @@ if(isSessionValid()) exit("Direct access not permitted.");
             <select id="genre">
                 <!-- foreach hasil dari table_genre database. ieumah sebagai contoh -->
                 <option selected disabled>-- Pilih Judul Cerita --</option>
-                <option value="1">Cerita Member</option>
-                <option value="2">Misteri</option>
-                <option value="3">Creepy Pasta</option>
+                <?php listGenre() ?>
             </select>
         </div>
     </div>

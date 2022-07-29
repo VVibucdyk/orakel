@@ -16,9 +16,8 @@ if (isSessionValid()) {
   $TglLahirKu = getUserInfo('tgl_lahir');
   $LevelKu    = getUserInfo('level_id');
   $LinkFotoKu = getUserInfo('link_foto');
-
 } else {
-  if(isset($_SESSION)){
+  if (isset($_SESSION)) {
     session_destroy();
   }
 }
@@ -39,7 +38,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <head>
   <title>ORAKEL - PORTAL BERBAGI CERITA HORROR</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/iziToast.min.css" />
   <link rel="stylesheet" href="_URAA/css/costum.css" />
@@ -83,81 +82,63 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
                 <i class="fa fa-caret-down"></i>
               </a>
               <div class="dropdown-content">
-                <a
-                class="magic-title"
-                data-deskripsi="sesuatu yang belum diketahui dengan pasti dan menarik keingintahuan-erat kaitannya dengan kejadian horor dan supranatural. MISTERI apa yang ada disekitar mu?">
-                Misteri
+                <?php listGenreIndex() ?>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown">
+              <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+                <a onclick="Open('public/ritual');">Ritual</a>
+                <a onclick="Open('public/tanyadozzkiller');">Tanya</a>
+                <a onclick="Open('public/ramalankematian');">Kematian</a>
+              </div>
+            </div>
+          </li>
+          <?php if ($islogin) { ?>
+            <li>
+              <a class="magic-title" data-deskripsi="Edit Ceritamu Bla Bla Bla Bla Bla Bla Bla Bla Bla Slebew" onclick="Open('public/sejarah');">
+                Edit
               </a>
-              <a
-              class="magic-title"
-              data-deskripsi="Mitos=muthos (bahasa Yunani) cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
-              Mitos
-            </a>
-            <a
-            class="magic-title"
-            data-deskripsi="Kisah suci yang menceritakan bagaimana dunia dan manusia dapat terbentuk seperti sekarang, meskipun masih menjadi MISTERI ">
-            Mitologi
-          </a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="dropdown">
-        <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
-        <div class="dropdown-content">
-          <a onclick="Open('public/ritual');">Ritual</a>
-          <a onclick="Open('public/tanyadozzkiller');">Tanya</a>
-          <a onclick="Open('public/ramalankematian');">Kematian</a>
-        </div>
-      </div>
-    </li>
-    <?php if ($islogin) { ?>
-      <li>
-        <a
-        class="magic-title"
-        data-deskripsi="Edit Ceritamu Bla Bla Bla Bla Bla Bla Bla Bla Bla Slebew" 
-        onclick="Open('public/sejarah');">
-        Edit
-      </a>
-    </li>
-    <li>
-      <a 
-      class="magic-title"
-      data-deskripsi="Ceritakan Ceritamu Bla Bla Bla Bla Bla Bla Bla Bla Bla Slebew" onclick="Open('public/posting_cerita');">
-      Posting
-    </a>
-  </li>
-<?php } ?>
-<li><a onclick="Open('public/team');">Credit</a></li>
-</ul>
-</nav>
+            </li>
+            <li>
+              <a class="magic-title" data-deskripsi="Ceritakan Ceritamu Bla Bla Bla Bla Bla Bla Bla Bla Bla Slebew" onclick="Open('public/posting_cerita');">
+                Posting
+              </a>
+            </li>
+          <?php } ?>
+          <li><a onclick="Open('public/team');">Credit</a></li>
+        </ul>
+      </nav>
 
-</header>
+    </header>
 
-<!-- Main -->
-<div id="main">
-  <article id="pages"></article>
-</div>
+    <!-- Main -->
+    <div id="main">
+      <article id="pages"></article>
+    </div>
 
-<!-- Footer -->
-<footer id="footer">
-  <p class="seehay">HANYA FIKTIF BELAKA !</p>
-</footer>
-</div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p class="seehay">HANYA FIKTIF BELAKA !</p>
+    </footer>
+  </div>
 
-<!-- BG -->
-<div id="bg"></div>
+  <!-- BG -->
+  <div id="bg"></div>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/iziToast.min.js"></script>
-<script src="_URAA/js/main-costum.js"></script>
-<script src="_URAA/js/costum.js"></script>
-<script src="assets/js/ckeditor.js"></script>
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/iziToast.min.js"></script>
+  <script src="_URAA/js/main-costum.js"></script>
+  <script src="_URAA/js/costum.js"></script>
+  <script src="assets/js/ckeditor.js"></script>
 
-</body> 
+</body>
+
 </html>

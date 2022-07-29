@@ -3,9 +3,9 @@
     date created : 24 / 07/ 2022
 -->
 <?php 
-require_once('../routes/read_genre.php');
+require_once('../_URAA/module/function.php');
 ?>
-<div id="posting_cerita">
+<div id="">
     <h2 class="major" style="text-align: center;">Posting Cerita Kamu</h2>
     <div style="margin-top: 3%;">
         <form action="#" onsubmit="return false;">
@@ -19,18 +19,11 @@ require_once('../routes/read_genre.php');
                     <label for="genre">Genre</label>
                     <select name="genre" id="genre">
                         <option selected disabled>-- Pilih Judul Cerita --</option>
-                        <?php foreach ($genre as $key => $value) :?>
-                            <option value="1">Ceritaku</option>
-                        <?php endforeach?>
-                        
-                        <option value="2">Misteri</option>
-                        <option value="3">Urban Legend</option>
-                        <option value="4">Mitos</option>
-                        <option value="5">Konspirasi</option>
+                        <?php listGenre(); ?>
                     </select>
                 </div>
 
-                <div class="field">
+                <div class="field" id="posting_cerita">
                     <label>Posting</label>
                     <textarea style="min-height :50vh;" id="editor">
                     </textarea>
@@ -50,19 +43,16 @@ require_once('../routes/read_genre.php');
 </div>
 <script>
 
-    $('#posting_cerita').ready(function() {
-        let editor;
+    var editor;
 
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .then( newEditor => {
-                editor = newEditor;
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    })
-
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .then( newEditor => {
+            editor = newEditor;
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
 
     $('#submitCerita').click(function() {
         // Membuat variable post_data berisi object
@@ -71,6 +61,8 @@ require_once('../routes/read_genre.php');
             genre : $('#genre').val(),
             editor : editor.getData()
         }
+
+        console.log(post_data)
         // Mengirimkan data ke server
         $.ajax({
             url : 'routes/PostingCerita.php',
