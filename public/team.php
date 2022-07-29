@@ -1,7 +1,7 @@
 
 <h2 class="major">Kuncen <span class="horror-text">W.O.U</span></h2>
 <span class="image main"
-><img src="_URAA/images/penunggu-uraa.jpg" alt="penunggu"
+><img src="_URAA/images/gambar-kuncen.jpg" alt="penunggu"
 /></span>
 <section>
   <div class="table-wrapper">

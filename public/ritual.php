@@ -1,7 +1,7 @@
 
 <h2 class="major">Ritual</h2>
 <span class="image main"
-><img src="_URAA/images/ritual-uraa.jpg" alt="ritual"
+><img src="_URAA/images/ritual-uraa-2-edit.jpg" alt="ritual"
 /></span>
 <h3>Tanya Dozz Killer</h3>
 <ul>
