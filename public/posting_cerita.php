@@ -2,7 +2,9 @@
     Created By : Fajar Alam 
     date created : 24 / 07/ 2022
 -->
-
+<?php 
+require_once('../routes/read_genre.php');
+?>
 <div id="posting_cerita">
     <h2 class="major" style="text-align: center;">Posting Cerita Kamu</h2>
     <div style="margin-top: 3%;">
@@ -17,7 +19,10 @@
                     <label for="genre">Genre</label>
                     <select name="genre" id="genre">
                         <option selected disabled>-- Pilih Judul Cerita --</option>
-                        <option value="1">Ceritaku</option>
+                        <?php foreach ($genre as $key => $value) :?>
+                            <option value="1">Ceritaku</option>
+                        <?php endforeach?>
+                        
                         <option value="2">Misteri</option>
                         <option value="3">Urban Legend</option>
                         <option value="4">Mitos</option>
