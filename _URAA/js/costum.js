@@ -135,7 +135,7 @@ new Promise((resolve, reject) => {
 function Open(nama) {
   var $pagesmain = $("#pages");
   $.ajax({
-    url: nama + ".php",
+    url: nama,
     type: "GET",
     dataType: "html",
     success: function (isi) {
