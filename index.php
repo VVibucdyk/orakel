@@ -103,6 +103,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
             data-deskripsi="Suatu teori yang menjelaskan penyebab sebuah peristiwa rahasia untuk memperdaya orang banyak yang dilakukan sekelompok orang (organisasi) tinggi & berkuasa ">
             Konspirasi
           </a>
+          <a
+            class="magic-title"
+            data-deskripsi="Legenda kontemporer yang sering kali dipercaya secara luas sebagai sebuah kebenaran ">
+            Urban Legend
+          </a>
         </div>
       </div>
     </li>
