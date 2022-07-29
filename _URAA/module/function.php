@@ -1,11 +1,11 @@
 <?php
 
-//session_start();
+session_start();
 
 date_default_timezone_set("Asia/Jakarta");
 require __DIR__ . "/condb.php";
 
-$now_date = date("Y-m-d H:i:s", time());
+$today = date("Y-m-d H:i:s", time());
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
 function clean($string) {
@@ -40,4 +40,62 @@ function isPasswordValid($password){
 	}
 }
 
-?>    
+function RandomString($panjang) {
+	$karakter= '1345689ahjkiutreuydnxdxxddABCUOPDHGSDPLKJNVBX';
+	$string = '';
+	for ($i = 0; $i < $panjang; $i++) {
+		$pos = rand(0, strlen($karakter)-1);
+		$string .= $karakter{$pos};
+	}
+	return $string;
+}
+
+function isSessionValid() {
+
+	if(isset($_SESSION['_URAA'])) {
+
+		$SEASION_DATA = explode("|", $_SESSION['_URAA']);
+		$_URAA_PID = $SEASION_DATA[0];
+		$_URAA_LEVEL = $SEASION_DATA[1];
+		$_URAA_USERNAME = $SEASION_DATA[2];
+		$_URAA_RANDSTR = $SEASION_DATA[3];
+
+		$db = new conuraa();
+		$conlocal = $db->Open();
+
+		$stmt = $conlocal->prepare("SELECT * FROM table_user WHERE username=?");
+		$stmt->execute([$_URAA_USERNAME]);
+		$data = $stmt->fetch();
+
+		$USER_PID = md5($_URAA_RANDSTR.$data['id']);
+
+		if($USER_PID == $_URAA_PID) {
+			return true;
+		} else {
+			return false;
+		}
+
+	} else {
+		return false;
+	}
+}
+
+function getUserInfo($info) {
+	if(isSessionValid()) {
+		$SEASION_DATA = explode("|", $_SESSION['_URAA']);
+		$_URAA_USERNAME = $SEASION_DATA[2];
+
+		$db = new conuraa();
+		$conlocal = $db->Open();
+
+		$stmt = $conlocal->prepare("SELECT * FROM table_user WHERE username=?");
+		$stmt->execute([$_URAA_USERNAME]);
+		$user = $stmt->fetch();
+
+		return $user[$info];
+	}
+	return "";
+}
+
+
+?>
