@@ -184,25 +184,31 @@
       if (!view.getInputText()) {
         ShowErrText(
           "#permohonan",
-          "<b>Permohonan harus di isi</b> Jangan main main dengan Dozz Killer !"
+          "Permohonan harus di isi",
+          "Jangan main main dengan Dozz Killer !"
           );
         controller.reset();
       } else if (!view.getQuestion()) {
         ShowErrText(
           "#pertanyaan",
-          "<b>Pertanyaan harus di isi</b> Jangan main main dengan Dozz Killer !"
+          "Pertanyaan harus di isi",
+          "Jangan main main dengan Dozz Killer !"
           );
         controller.reset();
       } else {
         console.log("button  clicked");
         if (!StatusPermohonan) {
+          // 4 detik
           loadingduls(
             "#tanya-dozz-killer",
             "Mengirim Permohonanmu Kepada Dozz Killer",
             40,
             StatusPermohonan
             );
-          ShowErrText("#pertanyaan", controller.getAnswer());
+          // Muncul Setelah 4 detik
+          setTimeout(function() {
+           ShowErrText("#pertanyaan", controller.getAnswer());
+         }, 4000);
         } else {
           $("#tanya-dozz-killer").hide();
           loadingduls(

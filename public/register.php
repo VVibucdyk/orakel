@@ -1,14 +1,26 @@
+<?php 
+
+require_once('../_URAA/module/function.php');
+if(isSessionValid()) exit("Direct access not permitted.");
+
+?>
+
+<!-- 
+    Created By : Difa Witsqa RD 
+    Date created : 25 / 09 / 2022
+-->
+
 <h2 class="major">Registrasi Akun</h2>
 
 <span class="image main">
-    <img src="_URAA/images/house-uraa.jpg" alt="daftar"/>
+    <img src="_URAA/images/gate-uraa.jpg" alt="gate"/>
 </span>
 
 <form method="POST" id="register">
     <div class="fields">
         <div class="field half">
             <label>Nama</label>
-            <input type="text" minlength="7" maxlength="25" id="nama" placeholder="Masukan nama kamu...">
+            <input type="text" id="nama" placeholder="Masukan nama kamu...">
         </div>
         <div class="field half">
             <label>Username</label>
@@ -58,6 +70,10 @@
             e.target.value = username_pattern(e.target.value);
         });
 
+        $("input[type='reset']").on('click', function() {
+            $(".text-eror").fadeOut();
+        });
+
         $("input[type='submit']").on('click', function() {
             event.preventDefault();
             $(".text-eror").remove();
@@ -73,11 +89,11 @@
 
             if(data.nama==="" || data.nama===null || data.nama.length < 7 || data.nama.length > 25) {
                 ShowErrText("#nama", "Uups!", "(Min 7 - Maks 25 Karakter)");
-            } else if(isUsername(data.username) === false){
+            } else if(!isUsername(data.username)){
                 ShowErrText("#username", "Uups!", "(Min 6 - Maks 32 Karakter)");
-            } else if(isPassword(data.pass) === false){
+            } else if(!isPassword(data.pass)){
                 ShowErrText("#pass", "Uups!", "(Min 8 Karakter, Huruf Kecil & Besar)");
-            } else if(isPassword(data.konfirmpass) === false){
+            } else if(!isPassword(data.konfirmpass)){
                 ShowErrText("#konfirmpass", "Uups!", "(Min 8 Karakter, Huruf Kecil & Besar)");
             } else if(data.konfirmpass !== data.pass){
                 ShowErrText("#konfirmpass", "Uups!", "Konfirmasi Password Tidak Valid");
@@ -90,9 +106,20 @@
                 $.ajax({
                     url : 'routes/register.php',
                     method : 'POST',
+                    dataType: "json",
                     data : data,
                     success : (res) => {
-                        alert(res);
+                        var info = res.info; 
+                        if (res.status == true) {
+                            iziToast.success({
+                                title: "Registrasi Berhasil",
+                                message: info.msg,
+                                position: "topCenter",
+                            });
+                            Open('public/masuk');
+                        } else {
+                            ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
+                        }
                     },
                     error : () => {
                         ShowErrText(".major", "<b>GAGAL!</b> Terjadi Error Pada Server");

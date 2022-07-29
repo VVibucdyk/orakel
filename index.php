@@ -1,3 +1,30 @@
+<?php require('_URAA/module/function.php');
+
+// Created By : Difa Witsqa RD 
+// Date created : 29 / 09 / 2022
+
+$islogin = false;
+
+if (isSessionValid()) {
+
+  $islogin = true;
+  //echo $_SESSION["_URAA"];
+
+  $IDKu       = getUserInfo('id');
+  $NamaKu     = getUserInfo('nama');
+  $UsernameKu = getUserInfo('username');
+  $TglLahirKu = getUserInfo('tgl_lahir');
+  $LevelKu    = getUserInfo('level_id');
+  $LinkFotoKu = getUserInfo('link_foto');
+
+} else {
+  if(isset($_SESSION)){
+    session_destroy();
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 
 <!--
@@ -23,8 +50,12 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 
 <div class="topnav">
   <div class="topnav-right">
-    <a onclick="Open('public/register');">Daftar</a>
-    <a onclick="Open('public/masuk');">Masuk</a>
+    <?php if ($islogin) { ?>
+      <a href="public/keluar.php">Logout</a>
+    <?php } else { ?>
+      <a onclick="Open('public/register');">Daftar</a>
+      <a onclick="Open('public/masuk');">Masuk</a>
+    <?php } ?>
   </div>
 </div>
 
@@ -39,7 +70,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
           <div id="magic-title">
             <h1>SELAMAT DATANG</h1>
             <h2>DI GERBANG OSIRIS</h2>
-            <p><b>"MEREKA BILANG JANGAN TAKUT"</b></p>
+            <p><b>"MEREKA BILANG JANGAN TAKUT!!!"</b></p>
           </div>
         </div>
       </div>
@@ -59,7 +90,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               </a>
               <a
               class="magic-title"
-              data-deskripsi="Mitos=muthos (bahasa Yunani) yang berarti dari mulut ke mulut, yang berarti menceritakan cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
+              data-deskripsi="Mitos=muthos (bahasa Yunani) cerita berlatar masa lampau mengenai alam semesta dan keberadaan makhluk di dalamnya dan dianggap benar-benar terjadi ">
               Mitos
             </a>
             <a
@@ -80,10 +111,25 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
         </div>
       </div>
     </li>
-    <li><a onclick="Open('public/sejarah');">EDITING</a></li>
-    <li><a onclick="Open('public/posting_cerita');">Posting Cerita</a></li>
-    <li><a onclick="Open('public/team');">Credit</a></li>
-  </ul>
+    <?php if ($islogin) { ?>
+      <li>
+        <a
+        class="magic-title"
+        data-deskripsi="Edit Ceritamu Bla Bla Bla Bla Bla Bla Bla Bla Bla Slebew" 
+        onclick="Open('public/sejarah');">
+        Edit
+      </a>
+    </li>
+    <li>
+      <a 
+      class="magic-title"
+      data-deskripsi="Ceritakan Ceritamu Bla Bla Bla Bla Bla Bla Bla Bla Bla Slebew" onclick="Open('public/posting_cerita');">
+      Posting
+    </a>
+  </li>
+<?php } ?>
+<li><a onclick="Open('public/team');">Credit</a></li>
+</ul>
 </nav>
 
 </header>

@@ -57,7 +57,8 @@
     if (nama == "" || nama.length < 7 || nama.length > 25) {
       ShowErrText(
         ".nama",
-        "Periksa Kembali ! <b>(Min 7 - Max 27 Karakter)</b>"
+        "Periksa Kembali !",
+        "(Min 7 - Max 27 Karakter)"
         );
     } else if (
       kelahiran == "" ||
@@ -66,14 +67,15 @@
       kelahiran.length > 4 ||
       kelahiran < 1
       ) {
-      ShowErrText(".tahun_lahir", "(<b>Hanya Angka</b>, Min Max 4 Karakter)");
+      ShowErrText(".tahun_lahir", "Hanya Angka", "(Min Max 4 Karakter)");
     } else if (parseInt(kelahiran) > tahunini) {
       ShowErrText(
         ".tahun_lahir",
-        "(<b>Jangan Main-Main</b>, Sekarang Masih Tahun " + tahunini + ")"
+        "Jangan Main-Main",
+        "(Sekarang Masih Tahun " + tahunini + ")"
         );
     } else if (gender === undefined) {
-      ShowErrText(".alert-gender", "<b>Gender</b>, Harus Dipilih !");
+      ShowErrText(".alert-gender","Gender", "Harus Dipilih !");
     } else if (Number.isNaN(frek_rokok)) {
       ShowErrText("#frek_rokok", "Pilihan Tidak Boleh Kosong !");
     } else if (Number.isNaN(tidur)) {
@@ -102,7 +104,7 @@
 
       $("#ramalan-kematian").hide();
 
-      // animasi loading duls
+      // animasi loading duls 4 detik
       loadingduls(
         "#hasil-ramalan-kematian",
         "Meramalkan Kematian Mu",
