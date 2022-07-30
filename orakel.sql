@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2022 at 04:00 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- Generation Time: Jul 30, 2022 at 06:17 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,17 +39,6 @@ CREATE TABLE `table_artikel` (
   `slug` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `table_artikel`
---
-
-INSERT INTO `table_artikel` (`id`, `kode_artikel`, `judul_artikel`, `isi_artikel`, `tgl_publish`, `user_id`, `genre_id`, `rating`, `slug`) VALUES
-(2, 'KD-001', 'Siluman Buruk Rupa', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit deserunt excepturi aperiam ut neque ad pariatur tempore ab! Voluptates totam maiores accusantium, ea praesentium quidem tempore corrupti nobis ducimus?\r\n\r\nLorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit deserunt excepturi aperiam ut neque ad pariatur tempore ab! Voluptates totam maiores accusantium, ea praesentium quidem tempore corrupti nobis ducimus?\r\n\r\nLorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit deserunt excepturi aperiam ut neque ad pariatur tempore ab! Voluptates totam maiores accusantium, ea praesentium quidem tempore corrupti nobis ducimus?', '2022-07-01', 7, 1, 5, 'siluman-buruk-rupa'),
-(3, '62dd65dd9e77d', 'lpawodp asd', '\n                    This is some sample content.\n                ', '2022-07-24', 1, 3, 6, 'lpawodp-asd'),
-(4, '62e3e5b864868', 'lpawodp', '<p>asdasd</p>', '2022-07-29', 1, 3, 9, 'lpawodp'),
-(5, '62e3e5c8326e7', 'lpawodp', '<p><i>Lorem ipsum</i>, or <i>lipsum</i> as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero\'s <i>De Finibus Bonorum et Malorum</i> for use in a type specimen book. It usually begins with:</p><blockquote><p><i>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</i></p></blockquote><p>The purpose of <i>lorem ipsum</i> is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn\'t distract from the layout. A practice not without <a href=\"https://loremipsum.io/#controversy\">controversy</a>, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.</p><p>The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it\'s seen all around the web; on templates, websites, and stock designs. Use our <a href=\"https://loremipsum.io/#generator\">generator</a> to get your own, or read on for the authoritative history of <i>lorem ipsum</i>.</p>', '2022-07-29', 1, 3, 6, 'lpawodp'),
-(6, '62e3e5f3de38b', 'lpawodp', '<p><i>Lorem ipsum</i>, or <i>lipsum</i> as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero\'s <i>De Finibus Bonorum et Malorum</i> for use in a type specimen book. It usually begins with:</p><blockquote><p><i>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</i></p></blockquote><p>The purpose of <i>lorem ipsum</i> is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn\'t distract from the layout. A practice not without <a href=\"https://loremipsum.io/#controversy\">controversy</a>, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.</p><p>The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it\'s seen all around the web; on templates, websites, and stock designs. Use our <a href=\"https://loremipsum.io/#generator\">generator</a> to get your own, or read on for the authoritative history of <i>lorem ipsum</i>.</p>', '2022-07-29', 1, 4, 10, 'lpawodp');
-
 -- --------------------------------------------------------
 
 --
@@ -68,12 +57,12 @@ CREATE TABLE `table_genre` (
 --
 
 INSERT INTO `table_genre` (`id`, `kode_genre`, `nama_genre`, `deskripsi_genre`) VALUES
-(1, 'GN-01', 'Cerita Member', ''),
-(2, 'GN-02', 'Misteri', ''),
-(3, 'GN-03', 'Mitos', NULL),
-(4, 'GN-04', 'Mitologi', NULL),
-(5, 'GN-05', 'Konspirasi', NULL),
-(6, 'GN-06', 'Urban Legend', NULL);
+(1, 'GN-01', 'Cerita Member', 'Pengalaman seputar kejadian nyata dikehidupan sehari-hari yang berkaitan dengan dimensi lain'),
+(2, 'GN-02', 'Misteri', 'Sesuatu yang belum diketahui dengan pasti dan menarik keingintahuan orang-orang, berkaitan dengan kejadian horor & supranatural'),
+(3, 'GN-03', 'Mitos', 'Cerita rakyat tentang alam semesta & makhluk di dalamnya dengan latar belakang masa lampau yang dianggap benar-benar terjadi'),
+(4, 'GN-04', 'Mitologi', 'Himpunan Kisah suci (cerita tradisional) yang menjelaskan bagaimana dunia maupun manusia dapat terbentuk seperti sekarang ini'),
+(5, 'GN-05', 'Konspirasi', 'Penjelasan sebuah peristiwa rahasia untuk memperdaya orang banyak yang dilakukan sekelompok orang (organisasi) berkedudukan tinggi dan berkuasa'),
+(6, 'GN-06', 'Urban Legend', 'Legenda kontemporer yang sering kali dipercaya secara luas sebagai sebuah kebenaran');
 
 -- --------------------------------------------------------
 
@@ -156,7 +145,7 @@ ALTER TABLE `table_user`
 -- AUTO_INCREMENT for table `table_artikel`
 --
 ALTER TABLE `table_artikel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `table_genre`
