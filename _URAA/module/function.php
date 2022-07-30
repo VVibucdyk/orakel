@@ -108,13 +108,18 @@ function listGenreIndex() {
 	$row->execute();
 	$genre = $row->fetchAll();
 
+	$start = 1;
+	$max = 3;
+	$Output = "";
 	foreach ($genre as $key => $value) {
-		echo '<a
-		class="magic-title"
-		data-deskripsi="'.$value['deskripsi_genre'].'">
-		'.$value['nama_genre'].'
-		</a>';
+
+		$Output .= $start == 1 ? '<div class="dropdown-content">' : '';
+		$Output .= '<a class="magic-title" data-deskripsi="'.$value['deskripsi_genre'].'">'.$value['nama_genre'].'</a>';
+		$Output .= $start == $max ? '</div>' : '';
+
+		$start == $max ? $start = 1 : $start++;
 	}
+	echo $Output;
 }
 
 function listGenre() {

@@ -82,7 +82,9 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
                 <i class="fa fa-caret-down"></i>
               </a>
               <div class="dropdown-content">
-                <?php listGenreIndex() ?>
+                <div class="wrapper">
+                  <?php listGenreIndex() ?>
+                </div>
               </div>
             </div>
           </li>

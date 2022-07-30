@@ -197,8 +197,9 @@
 
 /* 29/06/2022 */
 
-#header > nav > ul > li > .dropdown .dropbtn {
-  cursor: pointer;
+#header > nav > ul > li a:hover,
+.dropdown:hover .dropbtn {
+  background-color: rgba(255, 255, 255, 0.075);
 }
 
 #header > nav > ul > li > .dropdown > .dropbtn > i {
@@ -207,6 +208,7 @@
 }
 
 #header > nav > ul > li > .dropdown > .dropdown-content {
+  z-index: 1;
   position: absolute;
   width: auto;
   max-width: 100%;
@@ -220,7 +222,7 @@
   opacity: 0;
 }
 
-#header > nav > ul > li > .dropdown > .dropdown-content > a {
+#header > nav > ul > li .dropdown .dropdown-content > a {
   float: none;
   color: #ffffff;
   background-color: rgb(100, 100, 100);
@@ -245,7 +247,30 @@
   opacity: 1;
 }
 
+#header > nav > ul > li > .dropdown .dropdown-content .wrapper {
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  background-color: rgb(122, 122, 122);
+  min-width: 160px;
+}
+
+#header > nav > ul > li > .dropdown .dropdown-content .dropdown:hover .wrapper {
+  visibility: visible;
+}
+
+#header > nav > ul > li > .dropdown .dropbtn {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 480px) {
+  #header > nav > ul > li > .dropdown .dropdown-content .wrapper {
+    display: block;
+    height: 3rem;
+    line-height: 3rem;
+    min-width: 0;
+    width: 100%;
+  }
   #header > nav > ul > li > .dropdown > .dropdown-content {
     height: 3rem;
     line-height: 3rem;
@@ -292,28 +317,27 @@
   float: right;
 }
 
-
 /* styleing age menghilangkan bg putih dari ckeditor */
 .ck.ck-toolbar {
   background: none;
 }
 
-.ck.ck-editor__main>.ck-editor__editable {
+.ck.ck-editor__main > .ck-editor__editable {
   background: none;
 }
 
-.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
+.ck-reset_all :not(.ck-reset_all-excluded *),
+.ck.ck-reset_all {
   background-color: black !important;
 }
 
-.ck.ck-editor__main>.ck-editor__editable {
+.ck.ck-editor__main > .ck-editor__editable {
   background-color: transparent !important;
 }
 
 .ck-editor__editable {
   min-height: 30vh;
 }
-
 
 /* Border Close IziToast Fix */
 .iziToast-close {
