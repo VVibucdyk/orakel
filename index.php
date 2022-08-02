@@ -22,6 +22,8 @@ if (isSessionValid()) {
   }
 }
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -39,15 +41,20 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <title>ORAKEL - PORTAL BERBAGI CERITA HORROR</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="_URAA/css/card_profile_information.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/iziToast.min.css" />
   <link rel="stylesheet" href="_URAA/css/costum.css" />
+  
+  <link rel="stylesheet" href="_URAA/css/custom_skeleton.css" />
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
 </head>
 
-<div class="topnav">
+
+
+<di style="top: 0px;" class="topnav">
   <div class="topnav-right">
     <?php if ($islogin) { ?>
       <a href="public/keluar.php">Logout</a>
@@ -56,7 +63,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
       <a onclick="Open('public/masuk');">Masuk</a>
     <?php } ?>
   </div>
-</div>
+</di>
 
 <body class="is-preload">
   <!-- Wrapper -->

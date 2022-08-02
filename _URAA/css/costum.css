@@ -336,7 +336,15 @@
 }
 
 .ck-editor__editable {
-  min-height: 30vh;
+  min-height: 20vh;
+}
+
+#container-read .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  border: 0;
+}
+
+#container-read01 .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  border: 0;
 }
 
 /* Border Close IziToast Fix */

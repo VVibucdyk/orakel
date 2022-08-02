@@ -114,8 +114,8 @@ function listGenreIndex() {
 	foreach ($genre as $key => $value) {
 
 		$Output .= $start == 1 ? '<div class="dropdown-content">' : '';
-		$Output .= '<a class="magic-title" data-deskripsi="'.$value['deskripsi_genre'].'">'.$value['nama_genre'].'</a>';
-		$Output .= $start == $max ? '</div>' : '';
+		$Output .= '<a onclick="Open(\'public/list_artikel?val='.$value['id'].'\')" class="magic-title" data-deskripsi="'.$value['deskripsi_genre'].'">'.$value['nama_genre'].'</a>';
+		$Output .= $start == $max ? '</div>' : ''; 
 
 		$start == $max ? $start = 1 : $start++;
 	}
@@ -135,6 +135,49 @@ function listGenre() {
 		echo '<option value="'.$value['id'].'">'.$value['nama_genre'].'</option>';
 	}
 }
+
+function listArtikel($genre) {
+	$db = new conuraa();
+	$conlocal = $db->Open();
+	
+	$sql = "SELECT table_genre.nama_genre, username, judul_artikel, isi_artikel, table_artikel.id as id FROM table_artikel LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id LEFT JOIN table_user ON table_artikel.user_id=table_user.id WHERE table_artikel.genre_id=?";
+	$row = $conlocal->prepare($sql);
+	$row->execute([$genre]);
+	$artikel = $row->fetchAll();
+	$data['list_artikel'] = $artikel;
+
+	$sql = "SELECT table_genre.nama_genre FROM table_genre WHERE id=?";
+	$row = $conlocal->prepare($sql);
+	$row->execute([$genre]);
+	$nama_genre = $row->fetch();
+	$data['nama_genre'] = $nama_genre;
+
+	return $data;
+}
+
+function readArtikel($id_artikel) {
+	$db = new conuraa();
+	$conlocal = $db->Open();
+
+	$sql = "SELECT table_genre.nama_genre,table_user.nama, username, tgl_publish, judul_artikel, isi_artikel, table_artikel.id as id FROM table_artikel LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id LEFT JOIN table_user ON table_artikel.user_id=table_user.id WHERE table_artikel.id=?";
+	$row = $conlocal->prepare($sql);
+	$row->execute([$id_artikel]);
+	$artikel = $row->fetch();
+	$data = $artikel;
+
+	return $data;
+}
+
+// function truncate($str, $maxLength, $append = '...') {
+//     if (strlen($str) > $maxLength) {
+//         $str = substr($str, 0, $maxLength);
+//         $str = preg_replace('/\s+.*?$/', '', $str); // this line is important for you
+//         $str = trim($str);
+//         $str .= $append
+//     }
+
+//     return $str;
+// }
 
 
 ?>
