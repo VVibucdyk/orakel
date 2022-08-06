@@ -1,49 +1,42 @@
-<?php 
-
-require_once("../_URAA/module/function.php");
-
-$artikel = readArtikel($_GET['val']);
-
-
-?>
+<?php require_once("../_URAA/module/function.php");
+$artikel = readArtikel($_GET['val']);?>
 
 <h2 id="judul_cerita" class="major"> <?=$artikel['judul_artikel']?> </h2>
-<h6 id="tgl_publish" class="major" style="margin-left : 50%; width:40%; border-bottom:0;">Tanggal Publish : <?=$artikel['tgl_publish']?></h6>
-
-<div style="border:2px solid white; height:auto;" id="container-read">
-    <h1 id="isi_artikel" class="major" style="border-bottom : 0px;"><?=$artikel['isi_artikel']?></h1>
+<div class="publish-top">
+    <p class="author" id="tgl_publish"><b>PostBy</b> <i>@<?=$artikel['username']?></i></p>
+    <p class ="datepublish" id="tgl_publish"><b>Publish</b> <i><?=formattglwaktu($artikel['tgl_publish'])?></i></p>
 </div>
 
-<div class="card" style="width:auto;">
+<div class="container-read" id="container-read">
+    <?=$artikel['isi_artikel']?>
+</div>
+
+<div class="card-profile">
     <div class="img">
-        <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZhY2V8ZW58MHwyfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+        <img src="<?= $artikel['link_foto']==NULL ? '_URAA/images/attribute/profile-default.jpg' : $artikel['link_foto'] ?>" alt="<?= $artikel['nama'] ?>">
     </div>
     <div class="infos">
         <div class="name">
             <h2><?=$artikel['nama']?></h2>
-            <h4 style="color: white;">*<?=$artikel['username']?></h4>
+            <h4 style="color: white;">@<?=$artikel['username']?></h4>
         </div>
         <p class="text">
             Seorang ghost buster kayak scooby doo.
         </p>
         <ul class="stats">
             <li>
-                <h4>15K</h4>
-                <h5>Views</h5>
-            </li>
-            <li>
-                <h4>Cerita</h4>
+                <h4>Posting</h4>
                 <h5>69</h5>
             </li>
             <li>
-                <h4>Genre</h4>
+                <h4>Genreku</h4>
                 <h5>Misteri</h5>
             </li>
         </ul>
         <!-- <div class="links">
-                <button class="follow">Follow</button>
-                <button class="view">View profile</button>
-            </div> -->
+            <button class="follow">Follow</button>
+            <button class="view">View profile</button>
+        </div> --> 
     </div>
 </div>
 
@@ -51,7 +44,6 @@ $artikel = readArtikel($_GET['val']);
     $("#container-read").ready(function() {
         ClassicEditor
         .create( document.querySelector( '#isi_artikel' ), {
-            // ...
         } )
         .then( editor => {
             const toolbarElement = editor.ui.view.toolbar.element;
@@ -61,6 +53,6 @@ $artikel = readArtikel($_GET['val']);
         .catch( error => {
             console.log( error );
         } );
-        
+
     });
 </script>
