@@ -1,71 +1,52 @@
 
-<?php 
+<?php require_once('../_URAA/module/function.php');
+
 // craeted_by : Fajar Alam
 // created_at : 31-07-2022
-require_once('../_URAA/module/function.php');
 
-$list_artikel = listArtikel($_GET['val']);
+// modified by : Difa Witsqa RD
+// last_modified : 03-08-2022
+
+$list_artikel = listArtikel($_GET['konten']);
+
 ?>
 
 <h2 class="major"><?=$list_artikel['nama_genre']['nama_genre']?></h2>
 <?php if(count($list_artikel['list_artikel']) > 0) : ?>
-<div style="margin-top: 3% ;">
     <!-- columns should be the immediate child of a .row -->
     <?php $i=0; foreach ($list_artikel['list_artikel'] as $key => $value) :?>
-        <div class="row">
-            <div style="margin-top:4em" class="four columns">
-                <img width="100%" height="auto" src="_URAA/images/gambar-kuncen.jpg" alt="">
-                <h6 style="text-align:center ;"><?=$value['username']?></h6>
-            </div>
-            <div class="eight columns">
-                <a onclick="Open('public/artikel?val=<?=$value['id']?>');" class="magic-title" >
-                    <h4 style="text-align:center;"><?=$value['judul_artikel']?></h4>
-                </a>
-                
-                <hr style="margin: auto; margin-top:10px;" width="30%">
 
-                <div id="container-read" style="margin-top: 3% ;">
-                    <div id="editor-read<?=$i?>">
-                        <p>
-                            <?=substr(str_replace( '&', '&amp;', $value['isi_artikel']),0 , 200);?> ...
-                        </p>
+    <div class="article-card">
+        <div class="img-box">
+            <img src="_URAA/images/attribute/list-artikel-default.jpg" alt="" class="article-banner">
+        </div>
+        <div class="article-content">
+            <a onclick="Open('public/artikel?val=<?=$value['id']?>');">
+                <h3 class="article-title"><?=$value['judul_artikel']?></h3>
+            </a>
+            <p class="article-text"><?=substr(strip_tags($value['isi_artikel']),0,280);?> . . .</p>
+            <div class="acticle-content-footer">
+                <div class="author">
+                    <img src="<?= $value['link_foto']==NULL ? '_URAA/images/attribute/profile-default.jpg' : $value['link_foto'] ?>" alt="<?= $value['nama'] ?>" class="author-profil">
+                    <div class="author-info">
+                        <h4 class="author-name"><?= $value['nama'] ?></h4>
+                        <div class="publish-date"><?= formattglwaktu($value['tgl_publish']) ?></div>
                     </div>
-                    <span>
-                        <?=strlen(str_replace( '&', '&amp;', $value['isi_artikel'])) > 100 ? '<a class="magic-title" onclick="Open(\'public/artikel?val='.$value['id'].'\');">Selengkapnya...</a>' : ''?>
-                    </span>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="twelve columns">
-                <hr>
-            </div>
-        </div>
+    </div>
     <?php $i++; endforeach ?>
 <?php else : ?>
-    <h3>Artikel tidak tersedia</h3>
+    <p></p>
+    <div class="txt-center">
+        <h3 class="horror-text">
+            Artikel <?=$list_artikel['nama_genre']['nama_genre']?> Tidak Tersedia
+        </h3>
+        <h4>
+            Ceritakan pengalaman mu, <a class="is-a-link" onclick="Open('public/artikel?val=<?=$value['id']?>');"> disni</a>
+        </h4>
+    </div>
 <?php endif ?>
-</div>
+<p></p>
 
-<script>
-    var num = 0;
-    $("#container-read").ready(function() {
-        do {
-            ClassicEditor
-            .create( document.querySelector( '#editor-read'+num ), {
-                // ...
-            } )
-            .then( editor => {
-                const toolbarElement = editor.ui.view.toolbar.element;
-                editor.enableReadOnlyMode( 'my-feature-id' );
-                toolbarElement.style.display = 'none';
-            } )
-            .catch( error => {
-                console.log( error );
-            } );
-            num++;
-        } while (num < <?=count($list_artikel['list_artikel'])?>);
-        
-    });
-</script>
