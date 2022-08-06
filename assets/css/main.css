@@ -992,7 +992,6 @@ ul.actions.fit.stacked {
   ul.actions:not(.fixed) li input[type="submit"],
   ul.actions:not(.fixed) li input[type="reset"],
   ul.actions:not(.fixed) li input[type="button"],
-  ul.actions:not(.fixed) li button,
   ul.actions:not(.fixed) li .button {
     width: 100%;
   }
@@ -1000,7 +999,6 @@ ul.actions.fit.stacked {
   ul.actions:not(.fixed) li input[type="submit"].icon:before,
   ul.actions:not(.fixed) li input[type="reset"].icon:before,
   ul.actions:not(.fixed) li input[type="button"].icon:before,
-  ul.actions:not(.fixed) li button.icon:before,
   ul.actions:not(.fixed) li .button.icon:before {
     margin-left: -0.5em;
   }
@@ -1011,6 +1009,7 @@ ul.actions.fit.stacked {
 ul.icons {
   cursor: default;
   list-style: none;
+  margin: 0 0 0 0;
   padding-left: 0;
 }
 
@@ -1031,6 +1030,7 @@ ul.icons li a {
   line-height: 2.25rem;
   text-align: center;
   width: 2.25rem;
+  cursor: pointer;
 }
 
 ul.icons li a:hover {
@@ -1114,7 +1114,6 @@ table.alt tfoot {
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
-button,
 .button {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -1147,7 +1146,6 @@ button,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
-button:hover,
 .button:hover {
   background-color: rgba(255, 255, 255, 0.075);
 }
@@ -1155,7 +1153,6 @@ button:hover,
 input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active,
-button:active,
 .button:active {
   background-color: rgba(255, 255, 255, 0.175);
 }
@@ -1163,7 +1160,6 @@ button:active,
 input[type="submit"].icon:before,
 input[type="reset"].icon:before,
 input[type="button"].icon:before,
-button.icon:before,
 .button.icon:before {
   margin-right: 0.5em;
 }
@@ -1171,7 +1167,6 @@ button.icon:before,
 input[type="submit"].fit,
 input[type="reset"].fit,
 input[type="button"].fit,
-button.fit,
 .button.fit {
   width: 100%;
 }
@@ -1179,7 +1174,6 @@ button.fit,
 input[type="submit"].small,
 input[type="reset"].small,
 input[type="button"].small,
-button.small,
 .button.small {
   font-size: 0.6rem;
   height: 2.0625rem;
@@ -1189,7 +1183,6 @@ button.small,
 input[type="submit"].primary,
 input[type="reset"].primary,
 input[type="button"].primary,
-button.primary,
 .button.primary {
   background-color: #ffffff;
   color: #1b1f22 !important;
@@ -1202,8 +1195,6 @@ input[type="reset"].disabled,
 input[type="reset"]:disabled,
 input[type="button"].disabled,
 input[type="button"]:disabled,
-button.disabled,
-button:disabled,
 .button.disabled,
 .button:disabled {
   pointer-events: none;
@@ -1213,8 +1204,7 @@ button:disabled,
 
 input[type="submit"],
 input[type="reset"],
-input[type="button"],
-button {
+input[type="button"], {
   line-height: calc(2.75rem - 2px);
 }
 
@@ -1410,6 +1400,7 @@ body.is-preload #bg:before {
   background: #ffffff;
 }
 
+
 #header > :first-child {
   margin-top: 0;
 }
@@ -1583,7 +1574,7 @@ body.is-preload #header .content .inner {
   }
 
   #header .content .inner {
-    padding: 2.5rem 1rem;
+    padding: 1.8rem 1rem;
   }
 
   #header .content p {
@@ -1597,7 +1588,7 @@ body.is-preload #header .content .inner {
   }
 
   #header .content .inner {
-    padding: 2.5rem 0;
+    padding: 1.8rem 0;
   }
 
   #header nav ul {
@@ -1674,10 +1665,11 @@ body.is-preload #header .content .inner {
   transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
   padding: 4.5rem 2.5rem 1.5rem 2.5rem;
   position: relative;
-  width: 50rem;
+  width: 45rem;
   max-width: 100%;
   background-color: rgba(22, 23, 24, 0.85);
   border-radius: 4px;
+  padding-bottom: 70px;
   opacity: 0;
 }
 
@@ -1729,6 +1721,46 @@ body.is-preload #header .content .inner {
   background-color: rgba(255, 255, 255, 0.175);
 }
 
+#main article .prev {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  text-indent: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#main article .prev:before {
+  -moz-transition: background-color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;charset=utf8,<svg style='color: white' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-left' viewBox='0 0 16 16'> <path fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z' fill='white'></path> </svg>");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}
+
+#main article .prev:hover:before {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+#main article .prev:active:before {
+  background-color: rgba(255, 255, 255, 0.175);
+}
+
 @media screen and (max-width: 736px) {
   #main article {
     padding: 3.5rem 2rem 0.5rem 2rem;
@@ -1741,7 +1773,16 @@ body.is-preload #header .content .inner {
     height: 2.25rem;
     background-size: 14px 14px;
   }
+  
+  #main article .prev:before {
+    top: 0.875rem;
+    left: 0.875rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-size: 14px 14px;
+  }
 }
+
 
 @media screen and (max-width: 480px) {
   #main article {
