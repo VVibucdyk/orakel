@@ -5,13 +5,14 @@ ORAKEL ADALAH SEBUAH PORTAL UNTUK ShARING CERITA MISTERI.
 > FOR DEVELOPER TEAM
 > JANGAN LUPA IMPORT DULU DATABASE NYA. NAMANYA SESUAI FILE!
 
-> Akun Demo
+Akun Demo
 > Member
 
     Username = someonemember
     Password = Someonemember
 
 > Super Admin
+
     Username = someonesuperadmin
     Password = Someonesuperadmin
 
