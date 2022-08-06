@@ -3,6 +3,7 @@
 // created by : fajar alam 
 // created date : 20/07/2022
 require_once('../_URAA/module/function.php');
+if(!isSessionValid()) exit("Direct access not permitted.");
 
 if(!empty($_POST['judul'])){
     // menangkap data post 
@@ -16,7 +17,7 @@ if(!empty($_POST['judul'])){
     $data[] = $_POST['editor'];
 
     // tgl_publish
-    $data[] = date('Y-m-d');
+    $data[] = $today;
 
     // user_id
     $data[] = 1;
