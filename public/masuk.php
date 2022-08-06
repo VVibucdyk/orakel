@@ -53,6 +53,7 @@ if(isSessionValid()) exit("Direct access not permitted.");
             } else if(data.password==="" || data.password===null){
                 ShowErrText("#password", "Uups!", "Masukan Password Kamu !");
             }else{
+                setDisable();
                 $.ajax({
                     url : 'routes/masuk.php',
                     method : 'POST',
@@ -61,15 +62,18 @@ if(isSessionValid()) exit("Direct access not permitted.");
                     success : (res) => {
                         var info = res.info; 
                         if (res.status == true) {
+                            $('#masuk').trigger("reset");
                             iziToast.success({
                                 title: "Ok",
                                 message: info.msg,
                                 position: "topCenter",
                             });
+                            setEnable();
                             window.location = "./";
                         } else {
                             $(`#${info.elementid}`).val("");
                             ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
+                            setEnable();
                         }
                     },
                     error : () => {
