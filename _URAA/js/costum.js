@@ -1,7 +1,7 @@
 /*
-  By Difa WRD 10121916
-  refrensi https://www.peteranswers.com/id/
-  */
+By Difa WRD 10121916
+refrensi https://www.peteranswers.com/id/
+*/
 
 //by kang jar backsound music
 const audio = new Audio("./_URAA/audio/BACKSOUND.mp3");
@@ -15,7 +15,9 @@ function setEnable() {
   $("select").removeAttr("disabled");
   $("textarea").removeAttr("disabled");
   $("button").removeAttr("disabled");
-  $(".close").show();
+  $("a").removeClass("disabled");
+  $(".close").show(400);
+  $(".prev").show(400);
 }
 
 // disabled element inputan
@@ -24,7 +26,9 @@ function setDisable() {
   $("select").attr("disabled", true);
   $("textarea").attr("disabled", true);
   $("button").attr("disabled", true);
-  $(".close").hide();
+  $("a").addClass("disabled");
+  $(".close").hide(400);
+  $(".prev").hide(400);
 }
 
 // menampilkan error text setelah element yang di definisikan beserta pesan nya
