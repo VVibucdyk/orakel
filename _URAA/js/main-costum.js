@@ -77,6 +77,13 @@ function Show_Main() {
       Hidden_Main();
     });
 
+        // prev.
+        $('<div class="prev">Prev</div>')
+        .appendTo($this)
+        .on("click", function () {
+          alert('belum jadi ada di main costum js');
+        });
+
     // Prevent clicks from inside article from bubbling.
     $this.on("click", function (event) {
       event.stopPropagation();
