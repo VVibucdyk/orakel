@@ -1,55 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  align-items: center;
-  justify-content: center;
-  background-color: #ADE5F9;
-  min-height: 100vh;
-}
-img {
-  max-width: 100%;
-  display: block;
-}
-ul {
-  list-style: none;
-}
-
 /* Utilities */
-.card::after,
-.card img {
+.card-profile::after,
+.card-profile img {
   border-radius: 50%;
 }
-body,
-.card,
+
+.card-profile,
 .stats {
   display: flex;
 }
 
-.card {
-  padding: 2.5rem 2rem;
+.card-profile {
+  padding: 1.5rem 2rem;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, .2);
   /* max-width: 500px; */
-  box-shadow: 0 0 30px rgba(0, 0, 0, .15);
-  margin: 1rem;
+  box-shadow: 7px 9px 11px rgba(0, 0, 0, 0.2); 
   position: relative;
   transform-style: preserve-3d;
   overflow: hidden;
+  margin-top: 50px;
 }
-.card::before,
-.card::after {
+.card-profile::before,
+.card-profile::after {
   content: '';
   position: absolute;
   z-index: -1;
 }
-.card::before {
+.card-profile::before {
   width: 100%;
   height: 100%;
   border: 1px solid #FFF;
@@ -57,55 +35,71 @@ body,
   top: -.7rem;
   left: -.7rem;
 }
-.card::after {
+.card-profile::after {
   height: 15rem;
   width: 15rem;
-  background-color: #4172f5aa;
+  background-color: #9e9381;
   top: -8rem;
   right: -8rem;
   box-shadow: 2rem 6rem 0 -3rem #FFF
 }
 
-.card img {
-  width: 8rem;
-  min-width: 80px;
-  box-shadow: 0 0 0 5px #FFF;
+.card-profile img {
+  width: 9rem;
+  min-width: 90px;
+  box-shadow: 0 0 0 3px #9e9381;
 }
 
-.infos {
+.card-profile ul {
+  padding-left: 0em;
+}
+
+.card-profile .infos {
   margin-left: 1.5rem;
 }
 
-.name {
+.card-profile .name {
   margin-bottom: 1rem;
 }
-.name h2 {
+.card-profile .name h2 {
+  color: #9e9381;
+  letter-spacing: 5px;
   font-size: 1.3rem;
 }
-.name h4 {
+.card-profile .name h4 {
+  letter-spacing: 2px;
   font-size: .8rem;
   color: #333
 }
 
-.text {
+.card-profile .text {
   font-size: .9rem;
   margin-bottom: 1rem;
 }
 
-.stats {
+.card-profile .stats {
   margin-bottom: 1rem;
 }
-.stats li {
+.card-profile .stats li {
+  text-align: center;
+  list-style:none;
   min-width: 5rem;
+  margin-right: 5px;
 }
-.stats li h3 {
+.card-profile .stats li h3 {
   font-size: .99rem;
 }
-.stats li h4 {
+.card-profile .stats li h4 {
+  color: black;
+  padding-left: 10px;
+  padding-right: 4px;
+  background-color: #9e9381;
+  border-radius: 40px;
+  margin-bottom: 5px;
   font-size: .75rem;
 }
 
-.links button {
+.card-profile .links button {
   font-family: 'Poppins', sans-serif;
   min-width: 120px;
   padding: .5rem;
@@ -115,26 +109,26 @@ body,
   cursor: pointer;
   transition: all .25s linear;
 }
-.links .follow,
-.links .view:hover {
+.card-profile .links .follow,
+.card-profile .links .view:hover {
   background-color: #222;
   color: #FFF;
 }
-.links .view,
+.card-profile .links .view,
 .links .follow:hover{
   background-color: transparent;
   color: #222;
 }
 
 @media screen and (max-width: 450px) {
-  .card {
+  .card-profile {
     display: block;
   }
-  .infos {
+  .card-profile .infos {
     margin-left: 0;
     margin-top: 1.5rem;
   }
-  .links button {
+  .card-profile .links button {
     min-width: 100px;
   }
 }
