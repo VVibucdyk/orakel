@@ -3,7 +3,10 @@
     date created : 24 / 07/ 2022
 -->
 <?php 
+
 require_once('../_URAA/module/function.php');
+if(!isSessionValid()) exit("Direct access not permitted.");
+
 ?>
 <div id="">
     <h2 class="major" style="text-align: center;">Posting Cerita Kamu</h2>
@@ -46,13 +49,13 @@ require_once('../_URAA/module/function.php');
     var editor;
 
     ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .then( newEditor => {
-            editor = newEditor;
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+    .create( document.querySelector( '#editor' ) )
+    .then( newEditor => {
+        editor = newEditor;
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
 
     $('#submitCerita').click(function() {
         // Membuat variable post_data berisi object
