@@ -1,7 +1,28 @@
 /*
-	By Difa Witsqa RD 10121916 & Stefani Olga 10121908
+  By Difa Witsqa RD 10121916 & Stefani Olga 10121908
 */
 
+
+/*  Tema Main Costum  */
+
+#header .user-info { 
+  margin-top: 0;
+  border-bottom: 1px solid; 
+  border-top: 1px solid;
+  padding: 10px; 
+  padding-right: 6px; 
+  background-color: rgb(122, 122, 122, 0.1); 
+  color: #dedede;  
+}
+
+#header .user-info > h4 {
+  padding: 0px !important;
+  margin: 0;
+  font-weight: 10;
+}
+
+
+/*  Tambahan  */
 #hasil-doz-killer,
 #hasil-ramalan-kematian {
   display: none;
@@ -11,6 +32,28 @@
 
 .txt-center {
   text-align: center;
+}
+
+.publish-top {
+  background-color: rgba(0, 0, 0, 0.2); ;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 10px;
+}
+
+.publish-top p{
+  font-size: 14px;
+}
+
+.container-read {
+  border-bottom: 1px solid #fff;
+}
+
+.publish-top p {
+  margin: 0px;
 }
 
 .text-eror {
@@ -25,16 +68,19 @@
   padding-left: 5px;
 }
 
-.text-success {
-  border-radius: 3px;
-  color: #ffffff;
-  background-color: #009933;
-  display: block;
-  font-size: 0.6rem;
-  font-weight: 200;
-  letter-spacing: 0.1rem;
-  margin: 3px 3px 3px 3px;
-  padding-left: 5px;
+.is-a-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.is-a-link:hover {
+  color: #9e9381;
 }
 
 .progresbar {
@@ -317,6 +363,177 @@
   float: right;
 }
 
+
+
+/* article-card */
+
+.article-card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-top: 1px solid rgba(156, 153, 117, 0.1);
+  display: grid;
+  grid-template-columns: 285px minmax(300px, 100%);
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 7px 9px 11px rgba(0, 0, 0, 0.2); 
+}
+
+.article-card .img-box {
+  border-radius: 10px 0 0 10px;
+  overflow: hidden;
+}
+
+.article-card .article-banner {
+  width:  100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
+  transition: all 0.5s ease;
+}
+
+.article-card:hover .article-banner {
+  transform: scale(1.1); 
+}
+
+.article-card .article-content {
+  padding: 32px 40px;
+  border-radius: 0 10px 10px 0;
+}
+
+.article-card .article-title {
+  font-size: 25px;
+  color: white;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.article-card .article-text {
+  color: white;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  padding-bottom: 15px;
+  border-width: 0px 0px 1px 0px;
+  border-color: white;
+  border-style: solid;
+}
+
+.article-card .acticle-content-footer {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+}
+
+.article-card .author {
+  display:     flex;
+  align-items: center;
+}
+
+.article-card .author-profil {
+  width:  40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.article-card .author-name {
+  color: #9e9381;
+  font-size: 13px;
+}
+
+.article-card .publish-date {
+  color: hsl(212, 23%, 69%);
+  font-size: 13px;
+}
+
+.article-card .genre-name {
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  background-color: #7E715C;
+  border-radius: 10px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.article-card .author-username {
+  font-size: 14px;
+  color: #fff;
+}
+
+.article-card .optional-text {
+  color: #fff;
+  font-size: 14px;
+}
+
+.article-card .article-content .text-topright {
+  float: right!important;
+  font-size: 13px;
+  padding-top: 5px;
+}
+
+
+.article-card .genre-name ~ .optional-text,
+.article-card .genre-name ~ .publish-date { 
+  padding-left: 5px;
+}
+
+.article-card .article-title:hover{ 
+  color: #9e9381;
+}
+
+/* Responsive list artikel */
+@media screen and (max-width: 480px) {
+
+
+  .article-card {
+    grid-template-columns: 1fr;
+    min-width: 294px;
+    overflow: hidden;
+    float: cen;
+  }
+
+  .article-card .img-box, .article-content { 
+    border-radius: 0; 
+  }
+
+  .article-card .img-box { 
+    height: 180px; 
+  }
+
+  .article-card .article-content { 
+    padding: 30px 28px 20px; 
+  }
+
+  .article-card .article-title { 
+    font-size: 15px; 
+  }
+
+  .article-card .article-text { 
+    margin-bottom: 30px; 
+  }
+
+  .article-card .acticle-content-footer { 
+    position: relative;
+  }
+
+  .article-card .author-profil {
+    width:  35px;
+    height: 35px;
+  }
+
+}
+
+
+
+.bg-danger {
+  background-color: rgba(255, 22, 22, 0.336);
+}
+
+
 /* styleing age menghilangkan bg putih dari ckeditor */
 .ck.ck-toolbar {
   background: none;
@@ -345,6 +562,10 @@
 
 #container-read01 .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
   border: 0;
+}
+
+.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
+  color: #d9d9d9 !important;
 }
 
 /* Border Close IziToast Fix */
