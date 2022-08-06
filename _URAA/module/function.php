@@ -99,6 +99,29 @@ function getUserInfo($info) {
 	return "";
 }
 
+function formattglwaktu($tanggal){
+	$bulan = array (
+		1 =>   			
+		'Januari',
+		'Febuari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode(' ', $tanggal);
+	$tanggal = explode('-', $pecahkan[0]);
+	$waktu = explode(':', $pecahkan[1]);
+
+	return $tanggal[2] . ' ' . $bulan[ (int)$tanggal[1] ] . ' ' . $tanggal[0] . ' ' . $waktu[0] . ':' . $waktu[1];
+}
+
 function listGenreIndex() {
 	$db = new conuraa();
 	$conlocal = $db->Open();
@@ -114,7 +137,7 @@ function listGenreIndex() {
 	foreach ($genre as $key => $value) {
 
 		$Output .= $start == 1 ? '<div class="dropdown-content">' : '';
-		$Output .= '<a onclick="Open(\'public/list_artikel?val='.$value['id'].'\')" class="magic-title" data-deskripsi="'.$value['deskripsi_genre'].'">'.$value['nama_genre'].'</a>';
+		$Output .= '<a onclick="Open(\'public/list_artikel?konten='.$value['id'].'\')" class="magic-title" data-deskripsi="'.$value['deskripsi_genre'].'">'.$value['nama_genre'].'</a>';
 		$Output .= $start == $max ? '</div>' : ''; 
 
 		$start == $max ? $start = 1 : $start++;
@@ -140,7 +163,7 @@ function listArtikel($genre) {
 	$db = new conuraa();
 	$conlocal = $db->Open();
 	
-	$sql = "SELECT table_genre.nama_genre, username, judul_artikel, isi_artikel, table_artikel.id as id FROM table_artikel LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id LEFT JOIN table_user ON table_artikel.user_id=table_user.id WHERE table_artikel.genre_id=?";
+	$sql = "SELECT table_genre.nama_genre, table_user.nama, username, table_user.link_foto, judul_artikel, isi_artikel, tgl_publish, table_artikel.id as id FROM table_artikel LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id LEFT JOIN table_user ON table_artikel.user_id=table_user.id WHERE table_artikel.genre_id=?";
 	$row = $conlocal->prepare($sql);
 	$row->execute([$genre]);
 	$artikel = $row->fetchAll();
@@ -155,11 +178,26 @@ function listArtikel($genre) {
 	return $data;
 }
 
+function ArtikelKu() {
+	if(isSessionValid()) {
+		$db = new conuraa();
+		$conlocal = $db->Open();
+
+		$sql = "SELECT table_genre.nama_genre,table_user.nama, username, table_user.link_foto, kode_artikel, tgl_publish, judul_artikel, isi_artikel, table_artikel.id as id FROM table_user LEFT JOIN table_artikel ON table_user.id=table_artikel.user_id LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id WHERE". (getUserInfo('level_id')==2 ? "" : " table_user.username='".getUserInfo('username')."' AND ") . " tgl_publish IS NOT NULL ORDER BY tgl_publish DESC";
+		$row = $conlocal->prepare($sql);
+		$row->execute();
+		$artikel = $row->fetchAll();
+		$data = $artikel;
+
+		return $data;
+	}
+}
+
 function readArtikel($id_artikel) {
 	$db = new conuraa();
 	$conlocal = $db->Open();
 
-	$sql = "SELECT table_genre.nama_genre,table_user.nama, username, tgl_publish, judul_artikel, isi_artikel, table_artikel.id as id FROM table_artikel LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id LEFT JOIN table_user ON table_artikel.user_id=table_user.id WHERE table_artikel.id=?";
+	$sql = "SELECT table_genre.nama_genre,table_user.nama, username, table_user.link_foto, tgl_publish, judul_artikel, isi_artikel, table_artikel.id as id FROM table_artikel LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id LEFT JOIN table_user ON table_artikel.user_id=table_user.id WHERE table_artikel.id=?";
 	$row = $conlocal->prepare($sql);
 	$row->execute([$id_artikel]);
 	$artikel = $row->fetch();
