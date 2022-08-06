@@ -101,6 +101,7 @@ if(isSessionValid()) exit("Direct access not permitted.");
             } else if(data.genre=='' || data.genre===null) { 
                 ShowErrText("#genre", "Uups!", "Genre Harus Di Isi !");
             }else{
+                setDisable();
                 $.ajax({
                     url : 'routes/register.php',
                     method : 'POST',
@@ -109,14 +110,17 @@ if(isSessionValid()) exit("Direct access not permitted.");
                     success : (res) => {
                         var info = res.info; 
                         if (res.status == true) {
+                            $('#register').trigger("reset");
                             iziToast.success({
                                 title: "Registrasi Berhasil",
                                 message: info.msg,
                                 position: "topCenter",
                             });
+                            setEnable();
                             Open('public/masuk');
                         } else {
                             ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
+                            setEnable();
                         }
                     },
                     error : () => {
