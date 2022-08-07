@@ -3,15 +3,15 @@
 // craeted_by : Fajar Alam
 // created_at : 31-07-2022
 
-// modified by : Difa Witsqa RD
-// last_modified : 03-08-2022
+// Modified BY : Difa Witsqa RD
+// Modified Date : 07-08-2022
+// Modified Description : 
+// Mebenahi Tampilan List Artikel & Mengambil Gambar Pertama Untuk Thumbnail (Jika Ada)
 
 $MAKS_PER_PAGE = 5;
 $CURRENT_PAGE = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
 $START_ITEM = ($CURRENT_PAGE - 1) * $MAKS_PER_PAGE;
-
-
 
 $list_artikel = listArtikel($_GET['konten'], $START_ITEM, $MAKS_PER_PAGE);
 $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
@@ -23,11 +23,13 @@ $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
 <?php if (count($list_artikel['list_artikel']) > 0) : ?>
     <!-- columns should be the immediate child of a .row -->
     <?php $i = 0;
-    foreach ($list_artikel['list_artikel'] as $key => $value) : ?>
+    foreach ($list_artikel['list_artikel'] as $key => $value) : 
+    preg_match('/src="(.*?)"/', $value['isi_artikel'], $image);
+    ?>
 
         <div class="article-card">
             <div class="img-box">
-                <img src="_URAA/images/attribute/list-artikel-default.jpg" alt="" class="article-banner">
+                 <img src="<?=isset($image[1]) ? $image[1] : '_URAA/images/attribute/list-artikel-default.jpg'?>" alt="<?= $value['judul_artikel'] ?>" class="article-banner">
             </div>
             <div class="article-content">
                 <a onclick="Open('public/artikel?val=<?= $value['id'] ?>', true);">
