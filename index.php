@@ -119,6 +119,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               Kelola
             </a>
           </li>
+          <li>
+            <a class="magic-title" data-deskripsi="Web Interaktif berisi game tentang Ramalan Kematian dan Cerita-Cerita Misteri yang akan mengundang rasa penasaran. Para member juga dapat memposting cerita misteri disini. Jika kamu berani,LAKUKAN DISINI!!!" onclick="Open('public/artikelku');">
+              Tentang
+            </a>
+          </li>
         <?php } ?>
         <li>
           <a onclick="Open('public/tentang');">Tentang</a>
