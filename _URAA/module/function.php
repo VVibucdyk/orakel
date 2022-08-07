@@ -99,6 +99,48 @@ function getUserInfo($info) {
 	return "";
 }
 
+function UraaCreatePostCode() {
+	if (isSessionValid()) {
+		$code = uniqid();
+		if (!isset($_SESSION)) {
+			session_start(); 
+		}
+		if (!isset($_SESSION['uraa_posting_kode'])) {
+			$_SESSION['uraa_posting_kode']=array(); 
+		}
+		array_push($_SESSION['uraa_posting_kode'],$code); 
+		$uraa_post = $_SESSION['uraa_posting_kode'];
+		return $code;
+	} else {
+		return false;
+	}
+}
+
+function UraaPostCodeValid($code) {
+	$valid = false;
+	if (isSessionValid()) {
+		if(isset($_SESSION['uraa_posting_kode'])) {
+			if(in_array($code, $_SESSION['uraa_posting_kode'])) {
+				$valid = true;
+			} 
+		} 
+	} 
+	return $valid;
+}
+
+function UraaRmvPostCode($code) {
+	$success = false;
+	if (isSessionValid()) {
+		if(isset($_SESSION['uraa_posting_kode'])) {
+			if (($key = array_search($code, $_SESSION['uraa_posting_kode'])) !== false) {
+				unset($_SESSION['uraa_posting_kode'][$key]);
+				$success = true;
+			}
+		}
+	}
+	return $success;
+}
+
 function formattglwaktu($tanggal){
 	$bulan = array (
 		1 =>   			
