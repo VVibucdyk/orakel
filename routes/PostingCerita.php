@@ -5,48 +5,62 @@
 require_once('../_URAA/module/function.php');
 if(!isSessionValid()) exit("Direct access not permitted.");
 
+  // Modified BY : Difa Witsqa RD
+  // Modified Date : 07-08-2022
+  // Modified Description : Menambahkan Validasi Sesi Posting Valid
+
 if(!empty($_POST['judul'])){
-    // menangkap data post 
-    // kode_artikel
-    $data[] = uniqid();
 
-    // judul artikel
-    $data[] = $_POST['judul'];
+    if (UraaPostCodeValid($_POST['code'])) {
+        // menangkap data post 
 
-    // isi_artikel
-    $data[] = $_POST['editor'];
+        // kode_artikel
+        $data[] = $_POST['code'];
 
-    // tgl_publish
-    $data[] = $today;
+        // judul artikel
+        $data[] = $_POST['judul'];
 
-    // user_id
-    $data[] = 1;
+        // isi_artikel
+        $data[] = $_POST['editor'];
 
-    // genre_id
-    $data[] = $_POST['genre'];
+        // tgl_publish
+        $data[] = $today;
 
-    // rating
-    $data[] = random_int(1, 10);
+        // user_id
+        $data[] = 1;
 
-    $data[] = clean($_POST['judul']);
+        // genre_id
+        $data[] = $_POST['genre'];
 
-    // simpan data
-    $register = $conn->prepare("INSERT INTO table_artikel (kode_artikel, judul_artikel, isi_artikel, tgl_publish, user_id, genre_id, rating, slug) VALUES (?,?,?,?,?,?,?,?)");
-    $simpan = $register->execute($data);
+        // rating
+        $data[] = random_int(1, 10);
 
-    // Out
-    if ($simpan) {
-        $data['status'] = true;
-        $data['msg'] = "Artikel berhasil ditambahkan";
-        $data['last_id'] = $conn->lastInsertId();
-        echo json_encode($data);
+        $data[] = clean($_POST['judul']);
+
+        // simpan data
+        $register = $conn->prepare("INSERT INTO table_artikel (kode_artikel, judul_artikel, isi_artikel, tgl_publish, user_id, genre_id, rating, slug) VALUES (?,?,?,?,?,?,?,?)");
+        $simpan = $register->execute($data);
+
+        // Out
+        if ($simpan) {
+            
+            UraaRmvPostCode($_POST['code']);
+
+            $data['status'] = true;
+            $data['msg'] = "Artikel berhasil ditambahkan";
+            $data['last_id'] = $conn->lastInsertId();
+            echo json_encode($data);
+        } else {
+            $data['status'] = false;
+            $data['msg'] = "Artikel gagal ditambahkan";
+
+            echo json_encode($data);
+            echo 'Gagal! Silahkan cek kembali inputan!';
+        }
     } else {
-        $data['status'] = false;
-        $data['msg'] = "Artikel gagal ditambahkan";
-
-        echo json_encode($data);
-        echo 'Gagal! Silahkan cek kembali inputan!';
+        echo 'Sesi Posting Tidak Valid !';
     }
+
 } else {
     echo 'Lengkapi Data';
 }
