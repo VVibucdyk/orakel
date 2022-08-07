@@ -7,11 +7,18 @@
 require_once('../_URAA/module/function.php');
 if (!isSessionValid()) exit("Direct access not permitted.");
 
+$GetCodePost = UraaCreatePostCode();
+
+  // Modified BY : Difa Witsqa RD
+  // Modified Date : 07-08-2022
+  // Modified Description : Menambahkan Fungsi Upload Gambar Lokal & foldering berdasarkan seasion post
+
 ?>
 <div id="">
     <h2 class="major" style="text-align: center;">Posting Cerita Kamu</h2>
     <div style="margin-top: 3%;">
         <form id="posting-cerita" action="#" onsubmit="return false;">
+        <input type="hidden" id="uraa_code" value="<?=$GetCodePost?>">
             <div class="fields">
                 <div class="field half">
                     <label>Judul</label>
@@ -48,17 +55,32 @@ if (!isSessionValid()) exit("Direct access not permitted.");
     var editor;
 
     ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(newEditor => {
-            editor = newEditor;
-        })
-        .catch(error => {
-            console.error(error);
+    .create( document.querySelector( '#editor' ) ,
+    {
+        ckfinder: {
+            uploadUrl: 'public/uraa_imguploader?uraa=<?=$GetCodePost?>'
+        }
+    }
+    )
+    .then( newEditor => {
+        editor = newEditor;
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+
+    window.alert = function(message) {
+        iziToast.error({
+            title: "Uups!",
+            message: message,
+            position: "topCenter",
         });
+    };
 
     $('#submitCerita').click(function() {
         // Membuat variable post_data berisi object
         post_data = {
+            code : $('#uraa_code').val(),
             judul: $('#judul').val(),
             genre: $('#genre').val(),
             editor: editor.getData()
