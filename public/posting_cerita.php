@@ -58,7 +58,7 @@ $GetCodePost = UraaCreatePostCode();
     .create( document.querySelector( '#editor' ) ,
     {
         ckfinder: {
-            uploadUrl: 'public/uraa_imguploader?uraa=<?=$GetCodePost?>'
+            uploadUrl: 'routes/uraa_imguploader?uraa=<?=$GetCodePost?>'
         }
     }
     )
