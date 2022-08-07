@@ -36,8 +36,15 @@ if(!empty($_POST['judul'])){
 
     // Out
     if ($simpan) {
-        echo 'Berhasil Membuat Cerita!';
+        $data['status'] = true;
+        $data['msg'] = "Artikel berhasil ditambahkan";
+        $data['last_id'] = $conn->lastInsertId();
+        echo json_encode($data);
     } else {
+        $data['status'] = false;
+        $data['msg'] = "Artikel gagal ditambahkan";
+
+        echo json_encode($data);
         echo 'Gagal! Silahkan cek kembali inputan!';
     }
 } else {

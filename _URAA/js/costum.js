@@ -5,6 +5,7 @@ refrensi https://www.peteranswers.com/id/
 
 //by kang jar backsound music
 const audio = new Audio("./_URAA/audio/BACKSOUND.mp3");
+
 $("body").click(function () {
   //audio.play();
 });
@@ -136,7 +137,11 @@ new Promise((resolve, reject) => {
   setTimeout((_) => resolve(), millis);
 });
 
-function Open(nama) {
+function Open(nama, prev_window = false) {
+
+  if (prev_window) {
+    PREV_LINK.push(nama);
+  }
   var $pagesmain = $("#pages");
   $.ajax({
     url: nama,
@@ -148,7 +153,6 @@ function Open(nama) {
     },
   });
 }
-
 $(document.body).on('keyup','.password-valid', function(e) {
   if (!isPassword(e.target.value)) {
     $(".text-eror").remove();

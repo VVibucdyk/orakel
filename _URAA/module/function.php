@@ -137,7 +137,7 @@ function listGenreIndex() {
 	foreach ($genre as $key => $value) {
 
 		$Output .= $start == 1 ? '<div class="dropdown-content">' : '';
-		$Output .= '<a onclick="Open(\'public/list_artikel?konten='.$value['id'].'\')" class="magic-title" data-deskripsi="'.$value['deskripsi_genre'].'">'.$value['nama_genre'].'</a>';
+		$Output .= '<a onclick="Open(\'public/list_artikel?page=1&konten='.$value['id'].'\', true)" class="magic-title" data-deskripsi="'.$value['deskripsi_genre'].'">'.$value['nama_genre'].'</a>';
 		$Output .= $start == $max ? '</div>' : ''; 
 
 		$start == $max ? $start = 1 : $start++;
@@ -159,11 +159,38 @@ function listGenre() {
 	}
 }
 
-function listArtikel($genre) {
+function listArtikel($genre, $CURRENT_PAGE=null, $MAX_PAGE=null) {
+	
 	$db = new conuraa();
 	$conlocal = $db->Open();
+
+	// JUMLAH SEAMUA ARTIKEL DEANGAN GENRE WHERE
+	$sql = "SELECT table_genre.nama_genre, 
+	table_user.nama, username,
+	 table_user.link_foto, judul_artikel, 
+	 isi_artikel, 
+	 tgl_publish, 
+	 table_artikel.id as id 
+	 FROM table_artikel 
+	 LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
+	 LEFT JOIN table_user ON table_artikel.user_id=table_user.id 
+	 WHERE table_artikel.genre_id=?";
+	$row = $conlocal->prepare($sql);
+	$row->execute([$genre]);
+	$jml_artikel = $row->fetchAll();
+	$data['jml_artikel'] = count($jml_artikel);
 	
-	$sql = "SELECT table_genre.nama_genre, table_user.nama, username, table_user.link_foto, judul_artikel, isi_artikel, tgl_publish, table_artikel.id as id FROM table_artikel LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id LEFT JOIN table_user ON table_artikel.user_id=table_user.id WHERE table_artikel.genre_id=?";
+	$sql = "SELECT table_genre.nama_genre, 
+	table_user.nama, username,
+	 table_user.link_foto, judul_artikel, 
+	 isi_artikel, 
+	 tgl_publish, 
+	 table_artikel.id as id 
+	 FROM table_artikel 
+	 LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
+	 LEFT JOIN table_user ON table_artikel.user_id=table_user.id 
+	 WHERE table_artikel.genre_id=?
+	 LIMIT ".$MAX_PAGE." OFFSET ".$CURRENT_PAGE."";
 	$row = $conlocal->prepare($sql);
 	$row->execute([$genre]);
 	$artikel = $row->fetchAll();

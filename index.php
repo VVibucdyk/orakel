@@ -47,6 +47,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <link rel="stylesheet" href="_URAA/css/costum.css" />
   
   <link rel="stylesheet" href="_URAA/css/custom_skeleton.css" />
+  <link rel="stylesheet" href="_URAA/css/custom_pagination.css" />
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
@@ -57,8 +58,8 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
     <?php if ($islogin) { ?>
       <a href="public/keluar">Logout</a>
     <?php } else { ?>
-      <a onclick="Open('public/register');">Daftar</a>
-      <a onclick="Open('public/masuk');">Masuk</a>
+      <a onclick="Open('public/register', true);">Daftar</a>
+      <a onclick="Open('public/masuk', true);">Masuk</a>
     <?php } ?>
   </div>
 </di>
@@ -102,31 +103,31 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
           <div class="dropdown">
             <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
             <div class="dropdown-content">
-              <a onclick="Open('public/ritual');">Ritual</a>
-              <a onclick="Open('public/tanyadozzkiller');">Tanya</a>
-              <a onclick="Open('public/ramalankematian');">Kematian</a>
+              <a onclick="Open('public/ritual', true);">Ritual</a>
+              <a onclick="Open('public/tanyadozzkiller', true);">Tanya</a>
+              <a onclick="Open('public/ramalankematian', true);">Kematian</a>
             </div>
           </div>
         </li>
         <?php if ($islogin) { ?>
           <li>
-            <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/posting_cerita');">
+            <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/posting_cerita', true);">
               Posting
             </a>
           </li>
           <li>
-            <a class="magic-title" data-deskripsi="Menu ini untuk menghapus atau memperbarui postingan kamu. Hati Hati Menggunakan Menu ini, postingan yang sudah dihapus tidak dapat dikembalikan !" onclick="Open('public/artikelku');">
+            <a class="magic-title" data-deskripsi="Menu ini untuk menghapus atau memperbarui postingan kamu. Hati Hati Menggunakan Menu ini, postingan yang sudah dihapus tidak dapat dikembalikan !" onclick="Open('public/artikelku', true);">
               Kelola
             </a>
           </li>
           <li>
-            <a class="magic-title" data-deskripsi="Web Interaktif berisi game tentang Ramalan Kematian dan Cerita-Cerita Misteri yang akan mengundang rasa penasaran. Para member juga dapat memposting cerita misteri disini. Jika kamu berani,LAKUKAN DISINI!!!" onclick="Open('public/artikelku');">
+            <a class="magic-title" data-deskripsi="Web Interaktif berisi game tentang Ramalan Kematian dan Cerita-Cerita Misteri yang akan mengundang rasa penasaran. Para member juga dapat memposting cerita misteri disini. Jika kamu berani,LAKUKAN DISINI!!!" onclick="Open('public/artikelku', true);">
               Tentang
             </a>
           </li>
         <?php } ?>
         <li>
-          <a onclick="Open('public/tentang');">Tentang</a>
+          <a onclick="Open('public/tentang', true);">Tentang</a>
         </li>
       </ul>
     </nav>
@@ -140,7 +141,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 
   <!-- Footer -->
   <footer id="footer">
-    <p class="seehay">©2022 By <a onclick="Open('public/team');">Uraa Team</a></p>
+    <p class="seehay">©2022 By <a onclick="Open('public/team', true);">Uraa Team</a></p>
   </footer>
 </footer>
 </div>
@@ -149,14 +150,25 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <div id="bg"></div>
 
 <!-- Scripts -->
+<script>
+  // Modified BY : fajar alam
+  // Modified Date : 2020-01-21
+  // Modified Description :
+  // VARIABLE UNTUK MENAMPUNG PREVIOUS WINDOW / MODAL UNTUK CUSTOM js dan MAIN-CUSTOM js
+  var PREV_LINK = [];
+
+  // CARA PAKAINYA :
+  // JIKA AKSI OPEN ITU HARUS ADA PREVIOUS NYA, MAKA KETIKA MEMANGGIL Fungsi Open(string[link_nya], true) Passing boolean true pada parameter 2, maka akan menampilkan modal sebelumnya.
+</script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/iziToast.min.js"></script>
-<script src="_URAA/js/main-costum.js"></script>
 <script src="_URAA/js/costum.js"></script>
+<script src="_URAA/js/main-costum.js"></script>
+
 <script src="assets/js/ckeditor.js"></script>
 
 </body>

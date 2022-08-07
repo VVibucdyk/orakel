@@ -2,13 +2,13 @@
 // Main Costum
 
 var $window = $(window),
-$body = $("body"),
-$wrapper = $("#wrapper"),
-$header = $("#header"),
-$footer = $("#footer"),
-$main = $("#main"),
-$main_articles = $main.children("article"),
-$pagesmain = $("#pages");
+  $body = $("body"),
+  $wrapper = $("#wrapper"),
+  $header = $("#header"),
+  $footer = $("#footer"),
+  $main = $("#main"),
+  $main_articles = $main.children("article"),
+  $pagesmain = $("#pages");
 
 let locked = false;
 
@@ -72,17 +72,24 @@ function Show_Main() {
 
     // Close.
     $('<div class="close">Close</div>')
-    .appendTo($this)
-    .on("click", function () {
-      Hidden_Main();
-    });
+      .appendTo($this)
+      .on("click", function () {
+        Hidden_Main();
+        PREV_LINK = [];
+      });
 
-        // prev.
-        $('<div class="prev">Prev</div>')
-        .appendTo($this)
-        .on("click", function () {
-          alert('belum jadi ada di main costum js');
-        });
+    // prev.
+    $('<div class="prev">Prev</div>')
+      .appendTo($this)
+      .on("click", function () {
+        if(PREV_LINK.length == 1){
+          Hidden_Main();
+          PREV_LINK.pop();
+        }else{
+          PREV_LINK.pop();
+          Open(PREV_LINK[PREV_LINK.length - 1]);
+        }
+      });
 
     // Prevent clicks from inside article from bubbling.
     $this.on("click", function (event) {
@@ -98,13 +105,13 @@ $(".dropdown-content .magic-title .inner").ready(function () {
     mouseenter: function () {
       var title = "<h1>" + $(this).text() + "</h1>";
       var deskripsi = isHTML($(this).data("deskripsi"))
-      ? $(this).data("deskripsi")
-      : "<p>" + $(this).data("deskripsi") + "</p>";
+        ? $(this).data("deskripsi")
+        : "<p>" + $(this).data("deskripsi") + "</p>";
 
       $("#magic-title")
-      .html(title + deskripsi)
-      .hide()
-      .show(700);
+        .html(title + deskripsi)
+        .hide()
+        .show(700);
     },
   });
 
@@ -114,7 +121,6 @@ $(".dropdown-content .magic-title .inner").ready(function () {
     },
   });
 });
-
 
 $main.hide();
 $main_articles.hide();
