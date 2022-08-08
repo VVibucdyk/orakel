@@ -5,6 +5,7 @@ refrensi https://www.peteranswers.com/id/
 
 //by kang jar backsound music
 const audio = new Audio("./_URAA/audio/BACKSOUND.mp3");
+var editor;
 
 $("body").click(function () {
   //audio.play();
@@ -19,6 +20,9 @@ function setEnable() {
   $("a").removeClass("disabled");
   $(".close").show(400);
   $(".prev").show(400);
+  if(editor) {
+    editor.disableReadOnlyMode("defaultEditorLock");
+  }
 }
 
 // disabled element inputan
@@ -30,6 +34,9 @@ function setDisable() {
   $("a").addClass("disabled");
   $(".close").hide(400);
   $(".prev").hide(400);
+  if(editor) {
+    editor.enableReadOnlyMode("defaultEditorLock");
+  }
 }
 
 // menampilkan error text setelah element yang di definisikan beserta pesan nya
@@ -139,9 +146,8 @@ new Promise((resolve, reject) => {
 
 function Open(nama, prev_window = false) {
 
-  if (prev_window) {
-    PREV_LINK.push(nama);
-  }
+  prev_window ? PREV_LINK.push(nama) : '';
+
   var $pagesmain = $("#pages");
   $.ajax({
     url: nama,
@@ -150,9 +156,11 @@ function Open(nama, prev_window = false) {
     success: function (isi) {
       $pagesmain.html(isi);
       Show_Main();
+      PREV_LINK.length <= 1 ? $(".prev").hide() : $(".prev").show();
     },
   });
 }
+
 $(document.body).on('keyup','.password-valid', function(e) {
   if (!isPassword(e.target.value)) {
     $(".text-eror").remove();
