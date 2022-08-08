@@ -5,6 +5,8 @@
 require_once('../_URAA/module/function.php');
 if(!isSessionValid()) exit("Direct access not permitted.");
 
+$id_user = getUserInfo('id');
+
   // Modified BY : Difa Witsqa RD
   // Modified Date : 07-08-2022
   // Modified Description : Menambahkan Validasi Sesi Posting Valid
@@ -27,7 +29,7 @@ if(!empty($_POST['judul'])){
         $data[] = $today;
 
         // user_id
-        $data[] = 1;
+        $data[] = $id_user;
 
         // genre_id
         $data[] = $_POST['genre'];

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-decoupled-document": "^35.0.1"
+  }
+}

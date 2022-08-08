@@ -7,7 +7,7 @@ $artikel = readArtikel($_GET['val']);?>
     <p class ="datepublish" id="tgl_publish"><b>Publish</b> <i><?=formattglwaktu($artikel['tgl_publish'])?></i></p>
 </div>
 
-<div class="container-read" id="container-read">
+<div class="ck-content">
     <?=$artikel['isi_artikel']?>
 </div>
 
@@ -39,20 +39,3 @@ $artikel = readArtikel($_GET['val']);?>
         </div> --> 
     </div>
 </div>
-
-<script>
-    $("#container-read").ready(function() {
-        ClassicEditor
-        .create( document.querySelector( '#isi_artikel' ), {
-        } )
-        .then( editor => {
-            const toolbarElement = editor.ui.view.toolbar.element;
-            editor.enableReadOnlyMode( 'my-feature-id' );
-            toolbarElement.style.display = 'none';
-        } )
-        .catch( error => {
-            console.log( error );
-        } );
-
-    });
-</script>

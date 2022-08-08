@@ -52,6 +52,11 @@
   border-bottom: 1px solid #fff;
 }
 
+#main img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .publish-top p {
   margin: 0px;
 }
@@ -456,7 +461,7 @@ a.disabled {
   font-size: 13px;
   text-transform: uppercase;
   text-align: center;
-  color: #fff;
+  color: black;
   background-color: #7E715C;
   border-radius: 10px;
   padding-right: 8px;
@@ -537,19 +542,29 @@ a.disabled {
   background-color: rgba(255, 22, 22, 0.336);
 }
 
+.ck-rounded-corners .ck.ck-editor__editable:not(.ck-editor__nested-editable), .ck.ck-editor__editable.ck-rounded-corners:not(.ck-editor__nested-editable) {
+  min-height: 300px;
+}
 
 /* styleing age menghilangkan bg putih dari ckeditor */
 .ck.ck-toolbar {
   background: none;
 }
 
+.ck-button:hover:not(.ck-color-grid__tile) {
+  background: black !important;
+}
+
 .ck.ck-editor__main > .ck-editor__editable {
   background: none;
 }
 
-.ck-reset_all :not(.ck-reset_all-excluded *),
-.ck.ck-reset_all {
-  background-color: black !important;
+.ck.ck-list .ck-list__separator, .ck-toolbar, .ck-on {
+  background-color: transparent !important;
+}
+
+.ck.ck-list .ck-list__item, .ck-dropdown__panel.ck-dropdown__panel_se, .ck-dropdown__panel_sw {
+  background-color: black  !important;
 }
 
 .ck.ck-editor__main > .ck-editor__editable {
@@ -570,6 +585,16 @@ a.disabled {
 
 .ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
   color: #d9d9d9 !important;
+}
+
+.ck.ck-editor__editable_inline {
+  border-right: 1px solid #fff !important;
+  border-left: 1px solid #fff !important;
+  border-bottom: 1px solid #fff !important;
+}
+
+.ck-content {
+  border-bottom: 1px solid #fff;
 }
 
 /* Border Close IziToast Fix */

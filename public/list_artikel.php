@@ -24,52 +24,48 @@ $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
     <!-- columns should be the immediate child of a .row -->
     <?php $i = 0;
     foreach ($list_artikel['list_artikel'] as $key => $value) : 
-    preg_match('/src="(.*?)"/', $value['isi_artikel'], $image);
-    ?>
+        preg_match('/src="(.*?)"/', $value['isi_artikel'], $image);
+        ?>
 
         <div class="article-card">
             <div class="img-box">
-                 <img src="<?=isset($image[1]) ? $image[1] : '_URAA/images/attribute/list-artikel-default.jpg'?>" alt="<?= $value['judul_artikel'] ?>" class="article-banner">
-            </div>
-            <div class="article-content">
-                <a onclick="Open('public/artikel?val=<?= $value['id'] ?>', true);">
-                    <h3 class="article-title"><?= $value['judul_artikel'] ?></h3>
-                </a>
-                <p class="article-text"><?= substr(strip_tags($value['isi_artikel']), 0, 280); ?> . . .</p>
-                <div class="acticle-content-footer">
-                    <div class="author">
-                        <img src="<?= $value['link_foto'] == NULL ? '_URAA/images/attribute/profile-default.jpg' : $value['link_foto'] ?>" alt="<?= $value['nama'] ?>" class="author-profil">
-                        <div class="author-info">
-                            <h4 class="author-name"><?= $value['nama'] ?></h4>
-                            <div class="publish-date"><?= formattglwaktu($value['tgl_publish']) ?></div>
-                        </div>
+               <img src="<?=isset($image[1]) ? $image[1] : '_URAA/images/attribute/list-artikel-default.jpg'?>" alt="<?= $value['judul_artikel'] ?>" class="article-banner">
+           </div>
+           <div class="article-content">
+            <a onclick="Open('public/artikel?val=<?= $value['id'] ?>', true);">
+                <h3 class="article-title"><?= $value['judul_artikel'] ?></h3>
+            </a>
+            <p class="article-text"><?= substr(strip_tags($value['isi_artikel']), 0, 280); ?> . . .</p>
+            <div class="acticle-content-footer">
+                <div class="author">
+                    <img src="<?= $value['link_foto'] == NULL ? '_URAA/images/attribute/profile-default.jpg' : $value['link_foto'] ?>" alt="<?= $value['nama'] ?>" class="author-profil">
+                    <div class="author-info">
+                        <h4 class="author-name"><?= $value['nama'] ?></h4>
+                        <div class="publish-date"><?= formattglwaktu($value['tgl_publish']) ?></div>
                     </div>
                 </div>
             </div>
         </div>
-    <?php $i++;
-    endforeach ?>
-    <!-- BAGIAN CUSTOMPAGINATION -->
-    <!-- CREATED BY : FAJAR ALAM -->
-    <div style="justify-content: center;" class="pagination:container">
-        <div id="prev_artikel" class="pagination:number arrow">
-            <svg width="18" height="18">
-                <use xlink:href="#left" />
-            </svg>
-        </div>
-
-        <?php for ($a = 1; $a <= $jml_artikel; $a++) : ?>
-            <div class="pagination-artikel pagination:number <?= $CURRENT_PAGE == $a ? "pagination:active" : "" ?>">
-                <?= $a ?>
-            </div>
-        <?php endfor ?>
-
-        <div id="next_artikel" class="pagination:number arrow">
-            <svg width="18" height="18">
-                <use xlink:href="#right" />
-            </svg>
-        </div>
     </div>
+    <?php $i++;
+endforeach ?>
+<!-- BAGIAN CUSTOMPAGINATION -->
+<!-- CREATED BY : FAJAR ALAM -->
+<div style="justify-content: center;" class="pagination:container">
+    <div id="prev_artikel" class="pagination:number arrow">
+        <i class="fa fa-angle-left"></i>
+    </div>
+
+    <?php for ($a = 1; $a <= $jml_artikel; $a++) : ?>
+        <div class="pagination-artikel pagination:number <?= $CURRENT_PAGE == $a ? "pagination:active" : "" ?>">
+            <?= $a ?>
+        </div>
+    <?php endfor ?>
+
+    <div id="next_artikel" class="pagination:number arrow">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</div>
 <?php else : ?>
     <p></p>
     <div class="txt-center">
@@ -82,15 +78,6 @@ $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
     </div>
 <?php endif ?>
 <p></p>
-
-<svg class="hide">
-    <symbol id="left" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-    </symbol>
-    <symbol id="right" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-    </symbol>
-</svg>
 
 <script>
     $(document).ready(function() {

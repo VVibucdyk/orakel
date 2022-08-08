@@ -46,7 +46,7 @@ if(isset($_FILES['upload']['name']) && isset($_GET['uraa'])) {
 		$extension = pathinfo($file_name, PATHINFO_EXTENSION);
 
 		//extensi file yang di izinkan
-		$allowed_extension = array("jpg", "gif", "png");
+		$allowed_extension = array("jpg", "jpeg", "gif", "png");
 
 		// cek apakah folder user & konten ada ?
 		if (file_exists($folder_user) && file_exists($folder_artikel)) {
@@ -83,6 +83,8 @@ if(isset($_FILES['upload']['name']) && isset($_GET['uraa'])) {
 						$url_konten = $url_konten. "/" .$file_name;
 						$success = move_uploaded_file($file, $folder_artikel . "/" .$file_name);
 					}
+				} else {
+					$msg = "Extensi '{$extension}' Tidak Di Dukung !";
 				}
 			} else {
 				$msg = "Ukuran File Terlalu Besar, Maks 2MB";

@@ -45,7 +45,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/iziToast.min.css" />
   <link rel="stylesheet" href="_URAA/css/costum.css" />
-  
+  <link rel="stylesheet" href="assets/css/ckeditor5-styles.css" type="text/css">
   <link rel="stylesheet" href="_URAA/css/custom_skeleton.css" />
   <link rel="stylesheet" href="_URAA/css/custom_pagination.css" />
   <noscript>
@@ -163,9 +163,8 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <script src="assets/js/iziToast.min.js"></script>
 <script src="_URAA/js/costum.js"></script>
 <script src="_URAA/js/main-costum.js"></script>
-
-<script src="assets/js/ckeditor.js"></script>
-
+<!-- <script src="assets/js/ckeditor.js"></script> -->
+<script src="assets/node_modules/@ckeditor/ckeditor5-build-decoupled-document/build/ckeditor.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,12 @@
 
 if(!isSessionValid()) exit("Direct access not permitted.");
 
+$nama_user = getUserInfo('nama');
+$username_user = getUserInfo('username');
+
 $valid = false;
+$element = "result-box";
+$msg = "Kesalahan Tidak Di Ketahui"; 
 
 // menangkap data post & menyesuaikan sesuai perintah value
 $command_delete = isset($_POST['delete']) ? filterhtml($_POST['delete']) : null;
@@ -19,19 +24,29 @@ if ($p_artikel_code != null) {
     $data = $artikelku->fetch();
 
     if($data == 0) {
-        $element = "result-box";
         $msg = "Kode Artikel Tidak Valid !";   
     } else {
 
+        $kode_artikel = $data['kode_artikel'];
         $judul_artikel = $data['judul_artikel'];
+        $url_konten = "../_URAA/images/konten/{$username_user}/{$kode_artikel}";
 
     // Perintah Hapus Artikel
         if($command_delete != null) {
-            //$delete = true;
-            $delete = $conn->query("DELETE FROM table_artikel WHERE kode_artikel ='$p_artikel_code'");
-            if ($delete) {
-                $valid = true;
-                $msg = $judul_artikel;
+            $DeletImage = true;
+
+            if (file_exists($url_konten)) {
+                $DeletImage = deleteFile($url_konten);
+            }
+
+            if ($DeletImage) {
+                $delete = $conn->query("DELETE FROM table_artikel WHERE kode_artikel ='$kode_artikel'");
+                if ($delete) {
+                    $valid = true;
+                    $msg = $judul_artikel;
+                }
+            } else {
+                $msg = 'Gagal, Hubungi Developer !';
             }
     // Perintah Update Artikel
         } else if($command_edit != null) {

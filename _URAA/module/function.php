@@ -119,10 +119,26 @@ function UraaCreatePostCode() {
 function UraaPostCodeValid($code) {
 	$valid = false;
 	if (isSessionValid()) {
-		if(isset($_SESSION['uraa_posting_kode'])) {
-			if(in_array($code, $_SESSION['uraa_posting_kode'])) {
+
+		$db = new conuraa();
+		$conlocal = $db->Open();
+
+		$artikelku = $conlocal->prepare("SELECT * FROM table_artikel WHERE MD5(kode_artikel) =?");
+		$artikelku->execute([$code]);
+		$data = $artikelku->fetch();
+		$jumlahdata = $artikelku->rowCount();
+
+		if($jumlahdata == 1) {
+			$kode_artikel = md5($data['kode_artikel']);
+			if ($kode_artikel == $code) {
 				$valid = true;
-			} 
+			}
+		} else {
+			if(isset($_SESSION['uraa_posting_kode'])) {
+				if(in_array($code, $_SESSION['uraa_posting_kode'])) {
+					$valid = true;
+				} 
+			}
 		} 
 	} 
 	return $valid;
@@ -139,6 +155,22 @@ function UraaRmvPostCode($code) {
 		}
 	}
 	return $success;
+}
+
+//refrensi https://stackoverflow.com/questions/24144045/rmdir-no-such-file-directory-error-although-directory-exist
+function deleteFile($target) {
+	if(!is_link($target) && is_dir($target)) {
+        // itu sebuah direktori; hapus semua yang ada di dalamnya secara rekursif
+		$files = array_diff( scandir($target), array('.', '..') );
+		foreach($files as $file) {
+			deleteFile("$target/$file");
+		}
+		return rmdir($target);
+	} else {
+        // hapus file biasa
+		return unlink($target);
+	}
+	return false;
 }
 
 function formattglwaktu($tanggal){
@@ -209,14 +241,14 @@ function listArtikel($genre, $CURRENT_PAGE=null, $MAX_PAGE=null) {
 	// JUMLAH SEAMUA ARTIKEL DEANGAN GENRE WHERE
 	$sql = "SELECT table_genre.nama_genre, 
 	table_user.nama, username,
-	 table_user.link_foto, judul_artikel, 
-	 isi_artikel, 
-	 tgl_publish, 
-	 table_artikel.id as id 
-	 FROM table_artikel 
-	 LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
-	 LEFT JOIN table_user ON table_artikel.user_id=table_user.id 
-	 WHERE table_artikel.genre_id=?";
+	table_user.link_foto, judul_artikel, 
+	isi_artikel, 
+	tgl_publish, 
+	table_artikel.id as id 
+	FROM table_artikel 
+	LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
+	LEFT JOIN table_user ON table_artikel.user_id=table_user.id 
+	WHERE table_artikel.genre_id=?";
 	$row = $conlocal->prepare($sql);
 	$row->execute([$genre]);
 	$jml_artikel = $row->fetchAll();
@@ -224,15 +256,15 @@ function listArtikel($genre, $CURRENT_PAGE=null, $MAX_PAGE=null) {
 	
 	$sql = "SELECT table_genre.nama_genre, 
 	table_user.nama, username,
-	 table_user.link_foto, judul_artikel, 
-	 isi_artikel, 
-	 tgl_publish, 
-	 table_artikel.id as id 
-	 FROM table_artikel 
-	 LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
-	 LEFT JOIN table_user ON table_artikel.user_id=table_user.id 
-	 WHERE table_artikel.genre_id=?
-	 LIMIT ".$MAX_PAGE." OFFSET ".$CURRENT_PAGE."";
+	table_user.link_foto, judul_artikel, 
+	isi_artikel, 
+	tgl_publish, 
+	table_artikel.id as id 
+	FROM table_artikel 
+	LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
+	LEFT JOIN table_user ON table_artikel.user_id=table_user.id 
+	WHERE table_artikel.genre_id=?
+	LIMIT ".$MAX_PAGE." OFFSET ".$CURRENT_PAGE."";
 	$row = $conlocal->prepare($sql);
 	$row->execute([$genre]);
 	$artikel = $row->fetchAll();

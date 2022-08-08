@@ -61,7 +61,8 @@ Date created : 06 / 08 / 2022
             }
 
             $(".edit").on('click', function() {
-                alert('Belum Beressss Sabar');
+                let articlecode = $(this).attr('id');
+                Open(`public/edit_artikel?articlecode=${articlecode}`, true);
             });
 
             $(".delete").on('click', function() {
