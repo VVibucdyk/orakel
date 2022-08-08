@@ -124,6 +124,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
         <li>
           <a onclick="Open('public/tentang', true);">Tentang</a>
         </li>
+        <li>
+            <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/posting_cerita', true);">
+              Tentang
+            </a>
+          </li>
       </ul>
     </nav>
 
