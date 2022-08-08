@@ -124,7 +124,6 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
         <li>
           <a onclick="Open('public/tentang', true);">Tentang</a>
         </li>
-        <li>
       </ul>
     </nav>
 
@@ -164,7 +163,6 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
 <script src="assets/js/iziToast.min.js"></script>
 <script src="_URAA/js/costum.js"></script>
 <script src="_URAA/js/main-costum.js"></script>
-<!-- <script src="assets/js/ckeditor.js"></script> -->
 <script src="assets/node_modules/@ckeditor/ckeditor5-build-decoupled-document/build/ckeditor.js"></script>
 </body>
 
