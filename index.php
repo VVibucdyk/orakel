@@ -53,7 +53,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   </noscript>
 </head>
 
-<di style="top: 0px;" class="topnav">
+<div class="topnav">
   <div class="topnav-right">
     <?php if ($islogin) { ?>
       <a href="public/keluar">Logout</a>
@@ -62,7 +62,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
       <a onclick="Open('public/masuk', true);">Masuk</a>
     <?php } ?>
   </div>
-</di>
+</div>
 
 <body class="is-preload">
   <!-- Wrapper -->
