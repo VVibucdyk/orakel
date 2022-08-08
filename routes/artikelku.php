@@ -14,7 +14,7 @@ $msg = "Kesalahan Tidak Di Ketahui";
 
 // menangkap data post & menyesuaikan sesuai perintah value
 $command_delete = isset($_POST['delete']) ? filterhtml($_POST['delete']) : null;
-$command_edit = isset($_POST['edit']) ? filterhtml($_POST['username']) : null; 
+$command_edit = isset($_POST['edit']) ? filterhtml($_POST['edit']) : null; 
 
 $p_artikel_code = $command_delete != null ? $command_delete : ($command_edit != null ? $command_edit : null);
 
@@ -50,6 +50,8 @@ if ($p_artikel_code != null) {
             }
     // Perintah Update Artikel
         } else if($command_edit != null) {
+
+            
 
     // Jika Tidak Ada Perintah Delet / Update
         } else {
