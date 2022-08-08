@@ -27,7 +27,7 @@ if(isSessionValid()) exit("Direct access not permitted.");
             <input type="submit" class="primary" value="Masuk">
         </li>
         <li>
-            <input type="button" onclick="Open('public/register');" value="Daftar" />
+            <input type="button" onclick="Open('public/register',true);" value="Daftar" />
         </li>
     </ul>
 </form>
@@ -35,11 +35,11 @@ if(isSessionValid()) exit("Direct access not permitted.");
 <script>
     $('#masuk').ready(function(){  
 
-        $("input[type='reset']").on('click', function() {
+        $("#masuk").on('reset', function() {
             $(".text-eror").fadeOut();
         });
 
-        $("input[type='submit']").on('click', function() {
+        $("#masuk").on('submit', function() {
             event.preventDefault();
             $(".text-eror").remove();
 

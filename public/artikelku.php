@@ -25,7 +25,7 @@ Date created : 06 / 08 / 2022
                     <div class="text-topright">
                         <div class="genre-name"><?= $row['nama_genre'] ?></div>
                     </div>
-                    <a onclick="Open('public/artikel?val=<?=$row['id']?>');">
+                    <a onclick="Open('public/artikel?val=<?=$row['id']?>', true);">
                         <h3 class="article-title"><?=$row['judul_artikel']?></h3>
                     </a>
                     <p class="article-text"><?=substr(strip_tags($row['isi_artikel']),0,280);?> . . .</p>
