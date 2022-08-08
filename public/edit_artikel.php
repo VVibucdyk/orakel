@@ -71,7 +71,7 @@ if ($p_artikel_code != null) {
 
 <script>
 
-   $('#edit-postingan').ready(function(){  
+ $('#edit-postingan').ready(function(){  
 
     $('#judul').val("<?=$judul_artikel?>");
     $('#genre').val(<?=$genre_id?>);
@@ -109,7 +109,7 @@ if ($p_artikel_code != null) {
         }  else {
             // Mengirimkan data ke server
             $.ajax({
-                url: 'routes/PostingCerita.php',
+                url: 'routes/artikelku.php',
                 method: 'POST',
                 data: post_data,
                 success : (res) => {

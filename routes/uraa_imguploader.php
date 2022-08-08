@@ -19,8 +19,20 @@ if(isset($_FILES['upload']['name']) && isset($_GET['uraa'])) {
 
 		$sesaion_code = $_GET['uraa'];
 
+		$artikelku = $conn->prepare("SELECT * FROM table_artikel WHERE MD5(kode_artikel) =?");
+		$artikelku->execute([$sesaion_code]);
+		$data = $artikelku->fetch();
+		$jumlahdata = $artikelku->rowCount();
+
+		if($jumlahdata == 1) {
+			$kode_artikel = md5($data['kode_artikel']);
+			if ($kode_artikel == $sesaion_code) {
+				$sesaion_code = $data['kode_artikel'];
+			}
+		}
+
 		//URL Folder Lokasi Gambar Setelah Di Upload
-		$url_konten = "_URAA/images/konten/{$username_user}/{$_GET['uraa']}";
+		$url_konten = "_URAA/images/konten/{$username_user}/{$sesaion_code}";
 
 		$folder_konten = "../_URAA/images/konten/";
 		$folder_user = $folder_konten.$username_user;
