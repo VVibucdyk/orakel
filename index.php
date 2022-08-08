@@ -44,8 +44,8 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <link rel="stylesheet" href="_URAA/css/card_profile_information.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/iziToast.min.css" />
+  <link rel="stylesheet" href="assets/css/ckeditor5-styles.css" />
   <link rel="stylesheet" href="_URAA/css/costum.css" />
-  <link rel="stylesheet" href="assets/css/ckeditor5-styles.css" type="text/css">
   <link rel="stylesheet" href="_URAA/css/custom_skeleton.css" />
   <link rel="stylesheet" href="_URAA/css/custom_pagination.css" />
   <noscript>
@@ -89,7 +89,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
       <ul>
         <li>
           <div class="dropdown">
-            <a class="dropbtn" id="artikel">Artikel
+            <a class="dropbtn">Artikel
               <i class="fa fa-caret-down"></i>
             </a>
             <div class="dropdown-content">
