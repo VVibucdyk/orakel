@@ -83,6 +83,7 @@ function isSessionValid() {
 }
 
 function getUserInfo($info) {
+	$Out = "";
 	if(isSessionValid()) {
 		$SEASION_DATA = explode("|", $_SESSION['_URAA']);
 		$_URAA_USERNAME = $SEASION_DATA[2];
@@ -93,10 +94,13 @@ function getUserInfo($info) {
 		$stmt = $conlocal->prepare("SELECT * FROM table_user WHERE username=?");
 		$stmt->execute([$_URAA_USERNAME]);
 		$user = $stmt->fetch();
+		$count = $stmt->rowCount();
 
-		return $user[$info];
+		if ($count == 1) {
+			$Out = $user[$info];
+		}
 	}
-	return "";
+	return $Out;
 }
 
 function UraaCreatePostCode() {
@@ -284,7 +288,7 @@ function ArtikelKu() {
 		$db = new conuraa();
 		$conlocal = $db->Open();
 
-		$sql = "SELECT table_genre.nama_genre,table_user.nama, username, table_user.link_foto, kode_artikel, tgl_publish, judul_artikel, isi_artikel, table_artikel.id as id FROM table_user LEFT JOIN table_artikel ON table_user.id=table_artikel.user_id LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id WHERE". (getUserInfo('level_id')==2 ? "" : " table_user.username='".getUserInfo('username')."' AND ") . " tgl_publish IS NOT NULL ORDER BY tgl_publish DESC";
+		$sql = "SELECT table_genre.nama_genre,table_user.nama, username, table_user.link_foto, kode_artikel, tgl_publish, judul_artikel, isi_artikel, table_artikel.id as id FROM table_user LEFT JOIN table_artikel ON table_user.id=table_artikel.user_id LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id WHERE". (getUserInfo('level_id')==2 ? "" : " table_user.username='".getUserInfo('username')."' AND ") . " table_artikel.id IS NOT NULL ORDER BY tgl_publish DESC";
 		$row = $conlocal->prepare($sql);
 		$row->execute();
 		$artikel = $row->fetchAll();
