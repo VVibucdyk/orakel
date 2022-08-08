@@ -20,7 +20,15 @@
   margin: 0;
   font-weight: 10;
 }
-
+h1.major-2, h2.major-2, h3.major-2, h4.major-2, h5.major-2, h6.major-2 {
+  border-bottom: solid 1px #ffffff;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  width: -ms-max-content;
+  width: max-content;
+  padding-bottom: 0.5rem;
+  margin: 0 0 2rem 0;
+}
 
 /*  Tambahan  */
 #hasil-doz-killer,
@@ -536,61 +544,24 @@ a.disabled {
 
 }
 
-
-
+/* CK Editor Costume */
 .bg-danger {
   background-color: rgba(255, 22, 22, 0.336);
 }
 
 .ck-rounded-corners .ck.ck-editor__editable:not(.ck-editor__nested-editable), .ck.ck-editor__editable.ck-rounded-corners:not(.ck-editor__nested-editable) {
-  min-height: 300px;
-}
-
-/* styleing age menghilangkan bg putih dari ckeditor */
-.ck.ck-toolbar {
-  background: none;
-}
-
-.ck-button:hover:not(.ck-color-grid__tile) {
-  background: black !important;
-}
-
-.ck.ck-editor__main > .ck-editor__editable {
-  background: none;
-}
-
-.ck.ck-list .ck-list__separator, .ck-toolbar, .ck-on {
-  background-color: transparent !important;
-}
-
-.ck.ck-list .ck-list__item, .ck-dropdown__panel.ck-dropdown__panel_se, .ck-dropdown__panel_sw {
-  background-color: black  !important;
-}
-
-.ck.ck-editor__main > .ck-editor__editable {
-  background-color: transparent !important;
-}
-
-.ck-editor__editable {
-  min-height: 20vh;
-}
-
-#container-read .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-  border: 0;
-}
-
-#container-read01 .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-  border: 0;
-}
-
-.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all {
-  color: #d9d9d9 !important;
+  min-height: 200px;
 }
 
 .ck.ck-editor__editable_inline {
   border-right: 1px solid #fff !important;
   border-left: 1px solid #fff !important;
   border-bottom: 1px solid #fff !important;
+  margin-top: -1px;
+}
+
+.ck.ck-editor__editable_inline:focus {
+  border: thin solid black;
 }
 
 .ck-content {
