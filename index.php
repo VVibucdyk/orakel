@@ -124,6 +124,7 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
         <li>
           <a onclick="Open('public/tentang', true);">Tentang</a>
         </li>
+        <li>
       </ul>
     </nav>
 
