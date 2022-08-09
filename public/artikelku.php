@@ -1,7 +1,6 @@
-
 <?php require_once('../_URAA/module/function.php');
 
-if(!isSessionValid()) exit("Direct access not permitted.");
+if (!isSessionValid()) exit("Direct access not permitted.");
 
 
 $MAKS_PER_PAGE = 5;
@@ -12,7 +11,7 @@ $START_ITEM = ($CURRENT_PAGE - 1) * $MAKS_PER_PAGE;
 $list_artikel = ArtikelKu($START_ITEM, $MAKS_PER_PAGE);
 
 $ArtikelKu = $list_artikel['list_artikel'];
-$jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
+$jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE);
 
 ?>
 
@@ -23,35 +22,35 @@ Date created : 06 / 08 / 2022
 
 <h2 class="major">Kelola Postingan</h2>
 
-<?php if(count($ArtikelKu) > 0) { ?>
+<?php if (count($ArtikelKu) > 0) { ?>
     <div id="artikelku">
         <div id="result-box"></div>
         <?php foreach ($ArtikelKu as $index => $row) { ?>
-            <div class="article-card article-id-<?=$row['kode_artikel']?>">
+            <div class="article-card article-id-<?= $row['kode_artikel'] ?>">
                 <div class="img-box">
-                    <img src="_URAA/images/attribute/list-artikel-default.jpg" alt="" class="article-banner">
+                    <img src="<?= GetThumbnailHTML($row['isi_artikel']); ?>" alt="" class="article-banner">
                 </div>
                 <div class="article-content">
                     <div class="text-topright">
                         <div class="genre-name"><?= $row['nama_genre'] ?></div>
                     </div>
-                    <a onclick="Open('public/artikel?val=<?=$row['id']?>', true);">
-                        <h3 class="article-title"><?=$row['judul_artikel']?></h3>
+                    <a onclick="Open('public/artikel?val=<?= $row['id'] ?>', true);">
+                        <h3 class="article-title"><?= $row['judul_artikel'] ?></h3>
                     </a>
-                    <p class="article-text"><?=substr(strip_tags($row['isi_artikel']),0,280);?> . . .</p>
+                    <p class="article-text"><?= substr(strip_tags($row['isi_artikel']), 0, 280); ?> . . .</p>
                     <div class="acticle-content-footer">
                         <div class="author">
-                            <img src="<?= $row['link_foto']==NULL ? '_URAA/images/attribute/profile-default.jpg' : $row['link_foto'] ?>" alt="<?= $row['nama'] ?>" class="author-profil">
+                            <img src="<?= $row['link_foto'] == NULL ? '_URAA/images/attribute/profile-default.jpg' : $row['link_foto'] ?>" alt="<?= $row['nama'] ?>" class="author-profil">
                             <div class="author-info">
                                 <div class="author-username"><b>PostBy</b> @<?= $row['username'] ?></div>
                                 <div class="publish-date"><?= formattglwaktu($row['tgl_publish']) ?></div>
                             </div>
                         </div>
                         <ul class="icons">
-                            <?php if ($row['username']==getUserInfo('username')) { ?>
-                                <li><a class="icons edit" id="<?=$row['kode_artikel']?>"><i class="fas fa-edit"></i></a></li>
+                            <?php if ($row['username'] == getUserInfo('username')) { ?>
+                                <li><a class="icons edit" id="<?= $row['kode_artikel'] ?>"><i class="fas fa-edit"></i></a></li>
                             <?php } ?>
-                            <li><a class="icons delete" id="<?=$row['kode_artikel']?>"><i class="fas fa-trash"></i></a></li>
+                            <li><a class="icons delete" id="<?= $row['kode_artikel'] ?>"><i class="fas fa-trash"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -76,21 +75,21 @@ Date created : 06 / 08 / 2022
         </div>
     </div>
     <script>
-        $('#artikelku').ready(function(){ 
+        $('#artikelku').ready(function() {
             $('.pagination-artikel').click(function() {
                 var page = $(this).text();
-                
+
                 Open('public/artikelku?page=' + page);
             });
 
             $()
 
             $('#prev_artikel').click(function() {
-                var page = parseInt("<?=$CURRENT_PAGE?>");
+                var page = parseInt("<?= $CURRENT_PAGE ?>");
                 let prev_page = page - 1;
-                
 
-                if(prev_page > 0){
+
+                if (prev_page > 0) {
                     Open('public/artikelku?page=' + prev_page);
                 }
             });
@@ -98,21 +97,21 @@ Date created : 06 / 08 / 2022
             $()
 
             $('#next_artikel').click(function() {
-                var page = parseInt("<?=$CURRENT_PAGE?>");
+                var page = parseInt("<?= $CURRENT_PAGE ?>");
                 let next_page = page + 1;
-                
-                
-                if(next_page <= <?=$jml_artikel?>){
+
+
+                if (next_page <= <?= $jml_artikel ?>) {
                     Open('public/artikelku?page=' + next_page);
                 }
             });
 
-            let delay,$elmArticle = null;
+            let delay, $elmArticle = null;
 
             function LocalsetEnable() {
-                if(delay){
+                if (delay) {
                     clearTimeout(delay);
-                } 
+                }
                 $elmArticle.removeClass('bg-danger');
                 setEnable();
             }
@@ -128,58 +127,71 @@ Date created : 06 / 08 / 2022
                 let articlecode = $(this).attr('id');
                 $elmArticle = $(`.article-id-${articlecode}`);
 
-                if(articlecode==="" || articlecode===null) {
+                if (articlecode === "" || articlecode === null) {
                     ShowErrText("#result-box", "Uups!", "ID Artikel Tidak Valid !");
-                }else{
+                } else {
                     setDisable();
                     $elmArticle.addClass('bg-danger');
-                    iziToast.show({timeout: 5000,icon: 'fa fa-exclamation-triangle',close: false, progressBarColor: '#7E715C',pauseOnHover: false,
+                    iziToast.show({
+                        timeout: 5000,
+                        icon: 'fa fa-exclamation-triangle',
+                        close: false,
+                        progressBarColor: '#7E715C',
+                        pauseOnHover: false,
                         title: 'Konfirmasi Hapus Artikel',
                         message: '',
                         position: 'center',
-                        buttons:[['<button>Ya, Hapus</button>',
-                        function (instance, toast) {
-                            $.ajax({
-                                url : 'routes/artikelku.php',
-                                method : 'POST',
-                                dataType: "json",
-                                data : {delete: articlecode},
-                                success : (res) => {
-                                    var info = res.info; 
-                                    if (res.status == true) {
-                                        iziToast.success({
-                                            title: info.msg,
-                                            message: "Berhasil Dihapus !",
-                                            position: "topCenter",
-                                        });
+                        buttons: [
+                            ['<button>Ya, Hapus</button>',
+                                function(instance, toast) {
+                                    $.ajax({
+                                        url: 'routes/artikelku.php',
+                                        method: 'POST',
+                                        dataType: "json",
+                                        data: {
+                                            delete: articlecode
+                                        },
+                                        success: (res) => {
+                                            var info = res.info;
+                                            if (res.status == true) {
+                                                iziToast.success({
+                                                    title: info.msg,
+                                                    message: "Berhasil Dihapus !",
+                                                    position: "topCenter",
+                                                });
 
-                                        $elmArticle.hide('500', function(){ $(this).remove(); });
-                                        LocalsetEnable();
-                                    } else {
-                                        ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
-                                        LocalsetEnable();
-                                    }
-                                },
-                                error : () => {
-                                    ShowErrText("#result-box", "Uups!", "Terjadi Error Pada Server");
+                                                $elmArticle.hide('500', function() {
+                                                    $(this).remove();
+                                                });
+                                                LocalsetEnable();
+                                            } else {
+                                                ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
+                                                LocalsetEnable();
+                                            }
+                                        },
+                                        error: () => {
+                                            ShowErrText("#result-box", "Uups!", "Terjadi Error Pada Server");
+                                        }
+                                    })
+
+                                    instance.hide({
+                                        transitionOut: 'fadeOutUp'
+                                    }, toast);
                                 }
-                            })
-
-                            instance.hide({
-                                transitionOut: 'fadeOutUp'
-                            }, toast);
-                        }
-                        ],
-                        ['<button>Batal</button>',
-                        function (instance, toast) {
-                            instance.hide({
-                                transitionOut: 'fadeOutUp'
-                            }, toast);
-                            LocalsetEnable();
-                        }
-                        ]]
+                            ],
+                            ['<button>Batal</button>',
+                                function(instance, toast) {
+                                    instance.hide({
+                                        transitionOut: 'fadeOutUp'
+                                    }, toast);
+                                    LocalsetEnable();
+                                }
+                            ]
+                        ]
                     });
-                    delay = setTimeout(function() { LocalsetEnable(); }, 5200);
+                    delay = setTimeout(function() {
+                        LocalsetEnable();
+                    }, 5200);
                 }
             });
 
@@ -198,4 +210,3 @@ Date created : 06 / 08 / 2022
     </div>
 <?php } ?>
 <p></p>
-
