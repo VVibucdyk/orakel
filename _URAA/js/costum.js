@@ -171,7 +171,6 @@ $(document.body).on('keyup','.password-valid', function(e) {
 
 $(window).scroll(function() {
   scrollPos = $(document).scrollTop();
-  console.log(scrollPos);
   if (scrollPos < 80) {
     var opacityVal = 0.0+(Math.min(scrollPos/100,2));
     var rgbaCol = 'rgba(22, 23, 24, ' + opacityVal + ')';
