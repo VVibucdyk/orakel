@@ -2,7 +2,17 @@
 <?php require_once('../_URAA/module/function.php');
 
 if(!isSessionValid()) exit("Direct access not permitted.");
-$ArtikelKu = ArtikelKu();
+
+
+$MAKS_PER_PAGE = 5;
+$CURRENT_PAGE = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+$START_ITEM = ($CURRENT_PAGE - 1) * $MAKS_PER_PAGE;
+
+$list_artikel = ArtikelKu($START_ITEM, $MAKS_PER_PAGE);
+
+$ArtikelKu = $list_artikel['list_artikel'];
+$jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
 
 ?>
 
@@ -47,8 +57,54 @@ Date created : 06 / 08 / 2022
                 </div>
             </div>
         <?php } ?>
+        <div style="justify-content: center;" class="pagination:container">
+            <div id="prev_artikel" class="pagination:number arrow">
+                <i class="fa fa-angle-left"></i>
+            </div>
+
+            <?php for ($a = 1; $a <= $jml_artikel; $a++) : ?>
+                <div class="pagination-artikel pagination:number <?= $CURRENT_PAGE == $a ? "pagination:active" : "" ?>">
+                    <?= $a ?>
+                </div>
+            <?php endfor ?>
+
+            <div id="next_artikel" class="pagination:number arrow">
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>
     </div>
     <script>
+        $(document).ready(function(){
+            $('.pagination-artikel').click(function() {
+                var page = $(this).text();
+                
+                Open('public/artikelku?page=' + page);
+            });
+
+            $()
+
+            $('#prev_artikel').click(function() {
+                var page = parseInt("<?=$CURRENT_PAGE?>");
+                let prev_page = page - 1;
+                
+
+                if(prev_page > 0){
+                    Open('public/artikelku?page=' + prev_page);
+                }
+            });
+
+            $()
+
+            $('#next_artikel').click(function() {
+                var page = parseInt("<?=$CURRENT_PAGE?>");
+                let next_page = page + 1;
+                
+                
+                if(next_page <= <?=$jml_artikel?>){
+                    Open('public/artikelku?page=' + next_page);
+                }
+            });
+        })
         $('#artikelku').ready(function(){ 
             let delay,$elmArticle = null;
 

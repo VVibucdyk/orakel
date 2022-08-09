@@ -243,20 +243,12 @@ function listArtikel($genre, $CURRENT_PAGE=null, $MAX_PAGE=null) {
 	$conlocal = $db->Open();
 
 	// JUMLAH SEAMUA ARTIKEL DEANGAN GENRE WHERE
-	$sql = "SELECT table_genre.nama_genre, 
-	table_user.nama, username,
-	table_user.link_foto, judul_artikel, 
-	isi_artikel, 
-	tgl_publish, 
-	table_artikel.id as id 
-	FROM table_artikel 
-	LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
-	LEFT JOIN table_user ON table_artikel.user_id=table_user.id 
+	$sql = "SELECT id
+	from table_artikel
 	WHERE table_artikel.genre_id=?";
 	$row = $conlocal->prepare($sql);
 	$row->execute([$genre]);
-	$jml_artikel = $row->fetchAll();
-	$data['jml_artikel'] = count($jml_artikel);
+	$data['jml_artikel'] = $row->rowCount();
 	
 	$sql = "SELECT table_genre.nama_genre, 
 	table_user.nama, username,
@@ -283,17 +275,38 @@ function listArtikel($genre, $CURRENT_PAGE=null, $MAX_PAGE=null) {
 	return $data;
 }
 
-function ArtikelKu() {
+function ArtikelKu($CURRENT_PAGE=null, $MAX_PAGE=null) {
 	if(isSessionValid()) {
 		$db = new conuraa();
 		$conlocal = $db->Open();
 
-		$sql = "SELECT table_genre.nama_genre,table_user.nama, username, table_user.link_foto, kode_artikel, tgl_publish, judul_artikel, isi_artikel, table_artikel.id as id FROM table_user LEFT JOIN table_artikel ON table_user.id=table_artikel.user_id LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id WHERE". (getUserInfo('level_id')==2 ? "" : " table_user.username='".getUserInfo('username')."' AND ") . " table_artikel.id IS NOT NULL ORDER BY tgl_publish DESC";
+		$sql = "SELECT 
+		id
+		FROM table_artikel
+		WHERE". (getUserInfo('level_id')==2 ? "" : " table_artikel.user_id='".getUserInfo('id')."' AND ") . " table_artikel.id IS NOT NULL ORDER BY tgl_publish DESC";
+		$row = $conlocal->prepare($sql);
+		$row->execute();
+		$data['jml_artikel'] = $row->rowCount();
+
+		$sql = "SELECT 
+		table_genre.nama_genre,
+		table_user.nama, 
+		username, 
+		table_user.link_foto, 
+		kode_artikel, 
+		tgl_publish, 
+		judul_artikel, 
+		isi_artikel, 
+		table_artikel.id as id 
+		FROM table_user 
+		LEFT JOIN table_artikel ON table_user.id=table_artikel.user_id 
+		LEFT JOIN table_genre ON table_artikel.genre_id=table_genre.id 
+		WHERE". (getUserInfo('level_id')==2 ? "" : " table_user.username='".getUserInfo('username')."' AND ") . " table_artikel.id IS NOT NULL ORDER BY tgl_publish DESC
+		LIMIT ".$MAX_PAGE." OFFSET ".$CURRENT_PAGE."";
 		$row = $conlocal->prepare($sql);
 		$row->execute();
 		$artikel = $row->fetchAll();
-		$data = $artikel;
-
+		$data['list_artikel'] = $artikel;
 		return $data;
 	}
 }

@@ -90,7 +90,7 @@ endforeach ?>
         $()
 
         $('#prev_artikel').click(function() {
-            var page = parseInt("<?=$_GET['page']?>");
+            var page = parseInt("<?=$CURRENT_PAGE?>");
             let prev_page = page - 1;
             var genre = '<?= $_GET['konten'] ?>';
 
@@ -102,7 +102,7 @@ endforeach ?>
         $()
 
         $('#next_artikel').click(function() {
-            var page = parseInt("<?=$_GET['page']?>");
+            var page = parseInt("<?=$CURRENT_PAGE?>");
             let next_page = page + 1;
             var genre = '<?= $_GET['konten'] ?>';
             
