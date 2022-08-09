@@ -22,8 +22,6 @@ if (isSessionValid()) {
   }
 }
 
-echo get_first_image_b('<p>test</p><br><p><img src="1.jpeg" alt=""><br></p><p><img src="2.png" alt=""><br><img src="3.png" alt=""></p>');
-
 ?>
 
 <!DOCTYPE html>
@@ -67,101 +65,101 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <div id="wrapper">
     <!-- Header -->
     <header id="header">
-     <?php if ($islogin) { ?>
-      <div class="user-info">
-        <h4>Hai</h4>
-        <h3><?= $NamaKu ?></h3>
-      </div>
-    <?php } ?>
-    <div class="content">
-      <div class="inner">
-        <div id="magic-title">
-          <h1>SELAMAT DATANG</h1>
-          <h2>DI GERBANG OSIRIS</h2>
-          <p><b>"MEREKA BILANG JANGAN TAKUT!!!"</b></p>
+      <?php if ($islogin) { ?>
+        <div class="user-info">
+          <h4>Hai</h4>
+          <h3><?= $NamaKu ?></h3>
+        </div>
+      <?php } ?>
+      <div class="content">
+        <div class="inner">
+          <div id="magic-title">
+            <h1>SELAMAT DATANG</h1>
+            <h2>DI GERBANG OSIRIS</h2>
+            <p><b>"MEREKA BILANG JANGAN TAKUT!!!"</b></p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <nav>
-      <ul>
-        <li>
-          <div class="dropdown">
-            <a class="dropbtn">Artikel
-              <i class="fa fa-caret-down"></i>
-            </a>
-            <div class="dropdown-content">
-              <div class="wrapper">
-                <?php listGenreIndex() ?>
+      <nav>
+        <ul>
+          <li>
+            <div class="dropdown">
+              <a class="dropbtn">Artikel
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <div class="wrapper">
+                  <?php listGenreIndex() ?>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="dropdown">
-            <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
-            <div class="dropdown-content">
-              <a onclick="Open('public/ritual', true);">Ritual</a>
-              <a onclick="Open('public/tanyadozzkiller', true);">Tanya</a>
-              <a onclick="Open('public/ramalankematian', true);">Kematian</a>
+          </li>
+          <li>
+            <div class="dropdown">
+              <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+                <a onclick="Open('public/ritual', true);">Ritual</a>
+                <a onclick="Open('public/tanyadozzkiller', true);">Tanya</a>
+                <a onclick="Open('public/ramalankematian', true);">Kematian</a>
+              </div>
             </div>
-          </div>
-        </li>
-        <?php if ($islogin) { ?>
-          <li>
-            <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/posting_cerita', true);">
-              Posting
-            </a>
           </li>
+          <?php if ($islogin) { ?>
+            <li>
+              <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/posting_cerita', true);">
+                Posting
+              </a>
+            </li>
+            <li>
+              <a class="magic-title" data-deskripsi="Menu ini untuk menghapus atau memperbarui postingan kamu. Hati Hati Menggunakan Menu ini, postingan yang sudah dihapus tidak dapat dikembalikan !" onclick="Open('public/artikelku', true);">
+                Kelola
+              </a>
+            </li>
+          <?php } ?>
           <li>
-            <a class="magic-title" data-deskripsi="Menu ini untuk menghapus atau memperbarui postingan kamu. Hati Hati Menggunakan Menu ini, postingan yang sudah dihapus tidak dapat dikembalikan !" onclick="Open('public/artikelku', true);">
-              Kelola
-            </a>
+            <a onclick="Open('public/tentang', true);">Tentang</a>
           </li>
-        <?php } ?>
-        <li>
-          <a onclick="Open('public/tentang', true);">Tentang</a>
-        </li>
-      </ul>
-    </nav>
+        </ul>
+      </nav>
 
-  </header>
+    </header>
 
-  <!-- Main -->
-  <div id="main">
-    <article id="pages"></article>
+    <!-- Main -->
+    <div id="main">
+      <article id="pages"></article>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p class="seehay">©2022 By <a onclick="Open('public/team', true);">Uraa Team</a></p>
+    </footer>
+    </footer>
   </div>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <p class="seehay">©2022 By <a onclick="Open('public/team', true);">Uraa Team</a></p>
-  </footer>
-</footer>
-</div>
+  <!-- BG -->
+  <div id="bg"></div>
 
-<!-- BG -->
-<div id="bg"></div>
+  <!-- Scripts -->
+  <script>
+    // Modified BY : fajar alam
+    // Modified Date : 2020-01-21
+    // Modified Description :
+    // VARIABLE UNTUK MENAMPUNG PREVIOUS WINDOW / MODAL UNTUK CUSTOM js dan MAIN-CUSTOM js
+    var PREV_LINK = [];
 
-<!-- Scripts -->
-<script>
-  // Modified BY : fajar alam
-  // Modified Date : 2020-01-21
-  // Modified Description :
-  // VARIABLE UNTUK MENAMPUNG PREVIOUS WINDOW / MODAL UNTUK CUSTOM js dan MAIN-CUSTOM js
-  var PREV_LINK = [];
-
-  // CARA PAKAINYA :
-  // JIKA AKSI OPEN ITU HARUS ADA PREVIOUS NYA, MAKA KETIKA MEMANGGIL Fungsi Open(string[link_nya], true) Passing boolean true pada parameter 2, maka akan menampilkan modal sebelumnya.
-</script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/iziToast.min.js"></script>
-<script src="_URAA/js/costum.js"></script>
-<script src="_URAA/js/main-costum.js"></script>
-<script src="assets/node_modules/@ckeditor/ckeditor5-build-decoupled-document/build/ckeditor.js"></script>
+    // CARA PAKAINYA :
+    // JIKA AKSI OPEN ITU HARUS ADA PREVIOUS NYA, MAKA KETIKA MEMANGGIL Fungsi Open(string[link_nya], true) Passing boolean true pada parameter 2, maka akan menampilkan modal sebelumnya.
+  </script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/iziToast.min.js"></script>
+  <script src="_URAA/js/costum.js"></script>
+  <script src="_URAA/js/main-costum.js"></script>
+  <script src="assets/node_modules/@ckeditor/ckeditor5-build-decoupled-document/build/ckeditor.js"></script>
 </body>
 
 </html>
