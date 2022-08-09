@@ -12,7 +12,7 @@ $username_user = getUserInfo('username');
 
 $valid = false;
 $element = "result-box";
-$msg = "Kesalahan Tidak Di Ketahui"; 
+$msg = "Kesalahan Tidak Di Ketahui";
 
 // menangkap data post
 $p_artikel_code = isset($_GET['articlecode']) ? filterhtml($_GET['articlecode']) : null;
@@ -23,26 +23,26 @@ if ($p_artikel_code != null) {
     $data = $artikelku->fetch();
     $jumlahdata = $artikelku->rowCount();
 
-    if($jumlahdata == 1) {
+    if ($jumlahdata == 1) {
         $id = $data['id'];
         $kode_artikel = $data['kode_artikel'];
         $judul_artikel = $data['judul_artikel'];
         $user_id = $data['user_id'];
         $genre_id = $data['genre_id'];
-        $isi_artikel = $data['isi_artikel']; 
+        $isi_artikel = $data['isi_artikel'];
         if ($user_id == $id_user) {
             $valid = true;
         }
-    } 
+    }
 }
 
 ?>
 
 <h2 class="major-2">Edit Postingan</h2>
 
-<?php if($valid) { ?>
+<?php if ($valid) { ?>
     <form method="POST" id="edit-postingan">
-        <input type="hidden" id="uraa_code" value="<?=$kode_artikel?>">
+        <input type="hidden" id="uraa_code" value="<?= $kode_artikel ?>">
 
         <div class="fields">
             <div class="field half">
@@ -58,7 +58,7 @@ if ($p_artikel_code != null) {
             </div>
             <div class="field">
                 <div id="toolbar-container"></div>
-                <div id="artikel"><?=$isi_artikel?></div>
+                <div id="artikel"><?= $isi_artikel ?></div>
             </div>
         </div>
 
@@ -74,30 +74,28 @@ if ($p_artikel_code != null) {
     </form>
 
     <script>
+        $('#edit-postingan').ready(function() {
 
-        $('#edit-postingan').ready(function(){
-
-            $('#judul').val("<?=$judul_artikel?>");
-            $('#genre').val(<?=$genre_id?>);
+            $('#judul').val("<?= $judul_artikel ?>");
+            $('#genre').val(<?= $genre_id ?>);
 
             DecoupledEditor
-            .create( document.querySelector( '#artikel' )  ,
-            {
-                ckfinder: {
-                    uploadUrl: 'routes/uraa_imguploader?uraa=<?=md5($kode_artikel)?>'
-                }
-            })
-            .then( editor => {
-                document.querySelector( '#toolbar-container' ).appendChild( editor.ui.view.toolbar.element );
-                window.editor = editor;
-            })
-            .catch( error => {
-                console.error( 'There was a problem initializing the editor.', error );
-            });
+                .create(document.querySelector('#artikel'), {
+                    ckfinder: {
+                        uploadUrl: 'routes/uraa_imguploader?uraa=<?= md5($kode_artikel) ?>'
+                    }
+                })
+                .then(editor => {
+                    document.querySelector('#toolbar-container').appendChild(editor.ui.view.toolbar.element);
+                    window.editor = editor;
+                })
+                .catch(error => {
+                    console.error('There was a problem initializing the editor.', error);
+                });
 
 
             $("#edit-postingan").on('reset', function() {
-                if(editor) {
+                if (editor) {
                     editor.setData("");
                 }
             });
@@ -107,9 +105,9 @@ if ($p_artikel_code != null) {
                 $(".text-eror").remove();
 
                 data = {
-                    edit   : $('#uraa_code').val(),
-                    judul  : $('#judul').val(),
-                    genre  : $('#genre').val(),
+                    edit: $('#uraa_code').val(),
+                    judul: $('#judul').val(),
+                    genre: $('#genre').val(),
                     artikel: editor.getData()
                 }
 
@@ -117,17 +115,17 @@ if ($p_artikel_code != null) {
                     ShowErrText($('#judul'), 'Uups!', '(Min 5 - Maks 125 Karakter)');
                 } else if (data.genre === "" || data.genre === null) {
                     ShowErrText($('#genre'), 'Uups!', '(Pilih Genre)');
-                } else if (data.artikel === "" || data.artikel === null || data.artikel.length < 5 || data.artikel.length > 5000) {
-                    ShowErrText($('#editor'), 'Uups!', '(Min 5 - Maks 5000 Karakter)');
+                } else if (data.artikel === "" || data.artikel === null || data.artikel.length < 5 || data.artikel.length > 15000) {
+                    ShowErrText($('#editor'), 'Uups!', '(Min 5 - Maks 15000 Karakter)');
                 } else {
                     setDisable();
                     $.ajax({
-                        url : 'routes/artikelku.php',
-                        method : 'POST',
+                        url: 'routes/artikelku.php',
+                        method: 'POST',
                         dataType: "json",
-                        data : data,
-                        success : (res) => {
-                            var info = res.info; 
+                        data: data,
+                        success: (res) => {
+                            var info = res.info;
                             if (res.status == true) {
                                 iziToast.success({
                                     title: info.msg,
@@ -135,13 +133,13 @@ if ($p_artikel_code != null) {
                                     position: "topCenter",
                                 });
                                 setEnable();
-                                Open('public/artikel?val=<?=$id?>', true);
+                                Open('public/artikel?val=<?= $id ?>', true);
                             } else {
                                 ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
                                 setEnable();
                             }
                         },
-                        error : () => {
+                        error: () => {
                             ShowErrText(".major", 'Uups!', "Terjadi Error Pada Server");
                         }
                     })
@@ -157,9 +155,8 @@ if ($p_artikel_code != null) {
                 });
             };
         });
-
     </script>
 <?php } else { ?>
 
 
-    <?php } ?>
+<?php } ?>
