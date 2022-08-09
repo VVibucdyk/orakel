@@ -568,6 +568,72 @@ a.disabled {
   border-bottom: 1px solid #fff;
 }
 
+
+/* Pagination Costum */
+.hide {
+  display: none;
+  visibility: hidden;
+  height: 0;
+}
+
+.pagination {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-top: 20px;
+  border-top: 1px solid #fff;
+}
+
+.pagination .pagination\:container {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.pagination .arrow\:text {
+ margin-top: 20px;
+ display: block;
+ vertical-align: middle;
+ font-size: 13px;
+ vertical-align: middle;
+}
+
+.pagination .pagination\:number {
+  --size: 32px;
+  --margin: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 var(--margin);
+  border-radius: 6px;
+  background: #202020;
+  max-width: auto;
+  min-width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 6px;
+  @media (hover: hover) {
+    &:hover {
+      filter: brightness(150%);
+    }
+  }
+  &:active {
+    filter: brightness(150%);
+  }
+}
+
+.pagination .pagination\:active {
+  pointer-events: none;
+  filter: brightness(150%);
+  position: relative;
+}
+
+.pagination .pagination\:number:hover,
+.pagination .arrow\:text:hover {
+  filter: brightness(150%);
+}
+
 /* Border Close IziToast Fix */
 .iziToast-close {
   box-shadow: 0 0 0 0px;

@@ -41,13 +41,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <title>ORAKEL - PORTAL BERBAGI CERITA HORROR</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="_URAA/css/card_profile_information.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/iziToast.min.css" />
   <link rel="stylesheet" href="assets/css/ckeditor5-styles.css" />
+  <link rel="stylesheet" href="_URAA/css/card_profile_information.css" />
   <link rel="stylesheet" href="_URAA/css/costum.css" />
-  <link rel="stylesheet" href="_URAA/css/custom_skeleton.css" />
-  <link rel="stylesheet" href="_URAA/css/custom_pagination.css" />
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>

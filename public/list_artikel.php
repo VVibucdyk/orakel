@@ -29,9 +29,9 @@ $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
 
         <div class="article-card">
             <div class="img-box">
-               <img src="<?=isset($image[1]) ? $image[1] : '_URAA/images/attribute/list-artikel-default.jpg'?>" alt="<?= $value['judul_artikel'] ?>" class="article-banner">
-           </div>
-           <div class="article-content">
+             <img src="<?=isset($image[1]) ? $image[1] : '_URAA/images/attribute/list-artikel-default.jpg'?>" alt="<?= $value['judul_artikel'] ?>" class="article-banner">
+         </div>
+         <div class="article-content">
             <a onclick="Open('public/artikel?val=<?= $value['id'] ?>', true);">
                 <h3 class="article-title"><?= $value['judul_artikel'] ?></h3>
             </a>
@@ -51,19 +51,21 @@ $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE) ;
 endforeach ?>
 <!-- BAGIAN CUSTOMPAGINATION -->
 <!-- CREATED BY : FAJAR ALAM -->
-<div style="justify-content: center;" class="pagination:container">
-    <div id="prev_artikel" class="pagination:number arrow">
-        <i class="fa fa-angle-left"></i>
-    </div>
-
-    <?php for ($a = 1; $a <= $jml_artikel; $a++) : ?>
-        <div class="pagination-artikel pagination:number <?= $CURRENT_PAGE == $a ? "pagination:active" : "" ?>">
-            <?= $a ?>
+<div class="pagination">
+    <div class="pagination:container">
+        <div id="prev_artikel" class="pagination:number arrow">
+            <i class="fa fa-angle-left"></i>
         </div>
-    <?php endfor ?>
 
-    <div id="next_artikel" class="pagination:number arrow">
-        <i class="fa fa-angle-right"></i>
+        <?php for ($a = 1; $a <= $jml_artikel; $a++) : ?>
+            <div class="pagination-artikel pagination:number <?= $CURRENT_PAGE == $a ? "pagination:active" : "" ?>">
+                <?= $a ?>
+            </div>
+        <?php endfor ?>
+
+        <div id="next_artikel" class="pagination:number arrow">
+            <i class="fa fa-angle-right"></i>
+        </div>
     </div>
 </div>
 <?php else : ?>

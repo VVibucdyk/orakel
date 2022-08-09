@@ -57,19 +57,21 @@ Date created : 06 / 08 / 2022
                 </div>
             </div>
         <?php } ?>
-        <div style="justify-content: center;" class="pagination:container">
-            <div id="prev_artikel" class="pagination:number arrow">
-                <i class="fa fa-angle-left"></i>
-            </div>
-
-            <?php for ($a = 1; $a <= $jml_artikel; $a++) : ?>
-                <div class="pagination-artikel pagination:number <?= $CURRENT_PAGE == $a ? "pagination:active" : "" ?>">
-                    <?= $a ?>
+        <div class="pagination">
+            <div class="pagination:container">
+                <div id="prev_artikel" class="pagination:number arrow">
+                    <i class="fa fa-angle-left"></i>
                 </div>
-            <?php endfor ?>
 
-            <div id="next_artikel" class="pagination:number arrow">
-                <i class="fa fa-angle-right"></i>
+                <?php for ($a = 1; $a <= $jml_artikel; $a++) : ?>
+                    <div class="pagination-artikel pagination:number <?= $CURRENT_PAGE == $a ? "pagination:active" : "" ?>">
+                        <?= $a ?>
+                    </div>
+                <?php endfor ?>
+
+                <div id="next_artikel" class="pagination:number arrow">
+                    <i class="fa fa-angle-right"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -135,7 +137,7 @@ Date created : 06 / 08 / 2022
                     iziToast.show({timeout: 5000,icon: 'fa fa-exclamation-triangle',close: false, progressBarColor: '#7E715C',pauseOnHover: false,
                         title: 'Konfirmasi Hapus Artikel',
                         message: '',
-                        position: 'topCenter',
+                        position: 'center',
                         buttons:[['<button>Ya, Hapus</button>',
                         function (instance, toast) {
                             $.ajax({
