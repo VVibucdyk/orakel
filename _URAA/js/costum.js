@@ -8,7 +8,7 @@ const audio = new Audio("./_URAA/audio/BACKSOUND.mp3");
 var editor;
 
 $("body").click(function () {
-  //audio.play();
+  audio.play();
 });
 
 // enabled elemen inputan
@@ -166,5 +166,15 @@ $(document.body).on('keyup','.password-valid', function(e) {
     $(e.target).after('<div class="text-eror">Min 8 Karakter, Huruf Kecil & Besar</div>');
   } else {
     $(".text-eror").fadeOut();
+  }
+});
+
+$(window).scroll(function() {
+  scrollPos = $(document).scrollTop();
+  console.log(scrollPos);
+  if (scrollPos < 80) {
+    var opacityVal = 0.0+(Math.min(scrollPos/100,2));
+    var rgbaCol = 'rgba(22, 23, 24, ' + opacityVal + ')';
+    $('.topnav').css('background-color', rgbaCol);
   }
 });
