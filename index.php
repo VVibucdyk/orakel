@@ -22,7 +22,7 @@ if (isSessionValid()) {
   }
 }
 
-
+echo get_first_image_b('<p>test</p><br><p><img src="1.jpeg" alt=""><br></p><p><img src="2.png" alt=""><br><img src="3.png" alt=""></p>');
 
 ?>
 

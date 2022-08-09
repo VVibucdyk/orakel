@@ -156,7 +156,6 @@ function Open(nama, prev_window = false) {
     success: function (isi) {
       $pagesmain.html(isi);
       Show_Main();
-      PREV_LINK.length <= 1 ? $(".prev").hide() : $(".prev").show();
     },
   });
 }

@@ -34,6 +34,18 @@ function isUsernameValid($username){
 	}
 }
 
+function get_first_image_b($html) {
+
+	ob_start();
+	ob_end_clean();
+
+	$doc = new DOMDocument();
+	@$doc->loadHTML($html);
+	$img = $doc->getElementsByTagName('img');
+	var_dump($img->item(0)->getAttribute('src'));
+
+}
+
 function isPasswordValid($password){
 	if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z@$!%*#?&\d]{8,}$/', $password)) {
 		return true;
