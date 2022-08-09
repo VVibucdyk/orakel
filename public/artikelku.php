@@ -76,7 +76,7 @@ Date created : 06 / 08 / 2022
         </div>
     </div>
     <script>
-        $(document).ready(function(){
+        $('#artikelku').ready(function(){ 
             $('.pagination-artikel').click(function() {
                 var page = $(this).text();
                 
@@ -106,8 +106,7 @@ Date created : 06 / 08 / 2022
                     Open('public/artikelku?page=' + next_page);
                 }
             });
-        })
-        $('#artikelku').ready(function(){ 
+
             let delay,$elmArticle = null;
 
             function LocalsetEnable() {
