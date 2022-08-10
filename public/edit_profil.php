@@ -106,6 +106,8 @@ $BioKu      = getUserInfo('bio');
     </div> -->
 </form>
 <script>
+    // modified by : Fajar Alam
+    // modified date : 2020-01-01
     $('#edit_profil').ready(function() {
 
         document.getElementById('genre').value = '<?=$GenreKu?>';
