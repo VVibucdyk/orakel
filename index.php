@@ -112,6 +112,11 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
               </a>
             </li>
             <li>
+              <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/edit_profil', true);">
+                edit profil
+              </a>
+            </li>
+            <li>
               <a class="magic-title" data-deskripsi="Menu ini untuk menghapus atau memperbarui postingan kamu. Hati Hati Menggunakan Menu ini, postingan yang sudah dihapus tidak dapat dikembalikan !" onclick="Open('public/artikelku', true);">
                 Kelola
               </a>
