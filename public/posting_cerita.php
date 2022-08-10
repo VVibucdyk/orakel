@@ -100,7 +100,7 @@ $GetCodePost = UraaCreatePostCode();
                                 position: "topCenter",
                             });
 
-                            Open(`public/artikel?val=${res.last_id}`, true)
+                            Open(`public/artikelku`, true)
                             $('#judul').val('');
                             $('#genre').val('');
                             editor.setData('');

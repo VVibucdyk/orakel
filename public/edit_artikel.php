@@ -133,7 +133,7 @@ if ($p_artikel_code != null) {
                                     position: "topCenter",
                                 });
                                 setEnable();
-                                Open('public/artikel?val=<?= $id ?>', true);
+                                Open('public/artikel?val=<?= $id ?>');
                             } else {
                                 ShowErrText(`#${info.elementid}`, "Uups!", info.msg);
                                 setEnable();

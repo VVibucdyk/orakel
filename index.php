@@ -99,21 +99,16 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
             <div class="dropdown">
               <a class="dropbtn">Game<i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a onclick="Open('public/ritual', true);">Ritual</a>
-                <a onclick="Open('public/tanyadozzkiller', true);">Tanya</a>
-                <a onclick="Open('public/ramalankematian', true);">Kematian</a>
+                <a class="magic-title" data-deskripsi="Peraturan bermain game" onclick="Open('public/ritual', true);">Ritual</a>
+                <a class="magic-title" data-deskripsi="Kamu harus yakin jika ingin mendapatkan balasan dari Dozz Killer, isi permohonan selanjutnya tanyakan sesuatu yang ada disekitarmu." onclick="Open('public/tanyadozzkiller', true);">Tanya</a>
+                <a class="magic-title" data-deskripsi="Ramalkan kematianmu disini, jika kamu BERANI!!!" onclick="Open('public/ramalankematian', true);">Kematian</a>
               </div>
             </div>
           </li>
           <?php if ($islogin) { ?>
             <li>
-              <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/posting_cerita', true);">
+              <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA KAMU BERANI !!!" onclick="Open('public/posting_cerita', true);">
                 Posting
-              </a>
-            </li>
-            <li>
-              <a class="magic-title" data-deskripsi="Posting cerita mu disini !!! Pengalaman - Kejadian nyata - Mitos - Misteri di sekitar mu. BAGIKAN DISINI JIKA ANDA BERANI !!!" onclick="Open('public/edit_profil', true);">
-                edit profil
               </a>
             </li>
             <li>
@@ -121,10 +116,17 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
                 Kelola
               </a>
             </li>
+            <li>
+              <a class="magic-title" data-deskripsi="Menu untuk menyunting informasi akun kamu." onclick="Open('public/edit_profil', true);">
+                Akun
+              </a>
+            </li>
           <?php } ?>
-          <li>
-            <a onclick="Open('public/tentang', true);">Tentang</a>
-          </li>
+          <?php if (!$islogin) { ?>
+            <li>
+              <a onclick="Open('public/tentang', true);">Tentang</a>
+            </li>
+          <?php } ?>
         </ul>
       </nav>
 
