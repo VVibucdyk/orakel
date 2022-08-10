@@ -37,7 +37,7 @@ Date created : 06 / 08 / 2022
                     <a onclick="Open('public/artikel?val=<?= $row['id'] ?>', true);">
                         <h3 class="article-title"><?= $row['judul_artikel'] ?></h3>
                     </a>
-                    <p class="article-text"><?= substr(strip_tags($row['isi_artikel']), 0, 280); ?> . . .</p>
+                    <p class="article-text"><?= substr(strip_tags($value['isi_artikel']), 0, strpos(strip_tags($value['isi_artikel']), ' ', 260)); ?> . . .</p>
                     <div class="acticle-content-footer">
                         <div class="author">
                             <img src="<?= $row['link_foto'] == NULL ? '_URAA/images/attribute/profile-default.jpg' : $row['link_foto'] ?>" alt="<?= $row['nama'] ?>" class="author-profil">

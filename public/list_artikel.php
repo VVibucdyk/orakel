@@ -33,7 +33,7 @@ $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE);
                 <a onclick="Open('public/artikel?val=<?= $value['id'] ?>', true);">
                     <h3 class="article-title"><?= $value['judul_artikel'] ?></h3>
                 </a>
-                <p class="article-text"><?= substr(strip_tags($value['isi_artikel']), 0, 280); ?> . . .</p>
+                <p class="article-text"><?= substr(strip_tags($value['isi_artikel']), 0, strpos(strip_tags($value['isi_artikel']), ' ', 260)); ?> . . .</p>
                 <div class="acticle-content-footer">
                     <div class="author">
                         <img src="<?= $value['link_foto'] == NULL ? '_URAA/images/attribute/profile-default.jpg' : $value['link_foto'] ?>" alt="<?= $value['nama'] ?>" class="author-profil">
