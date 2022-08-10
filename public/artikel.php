@@ -21,7 +21,7 @@ $artikel = readArtikel($_GET['val']); ?>
             <h4 style="color: white;">@<?= $artikel['username'] ?></h4>
         </div>
         <p class="text">
-            Seorang ghost buster kayak scooby doo.
+            <?= $artikel['bio'] == NULL ? 'Belum Ada Bio' :  $artikel['bio'] ?>
         </p>
         <ul class="stats">
             <li>
