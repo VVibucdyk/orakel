@@ -148,7 +148,7 @@ $BioKu      = getUserInfo('bio');
     // modified date : 11-08-2022
     $('#keamanan-akun').ready(function() {
 
-        $(this).on('submit', function() {
+        $('#keamanan-akun').on('submit', function() {
             event.preventDefault();
             $(".text-eror").remove();
 
