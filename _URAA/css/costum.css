@@ -67,6 +67,8 @@ h1.major-2, h2.major-2, h3.major-2, h4.major-2, h5.major-2, h6.major-2 {
 #main img {
   max-width: 100%;
   max-height: 100%;
+
+  object-fit: fill;
 }
 
 .publish-top p {
@@ -410,6 +412,7 @@ a.disabled {
 .article-card .img-box {
   border-radius: 10px 0 0 10px;
   overflow: hidden;
+  max-height: 40vh;
 }
 
 .article-card .article-banner {
