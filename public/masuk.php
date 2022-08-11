@@ -1,21 +1,21 @@
-<?php 
+<?php
 
 require_once('../_URAA/module/function.php');
-if(isSessionValid()) exit("Direct access not permitted.");
+if (isSessionValid()) exit("Direct access not permitted.");
 
 ?>
 
 <h2 class="major">Masuk</h2>
 
 <span class="image main">
-    <img src="_URAA/images/house-uraa.jpg" alt="house"/>
+    <img src="_URAA/images/house-uraa.jpg" alt="house" />
 </span>
 
 <form method="POST" id="masuk">
     <div class="fields">
         <div class="field">
             <label>Username</label>
-            <input type="text" id="username" placeholder="Masukan username kamu..."/>
+            <input type="text" id="username" placeholder="Masukan username kamu..." />
         </div>
         <div class="field">
             <label>Password</label>
@@ -33,7 +33,7 @@ if(isSessionValid()) exit("Direct access not permitted.");
 </form>
 
 <script>
-    $('#masuk').ready(function(){  
+    $('#masuk').ready(function() {
 
         $("#masuk").on('reset', function() {
             $(".text-eror").fadeOut();
@@ -44,23 +44,23 @@ if(isSessionValid()) exit("Direct access not permitted.");
             $(".text-eror").remove();
 
             data = {
-                username : $('#username').val().trim(),
-                password : $('#password').val().trim()
+                username: $('#username').val().trim(),
+                password: $('#password').val().trim()
             }
 
-            if(data.username==="" || data.username===null) {
+            if (data.username === "" || data.username === null) {
                 ShowErrText("#username", "Uups!", "Masukan Username Kamu !");
-            } else if(data.password==="" || data.password===null){
+            } else if (data.password === "" || data.password === null) {
                 ShowErrText("#password", "Uups!", "Masukan Password Kamu !");
-            }else{
+            } else {
                 setDisable();
                 $.ajax({
-                    url : 'routes/masuk.php',
-                    method : 'POST',
+                    url: 'routes/masuk.php',
+                    method: 'POST',
                     dataType: "json",
-                    data : data,
-                    success : (res) => {
-                        var info = res.info; 
+                    data: data,
+                    success: (res) => {
+                        var info = res.info;
                         if (res.status == true) {
                             $('#masuk').trigger("reset");
                             iziToast.success({
@@ -76,7 +76,7 @@ if(isSessionValid()) exit("Direct access not permitted.");
                             setEnable();
                         }
                     },
-                    error : () => {
+                    error: () => {
                         ShowErrText(".major", "GAGAL!", "Terjadi Error Pada Server");
                     }
                 })
@@ -85,5 +85,3 @@ if(isSessionValid()) exit("Direct access not permitted.");
 
     });
 </script>
-
-

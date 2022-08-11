@@ -83,6 +83,9 @@ if ($p_artikel_code != null) {
                 .create(document.querySelector('#artikel'), {
                     ckfinder: {
                         uploadUrl: 'routes/uraa_imguploader?uraa=<?= md5($kode_artikel) ?>'
+                    },
+                    mediaEmbed: {
+                        previewsInData: true
                     }
                 })
                 .then(editor => {

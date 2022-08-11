@@ -42,7 +42,6 @@ Edit By Difa WRD 10121919 & Stefani Olga 10121908
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/iziToast.min.css" />
   <link rel="stylesheet" href="assets/css/ckeditor5-styles.css" />
-  <link rel="stylesheet" href="_URAA/css/card_profile_information.css" />
   <link rel="stylesheet" href="_URAA/css/costum.css" />
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />

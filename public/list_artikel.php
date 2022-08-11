@@ -73,7 +73,12 @@ $jml_artikel = ceil($list_artikel['jml_artikel'] / $MAKS_PER_PAGE);
             Artikel <?= $list_artikel['nama_genre']['nama_genre'] ?> Tidak Tersedia
         </h3>
         <h4>
-            Ceritakan pengalaman mu, <a class="is-a-link" onclick="Open('public/artikel?val=<?= $value['id'] ?>');"> disni</a>
+            Ceritakan pengalaman mu,
+            <?php if (isSessionValid()) { ?>
+                <a class="is-a-link" onclick="Open(' public/posting_cerita', true);"> disni</a>
+            <?php } else { ?>
+                <a class="is-a-link" onclick="Open(' public/register', true);"> Daftar Disini</a>
+            <?php } ?>
         </h4>
     </div>
 <?php endif ?>

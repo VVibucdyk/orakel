@@ -3,5 +3,10 @@
     <img src="_URAA/images/typing-uraa.jpg" alt="typing" />
 </span>
 <p>
-    Web Interaktif berisi game tentang Ramalan Kematian dan Cerita-Cerita Misteri yang akan mengundang rasa penasaran. Para member dapat berbagi cerita misteri disini dan bermain mini game yang sudah tersedia seperti Ramalan Kematian dan Tanya Dozz Killer. Jangan hanya membaca, tapi BUKTIKAN bahwa kamu BERANI. LAKUKAN SEKARANG DISINI!!!
+    Website yang dibuat untuk membagikan cerita misteri berbalut horor, ada juga beberapa mini game yang sudah tersedia seperti Ramalan Kematian dan Tanya Dozz Killer. Jangan hanya membaca, tapi BUKTIKAN bahwa kamu BERANI !
 </p>
+<ul class="actions fit">
+    <li>
+        <input type="submit" value="Daftar Disini" onclick="Open(' public/register', true);">
+    </li>
+</ul>

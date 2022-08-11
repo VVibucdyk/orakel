@@ -18,7 +18,7 @@ $artikel = readArtikel($_GET['val']); ?>
     <div class="infos">
         <div class="name">
             <h2><?= $artikel['nama'] ?></h2>
-            <h4 style="color: white;">@<?= $artikel['username'] ?></h4>
+            <h4>@<?= $artikel['username'] ?></h4>
         </div>
         <p class="text">
             <?= $artikel['bio'] == NULL ? 'Belum Ada Bio' :  $artikel['bio'] ?>

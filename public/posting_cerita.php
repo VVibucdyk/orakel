@@ -59,7 +59,11 @@ $GetCodePost = UraaCreatePostCode();
             .create(document.querySelector('#posting'), {
                 ckfinder: {
                     uploadUrl: 'routes/uraa_imguploader?uraa=<?= $GetCodePost ?>'
+                },
+                mediaEmbed: {
+                    previewsInData: true
                 }
+
             })
             .then(editor => {
                 document.querySelector('#toolbar-container').appendChild(editor.ui.view.toolbar.element);
