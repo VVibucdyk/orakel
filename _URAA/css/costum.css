@@ -402,24 +402,27 @@ a.disabled {
   margin-top: 15px;
   margin-bottom: 15px;
   border-top: 1px solid rgba(156, 153, 117, 0.1);
-  display: grid;
-  grid-template-columns: 285px minmax(300px, 100%);
+  /* display: grid;
+  grid-template-columns: 285px minmax(300px, 100%); */
+  display: flex;
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 7px 9px 11px rgba(0, 0, 0, 0.2); 
 }
 
 .article-card .img-box {
+  flex: 30%;
+  object-fit: fill;
   border-radius: 10px 0 0 10px;
   overflow: hidden;
-  max-height: 40vh;
+  max-height: 35vh;
 }
 
 .article-card .article-banner {
   width:  100%;
   height: 100%;
-  object-fit: cover;
-  object-position: left;
+  /* object-fit: cover;
+  object-position: left; */
   transition: all 0.5s ease;
 }
 
@@ -437,6 +440,8 @@ a.disabled {
 }
 
 .article-card .article-content {
+  flex: 70%;
+  align-self: center;
   padding: 32px 40px;
   border-radius: 0 10px 10px 0;
 }
@@ -527,14 +532,16 @@ a.disabled {
 }
 
 /* Responsive list artikel */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 960px) {
 
 
   .article-card {
-    grid-template-columns: 1fr;
-    min-width: 294px;
+    /* grid-template-columns: 1fr; */
+    display: flex;
+    flex-direction: column;
+    /* min-width: 294px;
     overflow: hidden;
-    float: cen;
+    float: cen; */
   }
 
   .article-card .img-box, .article-content { 
